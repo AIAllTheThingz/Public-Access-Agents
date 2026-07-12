@@ -87,19 +87,19 @@ profiles/internal-automation/
 ## Required disciplines
 
 - [Application Security](../../disciplines/application-security/)
-- [Testing](../../disciplines/testing/)
+- [Testing and Quality Engineering](../../disciplines/testing/)
 - [Documentation](../../disciplines/documentation/)
 - [Observability](../../disciplines/observability/)
-- [Ci Cd](../../disciplines/ci-cd/)
-- [Supply Chain](../../disciplines/supply-chain/)
+- [CI/CD](../../disciplines/ci-cd/)
+- [Software Supply Chain](../../disciplines/supply-chain/)
 
 ## Conditional disciplines
 
-- [Architecture](../../disciplines/architecture/)
-- [Integration](../../disciplines/integration/)
+- [Architecture and System Design](../../disciplines/architecture/)
+- [Integration Engineering](../../disciplines/integration/)
 - [Release Engineering](../../disciplines/release-engineering/)
-- [Sre](../../disciplines/sre/)
-- [Privacy](../../disciplines/privacy/)
+- [Site Reliability Engineering](../../disciplines/sre/)
+- [Privacy and Data Governance](../../disciplines/privacy/)
 
 A conditional discipline becomes required when its concern exists. “Another team handles that” is a responsibility statement only when the boundary and evidence are explicit.
 

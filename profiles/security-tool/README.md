@@ -87,21 +87,21 @@ profiles/security-tool/
 ## Required disciplines
 
 - [Application Security](../../disciplines/application-security/)
-- [Architecture](../../disciplines/architecture/)
-- [Testing](../../disciplines/testing/)
-- [Privacy](../../disciplines/privacy/)
+- [Architecture and System Design](../../disciplines/architecture/)
+- [Testing and Quality Engineering](../../disciplines/testing/)
+- [Privacy and Data Governance](../../disciplines/privacy/)
 - [Observability](../../disciplines/observability/)
 - [Documentation](../../disciplines/documentation/)
-- [Supply Chain](../../disciplines/supply-chain/)
+- [Software Supply Chain](../../disciplines/supply-chain/)
 - [Release Engineering](../../disciplines/release-engineering/)
 
 ## Conditional disciplines
 
-- [Ci Cd](../../disciplines/ci-cd/)
-- [Integration](../../disciplines/integration/)
-- [Sre](../../disciplines/sre/)
+- [CI/CD](../../disciplines/ci-cd/)
+- [Integration Engineering](../../disciplines/integration/)
+- [Site Reliability Engineering](../../disciplines/sre/)
 - [Data Engineering](../../disciplines/data-engineering/)
-- [Database](../../disciplines/database/)
+- [Database Engineering](../../disciplines/database/)
 
 A conditional discipline becomes required when its concern exists. “Another team handles that” is a responsibility statement only when the boundary and evidence are explicit.
 

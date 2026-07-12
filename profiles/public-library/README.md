@@ -85,19 +85,19 @@ profiles/public-library/
 
 ## Required disciplines
 
-- [Architecture](../../disciplines/architecture/)
-- [Testing](../../disciplines/testing/)
+- [Architecture and System Design](../../disciplines/architecture/)
+- [Testing and Quality Engineering](../../disciplines/testing/)
 - [Documentation](../../disciplines/documentation/)
-- [Supply Chain](../../disciplines/supply-chain/)
+- [Software Supply Chain](../../disciplines/supply-chain/)
 - [Release Engineering](../../disciplines/release-engineering/)
 
 ## Conditional disciplines
 
 - [Application Security](../../disciplines/application-security/)
-- [Api Engineering](../../disciplines/api-engineering/)
-- [Ci Cd](../../disciplines/ci-cd/)
+- [API Engineering](../../disciplines/api-engineering/)
+- [CI/CD](../../disciplines/ci-cd/)
 - [Accessibility](../../disciplines/accessibility/)
-- [Privacy](../../disciplines/privacy/)
+- [Privacy and Data Governance](../../disciplines/privacy/)
 
 A conditional discipline becomes required when its concern exists. “Another team handles that” is a responsibility statement only when the boundary and evidence are explicit.
 

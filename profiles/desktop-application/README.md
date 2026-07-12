@@ -85,20 +85,20 @@ profiles/desktop-application/
 ## Required disciplines
 
 - [Application Security](../../disciplines/application-security/)
-- [Architecture](../../disciplines/architecture/)
-- [Testing](../../disciplines/testing/)
+- [Architecture and System Design](../../disciplines/architecture/)
+- [Testing and Quality Engineering](../../disciplines/testing/)
 - [Accessibility](../../disciplines/accessibility/)
-- [Privacy](../../disciplines/privacy/)
+- [Privacy and Data Governance](../../disciplines/privacy/)
 - [Documentation](../../disciplines/documentation/)
 - [Release Engineering](../../disciplines/release-engineering/)
 
 ## Conditional disciplines
 
-- [Supply Chain](../../disciplines/supply-chain/)
-- [Ci Cd](../../disciplines/ci-cd/)
+- [Software Supply Chain](../../disciplines/supply-chain/)
+- [CI/CD](../../disciplines/ci-cd/)
 - [Observability](../../disciplines/observability/)
-- [Integration](../../disciplines/integration/)
-- [Database](../../disciplines/database/)
+- [Integration Engineering](../../disciplines/integration/)
+- [Database Engineering](../../disciplines/database/)
 
 A conditional discipline becomes required when its concern exists. “Another team handles that” is a responsibility statement only when the boundary and evidence are explicit.
 

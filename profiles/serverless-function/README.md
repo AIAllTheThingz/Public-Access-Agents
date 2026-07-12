@@ -86,18 +86,18 @@ profiles/serverless-function/
 ## Required disciplines
 
 - [Application Security](../../disciplines/application-security/)
-- [Testing](../../disciplines/testing/)
-- [Integration](../../disciplines/integration/)
+- [Testing and Quality Engineering](../../disciplines/testing/)
+- [Integration Engineering](../../disciplines/integration/)
 - [Observability](../../disciplines/observability/)
-- [Ci Cd](../../disciplines/ci-cd/)
-- [Supply Chain](../../disciplines/supply-chain/)
+- [CI/CD](../../disciplines/ci-cd/)
+- [Software Supply Chain](../../disciplines/supply-chain/)
 
 ## Conditional disciplines
 
-- [Architecture](../../disciplines/architecture/)
-- [Sre](../../disciplines/sre/)
+- [Architecture and System Design](../../disciplines/architecture/)
+- [Site Reliability Engineering](../../disciplines/sre/)
 - [Release Engineering](../../disciplines/release-engineering/)
-- [Privacy](../../disciplines/privacy/)
+- [Privacy and Data Governance](../../disciplines/privacy/)
 - [Data Engineering](../../disciplines/data-engineering/)
 
 A conditional discipline becomes required when its concern exists. “Another team handles that” is a responsibility statement only when the boundary and evidence are explicit.

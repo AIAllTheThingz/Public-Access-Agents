@@ -86,20 +86,20 @@ profiles/web-api/
 ## Required disciplines
 
 - [Application Security](../../disciplines/application-security/)
-- [Architecture](../../disciplines/architecture/)
-- [Testing](../../disciplines/testing/)
-- [Api Engineering](../../disciplines/api-engineering/)
-- [Privacy](../../disciplines/privacy/)
+- [Architecture and System Design](../../disciplines/architecture/)
+- [Testing and Quality Engineering](../../disciplines/testing/)
+- [API Engineering](../../disciplines/api-engineering/)
+- [Privacy and Data Governance](../../disciplines/privacy/)
 - [Observability](../../disciplines/observability/)
-- [Ci Cd](../../disciplines/ci-cd/)
-- [Supply Chain](../../disciplines/supply-chain/)
+- [CI/CD](../../disciplines/ci-cd/)
+- [Software Supply Chain](../../disciplines/supply-chain/)
 - [Release Engineering](../../disciplines/release-engineering/)
 
 ## Conditional disciplines
 
-- [Database](../../disciplines/database/)
-- [Integration](../../disciplines/integration/)
-- [Sre](../../disciplines/sre/)
+- [Database Engineering](../../disciplines/database/)
+- [Integration Engineering](../../disciplines/integration/)
+- [Site Reliability Engineering](../../disciplines/sre/)
 - [Documentation](../../disciplines/documentation/)
 - [Data Engineering](../../disciplines/data-engineering/)
 

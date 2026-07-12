@@ -85,20 +85,20 @@ profiles/multi-tenant-saas/
 ## Required disciplines
 
 - [Application Security](../../disciplines/application-security/)
-- [Architecture](../../disciplines/architecture/)
-- [Testing](../../disciplines/testing/)
-- [Api Engineering](../../disciplines/api-engineering/)
-- [Database](../../disciplines/database/)
-- [Privacy](../../disciplines/privacy/)
+- [Architecture and System Design](../../disciplines/architecture/)
+- [Testing and Quality Engineering](../../disciplines/testing/)
+- [API Engineering](../../disciplines/api-engineering/)
+- [Database Engineering](../../disciplines/database/)
+- [Privacy and Data Governance](../../disciplines/privacy/)
 - [Observability](../../disciplines/observability/)
-- [Sre](../../disciplines/sre/)
-- [Ci Cd](../../disciplines/ci-cd/)
-- [Supply Chain](../../disciplines/supply-chain/)
+- [Site Reliability Engineering](../../disciplines/sre/)
+- [CI/CD](../../disciplines/ci-cd/)
+- [Software Supply Chain](../../disciplines/supply-chain/)
 - [Release Engineering](../../disciplines/release-engineering/)
 
 ## Conditional disciplines
 
-- [Integration](../../disciplines/integration/)
+- [Integration Engineering](../../disciplines/integration/)
 - [Data Engineering](../../disciplines/data-engineering/)
 - [Accessibility](../../disciplines/accessibility/)
 - [Documentation](../../disciplines/documentation/)

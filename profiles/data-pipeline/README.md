@@ -85,20 +85,20 @@ profiles/data-pipeline/
 
 ## Required disciplines
 
-- [Architecture](../../disciplines/architecture/)
-- [Testing](../../disciplines/testing/)
-- [Integration](../../disciplines/integration/)
-- [Database](../../disciplines/database/)
+- [Architecture and System Design](../../disciplines/architecture/)
+- [Testing and Quality Engineering](../../disciplines/testing/)
+- [Integration Engineering](../../disciplines/integration/)
+- [Database Engineering](../../disciplines/database/)
 - [Data Engineering](../../disciplines/data-engineering/)
-- [Privacy](../../disciplines/privacy/)
+- [Privacy and Data Governance](../../disciplines/privacy/)
 - [Observability](../../disciplines/observability/)
-- [Sre](../../disciplines/sre/)
+- [Site Reliability Engineering](../../disciplines/sre/)
 
 ## Conditional disciplines
 
 - [Application Security](../../disciplines/application-security/)
-- [Ci Cd](../../disciplines/ci-cd/)
-- [Supply Chain](../../disciplines/supply-chain/)
+- [CI/CD](../../disciplines/ci-cd/)
+- [Software Supply Chain](../../disciplines/supply-chain/)
 - [Release Engineering](../../disciplines/release-engineering/)
 - [Documentation](../../disciplines/documentation/)
 

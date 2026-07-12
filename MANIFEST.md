@@ -80,6 +80,24 @@ Each complete platform package includes scoped agent instructions, a useful READ
 
 The platform collection also includes selection, shared-responsibility, change-lifecycle, and decision-matrix guidance.
 
+## Complete project profile packages
+
+- `profiles/web-api`
+- `profiles/web-application`
+- `profiles/worker-service`
+- `profiles/cli-tool`
+- `profiles/desktop-application`
+- `profiles/mobile-application`
+- `profiles/serverless-function`
+- `profiles/data-pipeline`
+- `profiles/public-library`
+- `profiles/internal-automation`
+- `profiles/multi-tenant-saas`
+- `profiles/security-tool`
+- `profiles/ai-agent-application`
+
+Each complete profile package includes scoped agent instructions, a useful README, a manifest, six profile-specific standards, adoption and review templates, an evidence template, and an adoption example. The uppercase canonical profile files remain stable compatibility entry points.
+
 ## Complete composition examples
 
 - `examples/minimal`
@@ -91,7 +109,6 @@ Each complete example includes root and nested agent instructions, a project man
 
 ## Baseline supporting standards
 
-- `profiles`
 - `templates`
 - `schemas`
 - `tools`

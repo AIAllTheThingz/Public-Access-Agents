@@ -81,21 +81,23 @@ See the [frameworks index](frameworks/README.md) for selection, composition, tai
 
 ## Project profiles
 
-Profiles supplement rather than replace governance, language, discipline, platform, and framework standards.
+Project profiles are complete composition packages that select and organize governance, language, discipline, framework, platform, project-decision, evidence, and operational expectations for a project shape. Canonical uppercase files remain stable compatibility entry points; lowercase directories contain the complete packages.
 
-- [Web API](profiles/WEB_API.md)
-- [Web application](profiles/WEB_APPLICATION.md)
-- [Worker service](profiles/WORKER_SERVICE.md)
-- [Command-line tool](profiles/CLI_TOOL.md)
-- [Desktop application](profiles/DESKTOP_APPLICATION.md)
-- [Mobile application](profiles/MOBILE_APPLICATION.md)
-- [Serverless function](profiles/SERVERLESS_FUNCTION.md)
-- [Data pipeline](profiles/DATA_PIPELINE.md)
-- [Public library](profiles/PUBLIC_LIBRARY.md)
-- [Internal automation](profiles/INTERNAL_AUTOMATION.md)
-- [Multi-tenant SaaS](profiles/MULTI_TENANT_SAAS.md)
-- [Security tool](profiles/SECURITY_TOOL.md)
-- [AI agent application](profiles/AI_AGENT_APPLICATION.md)
+- [Web API](profiles/WEB_API.md) ([complete package](profiles/web-api/))
+- [Web application](profiles/WEB_APPLICATION.md) ([complete package](profiles/web-application/))
+- [Worker service](profiles/WORKER_SERVICE.md) ([complete package](profiles/worker-service/))
+- [Command-line tool](profiles/CLI_TOOL.md) ([complete package](profiles/cli-tool/))
+- [Desktop application](profiles/DESKTOP_APPLICATION.md) ([complete package](profiles/desktop-application/))
+- [Mobile application](profiles/MOBILE_APPLICATION.md) ([complete package](profiles/mobile-application/))
+- [Serverless function](profiles/SERVERLESS_FUNCTION.md) ([complete package](profiles/serverless-function/))
+- [Data pipeline](profiles/DATA_PIPELINE.md) ([complete package](profiles/data-pipeline/))
+- [Public library](profiles/PUBLIC_LIBRARY.md) ([complete package](profiles/public-library/))
+- [Internal automation](profiles/INTERNAL_AUTOMATION.md) ([complete package](profiles/internal-automation/))
+- [Multi-tenant SaaS](profiles/MULTI_TENANT_SAAS.md) ([complete package](profiles/multi-tenant-saas/))
+- [Security tool](profiles/SECURITY_TOOL.md) ([complete package](profiles/security-tool/))
+- [AI agent application](profiles/AI_AGENT_APPLICATION.md) ([complete package](profiles/ai-agent-application/))
+
+See the [profiles index](profiles/README.md) for selection, primary and secondary composition, risk scaling, adoption, evidence, lifecycle, and maintenance guidance.
 
 ## Composition examples
 

@@ -86,20 +86,20 @@ profiles/ai-agent-application/
 ## Required disciplines
 
 - [Application Security](../../disciplines/application-security/)
-- [Architecture](../../disciplines/architecture/)
-- [Testing](../../disciplines/testing/)
-- [Api Engineering](../../disciplines/api-engineering/)
-- [Privacy](../../disciplines/privacy/)
+- [Architecture and System Design](../../disciplines/architecture/)
+- [Testing and Quality Engineering](../../disciplines/testing/)
+- [API Engineering](../../disciplines/api-engineering/)
+- [Privacy and Data Governance](../../disciplines/privacy/)
 - [Observability](../../disciplines/observability/)
-- [Supply Chain](../../disciplines/supply-chain/)
+- [Software Supply Chain](../../disciplines/supply-chain/)
 
 ## Conditional disciplines
 
-- [Integration](../../disciplines/integration/)
+- [Integration Engineering](../../disciplines/integration/)
 - [Documentation](../../disciplines/documentation/)
-- [Sre](../../disciplines/sre/)
+- [Site Reliability Engineering](../../disciplines/sre/)
 - [Data Engineering](../../disciplines/data-engineering/)
-- [Ci Cd](../../disciplines/ci-cd/)
+- [CI/CD](../../disciplines/ci-cd/)
 - [Release Engineering](../../disciplines/release-engineering/)
 
 A conditional discipline becomes required when its concern exists. “Another team handles that” is a responsibility statement only when the boundary and evidence are explicit.
