@@ -109,7 +109,6 @@ jobs:
               archive.extractall(path=".", filter="data")
 
           shutil.rmtree("bootstrap")
-          Path(".github/workflows/expand-catalog.yml").unlink(missing_ok=True)
           PY
 
       - name: Validate generated catalog
