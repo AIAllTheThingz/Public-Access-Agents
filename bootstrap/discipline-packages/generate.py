@@ -21,9 +21,10 @@ def write_package(key: str, data: dict, catalog: dict[str, dict]) -> None:
     (package / "examples").mkdir()
 
     (package / "AGENTS.md").write_text(render_agents(key, data), encoding="utf-8")
-    (package / "README.md").write_text(
-        render_readme(key, data, catalog), encoding="utf-8"
+    readme = render_readme(key, data, catalog).replace(
+        '{data["title"].lower()}', data["title"].lower()
     )
+    (package / "README.md").write_text(readme, encoding="utf-8")
     (package / "MANIFEST.md").write_text(render_manifest(key, data), encoding="utf-8")
 
     for filename, title, summary in data["standards"]:
