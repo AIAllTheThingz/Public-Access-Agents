@@ -1,0 +1,43 @@
+{
+  "status": "validated",
+  "summary": "Validated documentation-only standards composition for example-web-api.",
+  "filesChanged": [
+    "AGENTS.md",
+    "README.md",
+    "MANIFEST.md",
+    "project-manifest.json",
+    "composition/STANDARDS_SELECTION.md",
+    "composition/TAILORING_DECISIONS.md",
+    "docs/ARCHITECTURE.md",
+    "docs/RISK_ASSESSMENT.md",
+    "docs/TEST_STRATEGY.md",
+    "docs/OPERATIONS.md",
+    "docs/COMPLETION_EVIDENCE.md"
+  ],
+  "risk": "moderate",
+  "securityImpact": "No production system or real data is affected.",
+  "compatibilityImpact": "Stable example paths and identifiers are introduced or maintained.",
+  "validation": [
+    {
+      "name": "Repository structure and identifier validation",
+      "result": "passed",
+      "evidence": "python tools/validate-standards/validate_repository.py"
+    },
+    {
+      "name": "Relative Markdown link validation",
+      "result": "passed",
+      "evidence": "python tools/check-links/check_links.py"
+    },
+    {
+      "name": "Application runtime validation",
+      "result": "not-run",
+      "evidence": "No application source is included."
+    }
+  ],
+  "limitations": [
+    "No real authentication provider, database, network, or cloud environment is configured.",
+    "The example does not claim compliance with any law or certification.",
+    "Performance, recovery, and production deployment remain unverified."
+  ],
+  "reviewer": "not-assigned"
+}

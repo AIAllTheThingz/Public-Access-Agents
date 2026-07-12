@@ -41,6 +41,15 @@
 - `disciplines/supply-chain`
 - `disciplines/release-engineering`
 
+## Complete composition examples
+
+- `examples/minimal`
+- `examples/web-api`
+- `examples/worker-service`
+- `examples/full-stack`
+
+Each complete example includes root and nested agent instructions, a project manifest, composition rationale, tailoring decisions, architecture, risk, testing, operations, completion evidence, and schema-shaped JSON evidence.
+
 ## Baseline governance and supporting standards
 
 - `governance`
@@ -49,7 +58,6 @@
 - `profiles`
 - `templates`
 - `schemas`
-- `examples`
 - `tools`
 
 ## Validation
