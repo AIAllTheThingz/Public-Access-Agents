@@ -26,45 +26,46 @@ jobs:
           import shutil
           import tarfile
 
-          expected_lengths = [15000, 15000, 15000, 15000, 15000, 15000, 6044]
           expected_archive_sha256 = (
               "dafd65ccd22b599bde484275236fafa7fd536174a43d6351f6d7013cd420443d"
           )
 
-          segment_paths = [
-              Path(f"seed/archive.part{index:02d}.b64")
-              for index in range(1, 8)
+          segments = [
+              ("seed/archive.part01.b64", 15000),
+              ("seed/archive.part02.b64", 15000),
+              ("seed/archive.part03.b64", 15000),
+              ("seed/archive.part04a.b64", 5000),
+              ("seed/archive.part04b.b64", 5000),
+              ("seed/archive.part04c.b64", 5000),
+              ("seed/archive.part05.b64", 15000),
+              ("seed/archive.part06.b64", 15000),
+              ("seed/archive.part07.b64", 6044),
           ]
 
           encoded_segments = []
 
-          for segment_path, expected_length in zip(
-              segment_paths,
-              expected_lengths,
-              strict=True,
-          ):
-              if not segment_path.is_file():
-                  raise RuntimeError(f"Missing archive segment: {segment_path}")
+          for path_text, expected_length in segments:
+              path = Path(path_text)
+              if not path.is_file():
+                  raise RuntimeError(f"Missing archive segment: {path}")
 
-              segment = segment_path.read_text(encoding="ascii")
-
-              if len(segment) != expected_length:
+              content = path.read_text(encoding="ascii")
+              if len(content) != expected_length:
                   raise RuntimeError(
-                      f"Archive segment {segment_path} has an invalid length: "
-                      f"expected {expected_length}, received {len(segment)}."
+                      f"Archive segment {path} has invalid length: "
+                      f"expected {expected_length}, received {len(content)}."
                   )
 
-              encoded_segments.append(segment)
+              encoded_segments.append(content)
 
           encoded_archive = "".join(encoded_segments)
           archive_bytes = base64.b64decode(encoded_archive, validate=True)
-          actual_archive_sha256 = hashlib.sha256(archive_bytes).hexdigest()
+          actual_sha256 = hashlib.sha256(archive_bytes).hexdigest()
 
-          if actual_archive_sha256 != expected_archive_sha256:
+          if actual_sha256 != expected_archive_sha256:
               raise RuntimeError(
                   "Archive checksum mismatch. "
-                  f"Expected {expected_archive_sha256}, "
-                  f"received {actual_archive_sha256}."
+                  f"Expected {expected_archive_sha256}, received {actual_sha256}."
               )
 
           archive_path = Path("seed/all-standards.tar.xz")
@@ -74,14 +75,12 @@ jobs:
               for member in archive.getmembers():
                   member_path = Path(member.name)
                   if member_path.is_absolute() or ".." in member_path.parts:
-                      raise RuntimeError(
-                          f"Unsafe archive member path: {member.name}"
-                      )
+                      raise RuntimeError(f"Unsafe archive member path: {member.name}")
 
               archive.extractall(path=".", filter="data")
 
           shutil.rmtree("seed")
-          Path(".github/workflows/seed-repository.yml").unlink()
+          Path(".github/workflows/seed-repository.yml").unlink(missing_ok=True)
 
           temporary_files = [
               "ACCESS_TEST.md",
