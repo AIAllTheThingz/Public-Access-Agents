@@ -23,10 +23,27 @@
 - `languages/sql`
 - `languages/terraform-opentofu`
 
-## Baseline governance and discipline standards
+## Complete discipline packages
+
+- `disciplines/application-security`
+- `disciplines/architecture`
+- `disciplines/testing`
+- `disciplines/api-engineering`
+- `disciplines/integration`
+- `disciplines/database`
+- `disciplines/data-engineering`
+- `disciplines/accessibility`
+- `disciplines/privacy`
+- `disciplines/observability`
+- `disciplines/sre`
+- `disciplines/documentation`
+- `disciplines/ci-cd`
+- `disciplines/supply-chain`
+- `disciplines/release-engineering`
+
+## Baseline governance and supporting standards
 
 - `governance`
-- `disciplines`
 - `platforms`
 - `frameworks`
 - `profiles`

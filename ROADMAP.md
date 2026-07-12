@@ -5,7 +5,23 @@
 - Public repository and contribution model
 - Root agent instructions
 - Core governance baseline
-- Engineering discipline baseline
+- Complete engineering discipline packages for:
+
+  - Application Security
+  - Architecture and System Design
+  - Testing and Quality Engineering
+  - API Engineering
+  - Integration Engineering
+  - Database Engineering
+  - Data Engineering
+  - Accessibility
+  - Privacy and Data Governance
+  - Observability
+  - Site Reliability Engineering
+  - Documentation
+  - CI/CD
+  - Software Supply Chain
+  - Release Engineering
 - Platform and framework overlays
 - Project profiles
 - Templates and JSON schemas
@@ -26,7 +42,7 @@
 
 - Add automated package-level adoption tests
 - Add schema-backed completion reports to examples
-- Add threat-model examples
+- Add cross-package composition examples
 - Add framework-specific test templates
 - Add changelog and semantic versioning policy
 - Select an open-source license
