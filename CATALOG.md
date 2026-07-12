@@ -20,21 +20,21 @@ This catalog lists the standards available for composition into a project.
 
 ## Engineering disciplines
 
-- Application security
-- Architecture and system design
-- Testing and quality engineering
-- API engineering
-- Integration engineering
-- Database engineering
-- Data engineering
-- Accessibility
-- Privacy and data governance
-- Observability
-- Site reliability engineering
-- Documentation
-- CI/CD
-- Software supply chain
-- Release engineering
+- [Application Security](disciplines/application-security/)
+- [Architecture and System Design](disciplines/architecture/)
+- [Testing and Quality Engineering](disciplines/testing/)
+- [API Engineering](disciplines/api-engineering/)
+- [Integration Engineering](disciplines/integration/)
+- [Database Engineering](disciplines/database/)
+- [Data Engineering](disciplines/data-engineering/)
+- [Accessibility](disciplines/accessibility/)
+- [Privacy and Data Governance](disciplines/privacy/)
+- [Observability](disciplines/observability/)
+- [Site Reliability Engineering](disciplines/sre/)
+- [Documentation](disciplines/documentation/)
+- [CI/CD](disciplines/ci-cd/)
+- [Software Supply Chain](disciplines/supply-chain/)
+- [Release Engineering](disciplines/release-engineering/)
 
 ## Languages
 
