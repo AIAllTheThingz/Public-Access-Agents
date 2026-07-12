@@ -228,4 +228,4 @@ Changes must:
 
 ## Completion boundary
 
-Adopting this package does not prove that a Angular application is secure, accessible, reliable, compatible, tested, or production-ready. Completion requires implementation, evidence, and accountable review.
+Adopting this package does not prove that an Angular application is secure, accessible, reliable, compatible, tested, or production-ready. Completion requires implementation, evidence, and accountable review.
