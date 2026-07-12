@@ -2,12 +2,6 @@ name: Expand standards packages
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
-    paths:
-      - "seed/**"
-      - ".github/workflows/seed-repository.yml"
 
 permissions:
   contents: write
@@ -28,20 +22,49 @@ jobs:
           python - <<'PY'
           from pathlib import Path
           import base64
+          import hashlib
           import shutil
           import tarfile
 
-          encoded_parts = sorted(Path("seed").glob("all.part*.b64"))
-
-          if not encoded_parts:
-              raise RuntimeError("No repository seed archive parts were found.")
-
-          encoded_archive = "".join(
-              part.read_text(encoding="ascii")
-              for part in encoded_parts
+          expected_segment_length = 48022
+          expected_archive_sha256 = (
+              "dafd65ccd22b599bde484275236fafa7fd536174a43d6351f6d7013cd420443d"
           )
-          archive_path = Path("seed") / "all-standards.tar.xz"
-          archive_path.write_bytes(base64.b64decode(encoded_archive))
+
+          segment_paths = [
+              Path("seed/all.part00.b64"),
+              Path("seed/all.part01.b64"),
+          ]
+
+          encoded_segments = []
+
+          for segment_path in segment_paths:
+              if not segment_path.is_file():
+                  raise RuntimeError(f"Missing archive segment: {segment_path}")
+
+              segment = segment_path.read_text(encoding="ascii")
+
+              if len(segment) < expected_segment_length:
+                  raise RuntimeError(
+                      f"Archive segment {segment_path} is too short: "
+                      f"{len(segment)} characters."
+                  )
+
+              encoded_segments.append(segment[:expected_segment_length])
+
+          encoded_archive = "".join(encoded_segments)
+          archive_bytes = base64.b64decode(encoded_archive, validate=True)
+          actual_archive_sha256 = hashlib.sha256(archive_bytes).hexdigest()
+
+          if actual_archive_sha256 != expected_archive_sha256:
+              raise RuntimeError(
+                  "Archive checksum mismatch. "
+                  f"Expected {expected_archive_sha256}, "
+                  f"received {actual_archive_sha256}."
+              )
+
+          archive_path = Path("seed/all-standards.tar.xz")
+          archive_path.write_bytes(archive_bytes)
 
           with tarfile.open(archive_path, mode="r:xz") as archive:
               for member in archive.getmembers():
@@ -50,6 +73,7 @@ jobs:
                       raise RuntimeError(
                           f"Unsafe archive member path: {member.name}"
                       )
+
               archive.extractall(path=".")
 
           shutil.rmtree("seed")
