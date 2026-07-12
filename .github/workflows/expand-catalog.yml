@@ -82,7 +82,6 @@ jobs:
               "profiles/WEB_API.md",
               "schemas/project-manifest.schema.json",
               "tools/validate-standards/validate_repository.py",
-              ".github/workflows/validate-standards.yml",
           }
 
           with tarfile.open(archive_path, mode="r:xz") as archive:
@@ -101,12 +100,24 @@ jobs:
                       + ", ".join(missing_members)
                   )
 
+              extractable_members = []
               for member in members:
                   member_path = Path(member.name)
                   if member_path.is_absolute() or ".." in member_path.parts:
                       raise RuntimeError(f"Unsafe archive member path: {member.name}")
 
-              archive.extractall(path=".", filter="data")
+                  # Workflow files are managed separately by the GitHub connector.
+                  # The Actions token cannot create or update them during this push.
+                  if member_path.parts[:2] == (".github", "workflows"):
+                      continue
+
+                  extractable_members.append(member)
+
+              archive.extractall(
+                  path=".",
+                  members=extractable_members,
+                  filter="data",
+              )
 
           shutil.rmtree("bootstrap")
           PY
