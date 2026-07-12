@@ -17,15 +17,18 @@ PARTS = [
     ("bootstrap/profiles/generator.part01b.b64", 2000, "782e39744df9c45c600188372e9e392c5abd12fffc59db67cf57234ea672326f"),
     ("bootstrap/profiles/generator.part01c.b64", 2000, "4b4debd63cf78944e2aba25752469e57bfaf7792272dc2de1f6eebe63c6508b5"),
     ("bootstrap/profiles/generator.part01d.b64", 2000, "25c409ce5528201f8bdbad99d2acd80e650325d0743643944009704de0fc4401"),
-    ("bootstrap/profiles/generator.part02.b64", 8000, "546635c1aaaca382b08d1bce93628d42283b08fb6c1d86eb4a4ff0c2d3c05601"),
-    ("bootstrap/profiles/generator.part03.b64", 8000, "31435a6a937bffa9ccb9b0cdc510208fa61ff4ecc5cc990c2bd7ac1b4cec9cc5"),
-    ("bootstrap/profiles/generator.part04.b64", 2408, "667e826c6db3346c9754d76472e6576f50413dbb63f2064c743cf0b0712a586d"),
+    ("bootstrap/profiles/generator.part02a.b64", 4000, "51c32c517b45fb4afffca17c605356048039a8caf3323720d219c1a309f5d062"),
+    ("bootstrap/profiles/generator.part02b.b64", 4000, "d9ff3b912f570cb22f94cdb1c4811bcd9bf53b61ee71d2bf90a854f86bc8a181"),
+    ("bootstrap/profiles/generator.part03a.b64", 4000, "35e4d0225f3b7acc2bf104545858a62a1a5c84e7497ac85a13bc4193d87e8983"),
+    ("bootstrap/profiles/generator.part03b.b64", 4000, "6e8b252c5d570ad1f4c26dfca23f820091d4b72094c0890b8c3023b3a2f4c369"),
+    ("bootstrap/profiles/generator.part04x.b64", 2408, "667e826c6db3346c9754d76472e6576f50413dbb63f2064c743cf0b0712a586d"),
 ]
 GENERATOR_SHA256 = "d6ad3648bd380bbd4b7a0975a71e006c19ea22bb9ec33ed55b22af6802d38dd8"
 
-failure_log = ROOT / "profile-build-failure.log"
-if failure_log.exists():
-    failure_log.unlink()
+for name in ("profile-build-failure.log", "profile-repair-failure.log"):
+    path = ROOT / name
+    if path.exists():
+        path.unlink()
 
 text = SOURCE.read_text(encoding="utf-8")
 text = re.sub(r"^PARTS = .*?$", f"PARTS = {PARTS!r}", text, flags=re.MULTILINE)
