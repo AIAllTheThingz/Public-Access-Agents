@@ -1,16 +1,9 @@
-# Bash Standard Package
+---
+id: BASH-PKG-001
+status: baseline
+title: Bash Package
+---
 
-Status: **planned**
+# Bash Language Package
 
-This directory is a roadmap marker. It does not yet contain an enforceable `AGENTS.md`.
-
-A complete package must include:
-
-- `AGENTS.md`
-- `README.md`
-- `MANIFEST.md`
-- supporting standards
-- templates
-- examples
-- validation evidence
-- documented runtime and compatibility baseline
+Baseline package for Bash automation, CI scripts, installers, and operational scripts. Adoption requires the exact interpreter, supported operating systems, external-command dependencies, privilege requirements, test commands, and safety model.

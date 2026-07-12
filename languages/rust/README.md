@@ -1,16 +1,9 @@
-# Rust Standard Package
+---
+id: RUST-PKG-001
+status: baseline
+title: Rust Package
+---
 
-Status: **planned**
+# Rust Language Package
 
-This directory is a roadmap marker. It does not yet contain an enforceable `AGENTS.md`.
-
-A complete package must include:
-
-- `AGENTS.md`
-- `README.md`
-- `MANIFEST.md`
-- supporting standards
-- templates
-- examples
-- validation evidence
-- documented runtime and compatibility baseline
+Baseline package for Rust applications, crates, services, CLI tools, and FFI integrations. Adoption requires an exact toolchain policy, MSRV when applicable, feature strategy, supported targets, validation commands, and documented unsafe-code policy.

@@ -15,6 +15,13 @@
 - `languages/powershell`
 - `languages/dotnet`
 - `languages/javascript-typescript`
+- `languages/python`
+- `languages/java`
+- `languages/go`
+- `languages/rust`
+- `languages/bash`
+- `languages/sql`
+- `languages/terraform-opentofu`
 
 ## Baseline governance and discipline standards
 
@@ -29,8 +36,6 @@
 - `tools`
 
 ## Validation
-
-Run:
 
 ```bash
 python tools/validate-standards/validate_repository.py

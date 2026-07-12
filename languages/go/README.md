@@ -1,16 +1,20 @@
-# Go Standard Package
+---
+id: GO-PKG-001
+status: baseline
+title: Go Package
+---
 
-Status: **planned**
+# Go Language Package
 
-This directory is a roadmap marker. It does not yet contain an enforceable `AGENTS.md`.
+Baseline package for Go modules, services, libraries, and CLI tools.
 
-A complete package must include:
+## Contents
 
 - `AGENTS.md`
-- `README.md`
-- `MANIFEST.md`
-- supporting standards
-- templates
-- examples
-- validation evidence
-- documented runtime and compatibility baseline
+- coding, architecture, security, testing, dependency, observability, concurrency, module, and evidence standards
+- adoption templates and example
+- package manifest
+
+## Adoption
+
+Declare the exact Go version, module boundaries, supported platforms, build commands, test commands, generated-code process, and deployment target. Add project-specific rules without weakening inherited controls.
