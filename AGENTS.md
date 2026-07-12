@@ -12,7 +12,12 @@ Before modifying this repository:
 
 1. Read `README.md`, `CONTRIBUTING.md`, and the affected package's `AGENTS.md`.
 2. Inspect all supporting standards referenced by the affected package.
-3. Identify whether the change is editorial, behavioral, security-related, compatibility-related, or breaking.
+3. Identify whether the change is:
+   - editorial
+   - behavioral
+   - security-related
+   - compatibility-related
+   - breaking
 4. Make the smallest coherent change.
 5. Update cross-references, manifests, examples, and templates affected by the change.
 6. Validate Markdown links and structured configuration.
@@ -26,10 +31,10 @@ Before modifying this repository:
 - Do not add environment-specific production values.
 - Do not include credentials, tokens, private keys, internal host names, or sensitive identifiers.
 - Use fictitious values in examples.
-- Do not copy proprietary standards or copyrighted material without compatible permission.
-- Cite authoritative public sources when a rule depends on an external standard.
+- Do not copy proprietary standards or copyrighted material into the repository without compatible permission.
+- Cite public authoritative sources when a rule depends on an external standard.
 - Keep normative requirements separate from explanatory rationale where practical.
-- Avoid duplicating the same rule across many files when a shared referenced rule is sufficient.
+- Avoid duplicating the same rule across many files when a referenced shared rule is sufficient.
 - Preserve stable rule identifiers when they are introduced.
 - Do not reformat unrelated files.
 

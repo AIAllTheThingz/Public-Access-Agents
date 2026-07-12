@@ -1,0 +1,18 @@
+<Project>
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+    <CentralPackageTransitivePinningEnabled>false</CentralPackageTransitivePinningEnabled>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!--
+      Add stable package versions only after reviewing necessity, license,
+      maintenance, compatibility, and vulnerability status.
+
+      Example:
+      <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="REPLACE_ME" />
+      <PackageVersion Include="xunit.v3" Version="REPLACE_ME" />
+      <PackageVersion Include="xunit.runner.visualstudio" Version="REPLACE_ME" />
+    -->
+  </ItemGroup>
+</Project>

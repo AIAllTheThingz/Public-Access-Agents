@@ -1,0 +1,33 @@
+{
+  "name": "replace-with-package-name",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24.17.0 <25",
+    "pnpm": ">=11 <12"
+  },
+  "packageManager": "pnpm@11.11.0",
+  "scripts": {
+    "clean": "node --run clean:dist",
+    "clean:dist": "node -e \"import('node:fs/promises').then(({rm}) => rm('dist', { recursive: true, force: true }))\"",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "eslint . --max-warnings 0",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "build": "tsc -p tsconfig.build.json",
+    "check": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm test && pnpm build"
+  },
+  "devDependencies": {
+    "@eslint/js": "REPLACE_WITH_APPROVED_VERSION",
+    "@types/node": "REPLACE_WITH_APPROVED_VERSION",
+    "@vitest/coverage-v8": "REPLACE_WITH_APPROVED_VERSION",
+    "eslint": "REPLACE_WITH_APPROVED_VERSION",
+    "prettier": "REPLACE_WITH_APPROVED_VERSION",
+    "typescript": "^6.0.0",
+    "typescript-eslint": "REPLACE_WITH_APPROVED_VERSION",
+    "vitest": "REPLACE_WITH_APPROVED_VERSION"
+  }
+}

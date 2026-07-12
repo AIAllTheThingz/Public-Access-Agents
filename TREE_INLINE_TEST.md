@@ -1,1 +1,0 @@
-inline tree capability test

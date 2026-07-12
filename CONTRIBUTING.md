@@ -41,7 +41,14 @@ Include:
 
 ## Standards writing
 
-Prefer requirements that are specific, testable, evidence-based, proportionate to risk, technology-aware, and honest about limitations.
+Prefer requirements that are:
+
+- specific
+- testable
+- evidence-based
+- proportionate to risk
+- technology-aware
+- honest about limitations
 
 Avoid vague instructions such as "follow best practices" without defining the expected behavior or evidence.
 

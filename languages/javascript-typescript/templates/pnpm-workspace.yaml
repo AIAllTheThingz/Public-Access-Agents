@@ -1,0 +1,8 @@
+packages:
+  - "apps/*"
+  - "packages/*"
+
+minimumReleaseAge: 1440
+blockExoticSubdeps: true
+strictPeerDependencies: true
+sharedWorkspaceLockfile: true

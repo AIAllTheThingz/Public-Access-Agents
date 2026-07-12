@@ -1,1 +1,0 @@
-Temporary connector verification file.
