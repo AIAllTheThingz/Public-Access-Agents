@@ -1,0 +1,43 @@
+name: Build discipline packages
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/build-discipline-packages.yml"
+      - "bootstrap/discipline-packages/**"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out pull request branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+      - name: Restore generator sources
+        run: python bootstrap/discipline-packages/restore.py
+      - name: Generate discipline packages
+        run: python bootstrap/discipline-packages/generate.py
+      - name: Validate generated repository
+        run: |
+          python tools/validate-standards/validate_repository.py
+          python tools/check-links/check_links.py
+      - name: Commit generated packages
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add disciplines CATALOG.md MANIFEST.md ROADMAP.md
+          if git diff --cached --quiet; then
+            echo "No discipline package changes were produced."
+            exit 0
+          fi
+          git commit -m "Populate engineering discipline packages"
+          git push origin "HEAD:${{ github.event.pull_request.head.ref }}"
