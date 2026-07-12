@@ -67,6 +67,19 @@
 
 Each complete framework package includes scoped agent instructions, a useful README, a manifest, framework-specific standards, adoption and review templates, an evidence template, and an adoption example.
 
+## Complete platform packages
+
+- `platforms/containers`
+- `platforms/kubernetes`
+- `platforms/terraform`
+- `platforms/azure`
+- `platforms/aws`
+- `platforms/gcp`
+
+Each complete platform package includes scoped agent instructions, a useful README, a manifest, platform-specific standards, adoption and review templates, an evidence template, and an adoption example.
+
+The platform collection also includes selection, shared-responsibility, change-lifecycle, and decision-matrix guidance.
+
 ## Complete composition examples
 
 - `examples/minimal`
@@ -78,7 +91,6 @@ Each complete example includes root and nested agent instructions, a project man
 
 ## Baseline supporting standards
 
-- `platforms`
 - `profiles`
 - `templates`
 - `schemas`

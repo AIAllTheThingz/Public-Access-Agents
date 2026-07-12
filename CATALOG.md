@@ -56,12 +56,16 @@ See the [governance policy map](governance/POLICY_MAP.md), [adoption guide](gove
 
 ## Platforms
 
+Platform packages are complete, independently adoptable overlays for execution, deployment, identity, network, data, state, policy, observability, resilience, recovery, cost, capacity, quota, and operational ownership.
+
 - [Containers](platforms/containers/)
 - [Kubernetes](platforms/kubernetes/)
 - [Terraform and OpenTofu](platforms/terraform/)
 - [Microsoft Azure](platforms/azure/)
 - [Amazon Web Services](platforms/aws/)
 - [Google Cloud Platform](platforms/gcp/)
+
+See the [platforms index](platforms/README.md) for selection, shared responsibility, change lifecycle, decision scaling, adoption, validation, and maintenance guidance.
 
 ## Frameworks
 
