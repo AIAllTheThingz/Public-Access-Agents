@@ -189,4 +189,4 @@ A baseline package is usable for adoption and review but should be expected to e
 
 ## Completion statement
 
-Adopting this package does not prove that {data["title"].lower()} work is complete. Completion requires implementation, verification, evidence, accountable review, and explicit disclosure of remaining limitations.
+Adopting this package does not prove that accessibility work is complete. Completion requires implementation, verification, evidence, accountable review, and explicit disclosure of remaining limitations.
