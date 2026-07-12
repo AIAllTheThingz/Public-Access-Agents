@@ -60,11 +60,15 @@ This catalog lists the standards available for composition into a project.
 
 ## Frameworks
 
+Framework packages are complete, independently adoptable overlays with framework-specific agent instructions, standards, templates, manifests, examples, adoption guidance, and completion evidence.
+
 - [ASP.NET Core](frameworks/aspnet-core/)
 - [React](frameworks/react/)
 - [Angular](frameworks/angular/)
 - [Spring Boot](frameworks/spring-boot/)
 - [FastAPI](frameworks/fastapi/)
+
+See the [frameworks index](frameworks/README.md) for selection, composition, tailoring, validation, maturity, and maintenance guidance.
 
 ## Project profiles
 
