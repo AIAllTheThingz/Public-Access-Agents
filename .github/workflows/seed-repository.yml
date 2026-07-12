@@ -35,12 +35,17 @@ jobs:
           }
 
           for name, destination in packages.items():
-              encoded_path = Path("seed") / f"{name}.zip.b64"
-              archive_path = Path("seed") / f"{name}.zip"
+              encoded_parts = sorted(Path("seed").glob(f"{name}.part*.b64"))
 
-              archive_path.write_bytes(
-                  base64.b64decode(encoded_path.read_text(encoding="ascii"))
+              if not encoded_parts:
+                  raise RuntimeError(f"No seed archive parts found for {name}.")
+
+              encoded_archive = "".join(
+                  part.read_text(encoding="ascii")
+                  for part in encoded_parts
               )
+              archive_path = Path("seed") / f"{name}.zip"
+              archive_path.write_bytes(base64.b64decode(encoded_archive))
 
               if destination.exists():
                   shutil.rmtree(destination)
