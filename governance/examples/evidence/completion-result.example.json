@@ -1,0 +1,29 @@
+{
+  "status": "partially-validated",
+  "summary": "Fictitious governance change example with repository validation completed and organizational adoption not performed.",
+  "filesChanged": [
+    "governance/README.md",
+    "governance/AGENTS.md"
+  ],
+  "risk": "moderate",
+  "securityImpact": "No production security control changed in this example.",
+  "compatibilityImpact": "Adopting organizations must review policy and record migration.",
+  "validation": [
+    {
+      "name": "repository-validation",
+      "result": "passed",
+      "evidence": "Illustrative local validation record"
+    },
+    {
+      "name": "organizational-approval",
+      "result": "not-run",
+      "evidence": "No real organization adopted this example"
+    }
+  ],
+  "limitations": [
+    "No legal review",
+    "No production authority mapping",
+    "No operational pilot"
+  ],
+  "reviewer": "fictitious-governance-reviewer"
+}

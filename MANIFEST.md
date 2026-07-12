@@ -10,6 +10,22 @@
 - `SECURITY.md`
 - `ROADMAP.md`
 
+## Complete governance system
+
+- `governance/AGENTS.md`
+- `governance/README.md`
+- `governance/MANIFEST.md`
+- `governance/POLICY_MAP.md`
+- `governance/ADOPTION_GUIDE.md`
+- `governance/OPERATING_MODEL.md`
+- `governance/POLICY_LIFECYCLE.md`
+- `governance/CONTROL_EVIDENCE_MODEL.md`
+- `governance/GOVERNANCE_DECISION_MATRIX.md`
+- eleven governance policies
+- governance adoption, authorization, review, risk, exception, readiness, threat, vulnerability, AI-review, evidence, and policy-change templates
+- governance workflow and decision examples
+- schema-shaped risk, exception, and completion evidence examples
+
 ## Complete language packages
 
 - `languages/powershell`
@@ -60,9 +76,8 @@ Each complete framework package includes scoped agent instructions, a useful REA
 
 Each complete example includes root and nested agent instructions, a project manifest, composition rationale, tailoring decisions, architecture, risk, testing, operations, completion evidence, and schema-shaped JSON evidence.
 
-## Baseline governance and supporting standards
+## Baseline supporting standards
 
-- `governance`
 - `platforms`
 - `profiles`
 - `templates`

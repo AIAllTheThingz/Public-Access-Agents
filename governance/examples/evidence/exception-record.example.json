@@ -1,0 +1,15 @@
+{
+  "id": "EXAMPLE-EXCEPTION-001",
+  "ruleId": "SUPPLY-PIN-003",
+  "owner": "fictitious-component-owner",
+  "reason": "Illustrative temporary compatibility constraint.",
+  "risk": "Unsupported dependency remains in use for a bounded period.",
+  "compensatingControls": [
+    "Restricted exposure",
+    "Additional monitoring",
+    "Tracked remediation"
+  ],
+  "expiresOn": "2030-01-31",
+  "status": "requested",
+  "approver": "fictitious-risk-approver"
+}
