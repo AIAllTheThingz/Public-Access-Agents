@@ -53,7 +53,7 @@ This policy applies to:
 
 **Requirement:** Agents may recommend approval; they may not impersonate an approver.
 
-**Expected evidence:** Approval originates from an accountable human or approved governance system.
+**Expected evidence:** Approval originates from an accountable human acting through an approved governance or change-management system.
 
 ### GOV-REVIEW-005
 

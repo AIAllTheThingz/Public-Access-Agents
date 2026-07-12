@@ -77,7 +77,7 @@ This policy applies to:
 
 **Requirement:** No agent or tool may approve its own high-risk work or impersonate a human decision-maker.
 
-**Expected evidence:** Approval originates from an accountable human identity or approved governance system.
+**Expected evidence:** Approval originates from an accountable human identity acting through an approved governance or change-management system.
 
 ## Decision gates
 

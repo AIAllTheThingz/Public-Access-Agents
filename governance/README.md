@@ -28,18 +28,24 @@ The governance package improves consistency and traceability. It does not grant 
 
 ## Precedence model
 
-Apply instructions in this order unless a controlling legal or safety obligation requires otherwise:
+Governance uses both **authority precedence** and **scope specificity**.
+
+Authority precedence:
 
 1. Applicable legal, regulatory, contractual, safety, and security obligations
-2. Explicit authorized user or organizational direction
+2. Explicit authorized user or organizational direction within delegated authority
 3. Root repository `AGENTS.md`
 4. Governance policies
-5. Project profile
-6. Language, discipline, platform, and framework standards
-7. More-specific nested `AGENTS.md`
-8. Repository conventions and general agent preferences
+5. Selected project-profile, language, discipline, platform, and framework standards
+6. Repository conventions and general agent preferences
 
-A lower-level rule may be stricter. It may not silently weaken a higher-level rule. Material conflicts must be recorded and resolved by an accountable authority.
+Scope specificity:
+
+- The nearest applicable nested `AGENTS.md` controls local work when it specializes or strengthens the applicable baseline.
+- A nested instruction must not silently weaken root instructions, governance policies, or selected standards.
+- A weaker, ambiguous, or authority-changing conflict must stop and be resolved by an accountable authority or the documented exception process.
+
+Material conflicts must be recorded. Specificity is not permission to bypass governance.
 
 ## Governance policy catalog
 
