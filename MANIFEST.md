@@ -41,6 +41,16 @@
 - `disciplines/supply-chain`
 - `disciplines/release-engineering`
 
+## Complete framework packages
+
+- `frameworks/aspnet-core`
+- `frameworks/react`
+- `frameworks/angular`
+- `frameworks/spring-boot`
+- `frameworks/fastapi`
+
+Each complete framework package includes scoped agent instructions, a useful README, a manifest, framework-specific standards, adoption and review templates, an evidence template, and an adoption example.
+
 ## Complete composition examples
 
 - `examples/minimal`
@@ -54,7 +64,6 @@ Each complete example includes root and nested agent instructions, a project man
 
 - `governance`
 - `platforms`
-- `frameworks`
 - `profiles`
 - `templates`
 - `schemas`
