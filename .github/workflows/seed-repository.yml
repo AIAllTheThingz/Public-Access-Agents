@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - "seed/**"
+      - ".github/workflows/seed-repository.yml"
 
 permissions:
   contents: write
@@ -21,8 +22,9 @@ jobs:
           fetch-depth: 0
 
       - name: Expand standards repository
-        shell: python
+        shell: bash
         run: |
+          python - <<'PY'
           from pathlib import Path
           import base64
           import shutil
@@ -68,6 +70,7 @@ jobs:
 
           for temporary_file in temporary_files:
               Path(temporary_file).unlink(missing_ok=True)
+          PY
 
       - name: Commit expanded standards
         shell: bash
