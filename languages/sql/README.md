@@ -1,16 +1,9 @@
-# SQL Standard Package
+---
+id: SQL-PKG-001
+status: baseline
+title: SQL Package
+---
 
-Status: **planned**
+# SQL Language Package
 
-This directory is a roadmap marker. It does not yet contain an enforceable `AGENTS.md`.
-
-A complete package must include:
-
-- `AGENTS.md`
-- `README.md`
-- `MANIFEST.md`
-- supporting standards
-- templates
-- examples
-- validation evidence
-- documented runtime and compatibility baseline
+Baseline package for database queries, objects, migrations, permissions, and data changes. Adoption requires a declared database engine and version, migration tool, transaction and isolation assumptions, supported upgrade paths, operational windows, and recovery strategy.

@@ -2,20 +2,32 @@
 
 ## Complete packages
 
+All directories below contain an enforceable `AGENTS.md`, supporting standards, templates, examples, a manifest, and validation guidance.
+
 - [PowerShell 7.x](powershell/)
 - [.NET 10 LTS](dotnet/)
 - [JavaScript and TypeScript](javascript-typescript/)
+- [Python](python/)
+- [Java](java/)
+- [Go](go/)
+- [Rust](rust/)
+- [Bash](bash/)
+- [SQL](sql/)
+- [Terraform and OpenTofu](terraform-opentofu/)
 
-## Planned packages
+## Package requirements
 
-The following directories are roadmap markers, not enforceable `AGENTS.md` packages:
+A complete language package must include:
 
-- Python
-- Java
-- Go
-- Rust
-- Bash
-- SQL
-- Terraform and OpenTofu
+- `AGENTS.md`
+- `README.md`
+- `MANIFEST.md`
+- language-specific coding standards
+- architecture, documentation, testing, security, dependency, observability, and completion-evidence standards
+- ecosystem-specific standards
+- adoption templates
+- an adoption example
+- unique front-matter identifiers
+- validation evidence
 
-A planned package must not be represented as complete until it includes an `AGENTS.md`, supporting standards, templates, examples, a manifest, and validation evidence.
+Project-specific packages may add stricter rules but must not silently weaken the shared governance or language baseline.

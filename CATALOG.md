@@ -36,6 +36,19 @@ This catalog lists the standards available for composition into a project.
 - Software supply chain
 - Release engineering
 
+## Languages
+
+- [PowerShell 7.x](languages/powershell/)
+- [.NET 10 LTS](languages/dotnet/)
+- [JavaScript and TypeScript](languages/javascript-typescript/)
+- [Python](languages/python/)
+- [Java](languages/java/)
+- [Go](languages/go/)
+- [Rust](languages/rust/)
+- [Bash](languages/bash/)
+- [SQL](languages/sql/)
+- [Terraform and OpenTofu](languages/terraform-opentofu/)
+
 ## Platforms
 
 - Containers
@@ -55,7 +68,7 @@ This catalog lists the standards available for composition into a project.
 
 ## Project profiles
 
-Profiles are overlays. They supplement rather than replace governance, language, discipline, platform, and framework standards.
+Profiles supplement rather than replace governance, language, discipline, platform, and framework standards.
 
 - Web API
 - Web application

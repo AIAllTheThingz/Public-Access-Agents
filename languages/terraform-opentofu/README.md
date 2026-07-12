@@ -1,16 +1,9 @@
-# Terraform and OpenTofu Standard Package
+---
+id: TF-PKG-001
+status: baseline
+title: Terraform and OpenTofu Package
+---
 
-Status: **planned**
+# Terraform and OpenTofu Language Package
 
-This directory is a roadmap marker. It does not yet contain an enforceable `AGENTS.md`.
-
-A complete package must include:
-
-- `AGENTS.md`
-- `README.md`
-- `MANIFEST.md`
-- supporting standards
-- templates
-- examples
-- validation evidence
-- documented runtime and compatibility baseline
+Baseline package for infrastructure-as-code repositories using Terraform or OpenTofu. Adoption requires a declared engine and version, backend and state ownership, provider and module strategy, environment model, plan/apply process, approval boundaries, validation commands, and recovery procedures.

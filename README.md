@@ -38,8 +38,15 @@ These standards improve behavior. They do not guarantee security, correctness, c
 - PowerShell 7.x
 - .NET 10 LTS
 - JavaScript and TypeScript
+- Python
+- Java
+- Go
+- Rust
+- Bash
+- SQL
+- Terraform and OpenTofu
 
-Additional language packages are tracked as planned work in [`languages/README.md`](languages/README.md) and [`ROADMAP.md`](ROADMAP.md).
+Each language directory is independently adoptable and includes mandatory agent instructions, supporting standards, templates, examples, and a package manifest.
 
 ## Adoption model
 
@@ -61,20 +68,7 @@ The nearest scoped `AGENTS.md` may add stricter rules for its directory. It must
 
 ## Rule format
 
-Normative rules should include:
-
-- a stable rule identifier
-- a concrete requirement
-- expected evidence
-- an exception path where applicable
-
-Example identifiers:
-
-- `GOV-WORK-001`
-- `SEC-INPUT-001`
-- `TEST-UNIT-001`
-- `OPS-OBS-001`
-- `ACC-WCAG-001`
+Normative rules should include a stable identifier, a concrete requirement, expected evidence, and an exception path where applicable.
 
 ## Contributing
 
