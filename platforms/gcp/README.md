@@ -22,7 +22,7 @@ Adopt this package when one or more of the following are true:
 
 - Google Cloud organizations, folders, projects, identities, policies, networks, data, resources, and deployments
 - service accounts, workload identity, IAM, organization policies, keys, secrets, logs, backups, quotas, and budgets
-- gcloud, SDKs, Deployment Manager or successor tooling, Terraform/OpenTofu, console, and deployment automation
+- gcloud, SDKs, Infrastructure Manager, Terraform/OpenTofu, console, and deployment automation
 - production and non-production projects and cross-project dependencies
 
 Do not omit it merely because another team “owns the platform.” Shared responsibility requires both sides of a boundary to be explicit.
@@ -271,6 +271,8 @@ Templates are starting points. Replace blank fields with reviewed project facts 
 Service-specific behavior changes. Verify adopting-project decisions against current official documentation:
 
 - https://cloud.google.com/architecture/framework
+- https://cloud.google.com/infrastructure-manager/docs/deploy-resources
+- https://cloud.google.com/deployment-manager/docs/deprecations
 
 ## Maintaining the package
 
