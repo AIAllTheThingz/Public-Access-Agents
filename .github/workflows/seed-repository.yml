@@ -20,40 +20,34 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Expand language packages
+      - name: Expand standards repository
         shell: python
         run: |
           from pathlib import Path
           import base64
           import shutil
-          import zipfile
+          import tarfile
 
-          packages = {
-              "powershell": Path("languages/powershell"),
-              "dotnet": Path("languages/dotnet"),
-              "javascript-typescript": Path("languages/javascript-typescript"),
-          }
+          encoded_parts = sorted(Path("seed").glob("all.part*.b64"))
 
-          for name, destination in packages.items():
-              encoded_parts = sorted(Path("seed").glob(f"{name}.part*.b64"))
+          if not encoded_parts:
+              raise RuntimeError("No repository seed archive parts were found.")
 
-              if not encoded_parts:
-                  raise RuntimeError(f"No seed archive parts found for {name}.")
+          encoded_archive = "".join(
+              part.read_text(encoding="ascii")
+              for part in encoded_parts
+          )
+          archive_path = Path("seed") / "all-standards.tar.xz"
+          archive_path.write_bytes(base64.b64decode(encoded_archive))
 
-              encoded_archive = "".join(
-                  part.read_text(encoding="ascii")
-                  for part in encoded_parts
-              )
-              archive_path = Path("seed") / f"{name}.zip"
-              archive_path.write_bytes(base64.b64decode(encoded_archive))
-
-              if destination.exists():
-                  shutil.rmtree(destination)
-
-              destination.mkdir(parents=True, exist_ok=True)
-
-              with zipfile.ZipFile(archive_path) as archive:
-                  archive.extractall(destination)
+          with tarfile.open(archive_path, mode="r:xz") as archive:
+              for member in archive.getmembers():
+                  member_path = Path(member.name)
+                  if member_path.is_absolute() or ".." in member_path.parts:
+                      raise RuntimeError(
+                          f"Unsafe archive member path: {member.name}"
+                      )
+              archive.extractall(path=".")
 
           shutil.rmtree("seed")
           Path(".github/workflows/seed-repository.yml").unlink()
