@@ -4,19 +4,24 @@ This catalog lists the standards available for composition into a project.
 
 ## Governance
 
+The governance system defines authority, precedence, risk, evidence, review, exceptions, secure development, production readiness, threat modeling, vulnerability response, and policy lifecycle across every package in this repository.
+
 | Standard | Purpose |
 |---|---|
-| Organization Contract | Defines precedence, non-negotiable controls, and accountability |
-| Agent Working Method | Defines discovery, planning, implementation, validation, and reporting |
-| Risk Classification | Scales review and evidence to change risk |
-| Completion Evidence | Defines proof required before claiming completion |
-| Exception Process | Provides a time-bounded, reviewed path for deviations |
-| AI-Generated Code Policy | Defines responsibility for agent-produced code |
-| Secure Development Policy | Integrates security into normal engineering work |
-| Human Review Policy | Identifies work that requires accountable human review |
-| Production Readiness | Defines operational readiness gates |
-| Threat Modeling | Defines when and how threat models are produced |
-| Vulnerability Response | Defines handling of suspected and confirmed vulnerabilities |
+| [Governance index](governance/README.md) | Selection, precedence, operating model, adoption, evidence states, and maintenance |
+| [Organization Contract](governance/ORGANIZATION_CONTRACT.md) | Defines precedence, non-negotiable controls, authority, and accountability |
+| [Agent Working Method](governance/AGENT_WORKING_METHOD.md) | Defines discovery, planning, implementation, validation, and reporting |
+| [Risk Classification](governance/RISK_CLASSIFICATION.md) | Scales review, testing, authorization, rollback, and evidence |
+| [Completion Evidence](governance/COMPLETION_EVIDENCE.md) | Defines proof required before claiming completion |
+| [Exception Process](governance/EXCEPTION_PROCESS.md) | Provides a time-bounded, reviewed path for deviations |
+| [AI-Generated Code Policy](governance/AI_GENERATED_CODE_POLICY.md) | Defines responsibility, verification, provenance, and review for AI-assisted work |
+| [Human Review Policy](governance/HUMAN_REVIEW_POLICY.md) | Defines work requiring accountable human review and approval |
+| [Production Readiness](governance/PRODUCTION_READINESS.md) | Defines operational, recovery, support, and go-live gates |
+| [Secure Development Policy](governance/SECURE_DEVELOPMENT_POLICY.md) | Integrates security into design, implementation, testing, delivery, and maintenance |
+| [Threat Modeling Policy](governance/THREAT_MODELING_POLICY.md) | Defines threat-model triggers, contents, mitigations, and residual risk |
+| [Vulnerability Response](governance/VULNERABILITY_RESPONSE.md) | Defines confidential intake, triage, containment, remediation, verification, and closure |
+
+See the [governance policy map](governance/POLICY_MAP.md), [adoption guide](governance/ADOPTION_GUIDE.md), [operating model](governance/OPERATING_MODEL.md), and [decision matrix](governance/GOVERNANCE_DECISION_MATRIX.md).
 
 ## Engineering disciplines
 

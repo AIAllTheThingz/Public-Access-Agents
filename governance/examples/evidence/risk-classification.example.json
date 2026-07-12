@@ -1,0 +1,17 @@
+{
+  "level": "high",
+  "rationale": "Fictitious example involving privileged data migration across multiple systems.",
+  "factors": {
+    "dataSensitivity": "privileged identity data",
+    "blastRadius": "multiple production services",
+    "reversibility": "requires tested restore and roll-forward",
+    "externalExposure": "indirect through authenticated interfaces"
+  },
+  "requiredReviewers": [
+    "architecture-owner",
+    "security-reviewer",
+    "data-owner",
+    "operations-owner"
+  ],
+  "rollbackRequired": true
+}
