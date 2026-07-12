@@ -12,7 +12,9 @@
     "privacy",
     "observability",
     "ci-cd",
-    "supply-chain"
+    "supply-chain",
+    "documentation",
+    "release-engineering"
   ],
   "platforms": [
     "containers"

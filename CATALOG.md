@@ -51,38 +51,49 @@ This catalog lists the standards available for composition into a project.
 
 ## Platforms
 
-- Containers
-- Kubernetes
-- Terraform and OpenTofu
-- Microsoft Azure
-- Amazon Web Services
-- Google Cloud Platform
+- [Containers](platforms/containers/)
+- [Kubernetes](platforms/kubernetes/)
+- [Terraform and OpenTofu](platforms/terraform/)
+- [Microsoft Azure](platforms/azure/)
+- [Amazon Web Services](platforms/aws/)
+- [Google Cloud Platform](platforms/gcp/)
 
 ## Frameworks
 
-- ASP.NET Core
-- React
-- Angular
-- Spring Boot
-- FastAPI
+- [ASP.NET Core](frameworks/aspnet-core/)
+- [React](frameworks/react/)
+- [Angular](frameworks/angular/)
+- [Spring Boot](frameworks/spring-boot/)
+- [FastAPI](frameworks/fastapi/)
 
 ## Project profiles
 
 Profiles supplement rather than replace governance, language, discipline, platform, and framework standards.
 
-- Web API
-- Web application
-- Worker service
-- Command-line tool
-- Desktop application
-- Mobile application
-- Serverless function
-- Data pipeline
-- Public library
-- Internal automation
-- Multi-tenant SaaS
-- Security tool
-- AI agent application
+- [Web API](profiles/WEB_API.md)
+- [Web application](profiles/WEB_APPLICATION.md)
+- [Worker service](profiles/WORKER_SERVICE.md)
+- [Command-line tool](profiles/CLI_TOOL.md)
+- [Desktop application](profiles/DESKTOP_APPLICATION.md)
+- [Mobile application](profiles/MOBILE_APPLICATION.md)
+- [Serverless function](profiles/SERVERLESS_FUNCTION.md)
+- [Data pipeline](profiles/DATA_PIPELINE.md)
+- [Public library](profiles/PUBLIC_LIBRARY.md)
+- [Internal automation](profiles/INTERNAL_AUTOMATION.md)
+- [Multi-tenant SaaS](profiles/MULTI_TENANT_SAAS.md)
+- [Security tool](profiles/SECURITY_TOOL.md)
+- [AI agent application](profiles/AI_AGENT_APPLICATION.md)
+
+## Composition examples
+
+The examples demonstrate how standards are selected, tailored, scoped, and supported by architecture, risk, testing, operations, and evidence documents.
+
+- [Minimal CLI composition](examples/minimal/)
+- [Web API composition](examples/web-api/)
+- [Worker service composition](examples/worker-service/)
+- [Full-stack web application composition](examples/full-stack/)
+
+See the [examples index](examples/README.md) for selection guidance, boundaries, evidence shapes, and adaptation instructions.
 
 ## Status terminology
 

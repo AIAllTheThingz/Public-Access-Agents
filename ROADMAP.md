@@ -6,7 +6,6 @@
 - Root agent instructions
 - Core governance baseline
 - Complete engineering discipline packages for:
-
   - Application Security
   - Architecture and System Design
   - Testing and Quality Engineering
@@ -37,12 +36,19 @@
   - Bash
   - SQL
   - Terraform and OpenTofu
+- Complete standards-composition examples for:
+  - Minimal CLI tool
+  - Web API
+  - Worker service
+  - Full-stack web application
+- Schema-shaped example completion, test, and artifact evidence
+- Root and nested `AGENTS.md` composition examples
+- Example architecture, risk, testing, operations, and tailoring documentation
 
 ## Next maturity work
 
 - Add automated package-level adoption tests
-- Add schema-backed completion reports to examples
-- Add cross-package composition examples
+- Add additional composition examples for data pipelines, internal automation, public libraries, security tools, and AI agent applications
 - Add framework-specific test templates
 - Add changelog and semantic versioning policy
 - Select an open-source license

@@ -8,10 +8,13 @@
     "architecture",
     "testing",
     "integration",
+    "application-security",
     "observability",
     "sre",
     "ci-cd",
-    "supply-chain"
+    "supply-chain",
+    "documentation",
+    "release-engineering"
   ],
   "platforms": [
     "containers",

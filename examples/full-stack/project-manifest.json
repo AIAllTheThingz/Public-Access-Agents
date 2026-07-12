@@ -14,9 +14,12 @@
     "accessibility",
     "privacy",
     "observability",
+    "sre",
+    "documentation",
     "ci-cd",
     "supply-chain",
-    "release-engineering"
+    "release-engineering",
+    "integration"
   ],
   "platforms": [
     "containers",

@@ -1,0 +1,9 @@
+{
+  "name": "example-worker-service-documentation",
+  "type": "standards-composition",
+  "digest": "sha256:fictitious-example-not-a-release-artifact",
+  "sourceCommit": "0000000000000000000000000000000000000000",
+  "buildRun": "not-built",
+  "provenance": "documentation-only example",
+  "signed": false
+}

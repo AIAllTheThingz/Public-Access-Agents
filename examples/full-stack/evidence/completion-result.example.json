@@ -1,0 +1,43 @@
+{
+  "status": "validated",
+  "summary": "Validated documentation-only standards composition for example-full-stack.",
+  "filesChanged": [
+    "AGENTS.md",
+    "README.md",
+    "MANIFEST.md",
+    "project-manifest.json",
+    "composition/STANDARDS_SELECTION.md",
+    "composition/TAILORING_DECISIONS.md",
+    "docs/ARCHITECTURE.md",
+    "docs/RISK_ASSESSMENT.md",
+    "docs/TEST_STRATEGY.md",
+    "docs/OPERATIONS.md",
+    "docs/COMPLETION_EVIDENCE.md"
+  ],
+  "risk": "high",
+  "securityImpact": "No production system or real data is affected.",
+  "compatibilityImpact": "Stable example paths and identifiers are introduced or maintained.",
+  "validation": [
+    {
+      "name": "Repository structure and identifier validation",
+      "result": "passed",
+      "evidence": "python tools/validate-standards/validate_repository.py"
+    },
+    {
+      "name": "Relative Markdown link validation",
+      "result": "passed",
+      "evidence": "python tools/check-links/check_links.py"
+    },
+    {
+      "name": "Application runtime validation",
+      "result": "not-run",
+      "evidence": "No application source is included."
+    }
+  ],
+  "limitations": [
+    "No production identity, database, registry, cluster, or observability backend is configured.",
+    "High risk requires accountable architecture, security, privacy, accessibility, operations, and release review.",
+    "The example is a standards composition, not a deployable application."
+  ],
+  "reviewer": "not-assigned"
+}
