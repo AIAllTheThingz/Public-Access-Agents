@@ -16,7 +16,21 @@
   - Amazon Web Services
   - Google Cloud Platform
 - Platform selection, shared-responsibility, change-lifecycle, and decision-matrix guidance
-- Project profiles
+- Complete project profile packages for:
+  - Web API
+  - Web application
+  - Worker service
+  - Command-line tool
+  - Desktop application
+  - Mobile application
+  - Serverless function
+  - Data pipeline
+  - Public library
+  - Internal automation
+  - Multi-tenant SaaS
+  - Security tool
+  - AI agent application
+- Profile selection, composition, risk-and-evidence, lifecycle, and decision-matrix guidance
 - Templates and JSON schemas
 - Repository validation tools
 - Complete standards-composition examples
