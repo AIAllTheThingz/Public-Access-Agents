@@ -17,14 +17,36 @@ jobs:
         with:
           ref: ${{ github.event.pull_request.head.ref }}
           repository: ${{ github.event.pull_request.head.repo.full_name }}
-          fetch-depth: 0
+          fetch-depth: 1
           show-progress: false
 
       - name: Build project profile packages
         shell: bash
         run: |
-          if [[ -f bootstrap/profiles/run_fixed.py ]]; then
-            python bootstrap/profiles/run_fixed.py
-          else
-            echo "Profile packages are already generated; nothing to do."
+          if [[ -f profile-repair-failure.log ]]; then
+            echo "A repair diagnostic already exists; skipping repeated build."
+            exit 0
           fi
+
+          if [[ ! -f bootstrap/profiles/run_fixed.py ]]; then
+            echo "Profile packages are already generated; nothing to do."
+            exit 0
+          fi
+
+          set +e
+          python bootstrap/profiles/run_fixed.py > profile-repair-failure.log 2>&1
+          status=$?
+          set -e
+
+          if [[ $status -eq 0 ]]; then
+            rm -f profile-repair-failure.log
+            exit 0
+          fi
+
+          cat profile-repair-failure.log
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add profile-repair-failure.log
+          git commit -m "Capture profile repair failure"
+          git push
+          exit $status
