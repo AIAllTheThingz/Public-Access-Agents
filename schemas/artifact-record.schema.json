@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Artifact Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "name",
+    "type",
+    "digest",
+    "sourceCommit"
+  ],
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "digest": {
+      "type": "string"
+    },
+    "sourceCommit": {
+      "type": "string"
+    },
+    "buildRun": {
+      "type": "string"
+    },
+    "provenance": {
+      "type": "string"
+    },
+    "signed": {
+      "type": "boolean"
+    }
+  }
+}

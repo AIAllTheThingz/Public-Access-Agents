@@ -1,0 +1,23 @@
+{
+  "name": "example-worker-service",
+  "profile": "WORKER_SERVICE",
+  "languages": [
+    "javascript-typescript"
+  ],
+  "disciplines": [
+    "architecture",
+    "testing",
+    "integration",
+    "observability",
+    "sre",
+    "ci-cd",
+    "supply-chain"
+  ],
+  "platforms": [
+    "containers",
+    "kubernetes"
+  ],
+  "frameworks": [],
+  "risk": "moderate",
+  "exceptions": []
+}

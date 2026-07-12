@@ -1,59 +1,52 @@
 # Public Access Agents
 
-Public, reusable `AGENTS.md` standards designed to reduce low-quality AI-generated code, make security part of implementation, and require evidence before an agent claims work is complete.
+Public, reusable `AGENTS.md` standards for secure, maintainable, testable, and evidence-based AI-assisted engineering.
 
-## Purpose
+## Why this repository exists
 
-AI coding agents are capable of producing useful software quickly, but speed without engineering discipline produces fragile code, hidden security assumptions, weak testing, and completion claims unsupported by evidence.
+AI coding agents can generate useful software quickly. They can also generate fragile code, unsafe defaults, vague documentation, weak tests, and confident completion claims unsupported by evidence. This repository provides composable standards that turn engineering discipline into explicit agent instructions.
 
-This repository provides composable standards that require agents to treat the following as implementation requirements rather than optional cleanup:
+These standards improve behavior. They do not guarantee security, correctness, compliance, or production readiness.
 
-- secure defaults
-- input validation
-- least privilege
-- dependency and supply-chain review
-- maintainable code
-- meaningful documentation
-- testing and static analysis
-- runtime compatibility
-- operational readiness
-- honest completion evidence
+## Start here
 
-These standards reduce slop. They do not guarantee that software is secure, correct, compliant, or production ready.
+1. Read the root [`AGENTS.md`](AGENTS.md).
+2. Select one or more standards from the [`CATALOG.md`](CATALOG.md).
+3. Select a project profile from [`profiles/`](profiles/README.md).
+4. Copy the relevant language package from [`languages/`](languages/README.md).
+5. Add scoped standards for applicable disciplines, platforms, and frameworks.
+6. Tailor the result without weakening security, validation, testing, or completion-evidence requirements.
+7. Validate the repository with the tools under [`tools/`](tools/README.md).
 
-## Available language standards
+## Repository structure
 
-| Standard | Baseline | Location |
-|---|---|---|
-| PowerShell | PowerShell 7.x | [`languages/powershell`](languages/powershell) |
-| .NET | .NET 10 LTS | [`languages/dotnet`](languages/dotnet) |
-| JavaScript and TypeScript | Node.js 24 LTS and TypeScript 6.0 | [`languages/javascript-typescript`](languages/javascript-typescript) |
+| Area | Purpose |
+|---|---|
+| [`governance/`](governance/README.md) | Organization-wide agent behavior, risk, exceptions, evidence, and review |
+| [`disciplines/`](disciplines/README.md) | Security, architecture, testing, APIs, data, accessibility, operations, and delivery |
+| [`languages/`](languages/README.md) | Copyable language-specific standards packages |
+| [`platforms/`](platforms/README.md) | Containers, Kubernetes, infrastructure as code, and cloud platforms |
+| [`frameworks/`](frameworks/README.md) | Framework-specific scoped agent instructions |
+| [`profiles/`](profiles/README.md) | Project-type overlays such as web API, worker service, and AI agent application |
+| [`templates/`](templates/README.md) | Root and nested agent files, completion evidence, threat models, ADRs, and exceptions |
+| [`schemas/`](schemas/README.md) | Machine-readable evidence and manifest schemas |
+| [`examples/`](examples/README.md) | Example compositions showing how standards fit together |
+| [`tools/`](tools/README.md) | Repository validation and composition utilities |
 
-Each language directory contains:
+## Current language packages
 
-- a root `AGENTS.md`
-- detailed supporting standards
-- implementation templates
-- configuration examples
-- a manifest
+- PowerShell 7.x
+- .NET 10 LTS
+- JavaScript and TypeScript
 
-## How to use a package
+Additional language packages are tracked as planned work in [`languages/README.md`](languages/README.md) and [`ROADMAP.md`](ROADMAP.md).
 
-1. Select the language package that matches the repository.
-2. Copy its `AGENTS.md`, `standards`, and applicable templates into the target repository.
-3. Review runtime versions, package versions, operating-system support, and organization-specific requirements.
-4. Remove templates that do not apply.
-5. Add project-specific requirements without weakening the inherited security or evidence requirements.
-6. Keep the standard versioned and review changes through pull requests.
+## Adoption model
 
-The language `AGENTS.md` files explicitly require coding agents to read their supporting standards.
-
-## Layered standards
-
-A mature repository can combine:
+Standards are layered rather than copied blindly:
 
 ```text
-Repository/
+project/
 ├── AGENTS.md
 ├── standards/
 ├── src/
@@ -64,35 +57,33 @@ Repository/
     └── AGENTS.md
 ```
 
-Use nested `AGENTS.md` files only when rules apply to a specific directory. Do not duplicate the entire root standard into every folder.
+The nearest scoped `AGENTS.md` may add stricter rules for its directory. It must not silently weaken applicable parent rules.
 
-## Repository direction
+## Rule format
 
-Planned cross-discipline standards include:
+Normative rules should include:
 
-- core agent governance
-- application security
-- testing and quality engineering
-- software supply chain
-- CI/CD and GitHub Actions
-- API and integration engineering
-- database and data engineering
-- infrastructure as code
-- containers and Kubernetes
-- observability and site reliability
-- accessibility and privacy
-- AI and agentic systems
+- a stable rule identifier
+- a concrete requirement
+- expected evidence
+- an exception path where applicable
 
-See [`ROADMAP.md`](ROADMAP.md).
+Example identifiers:
+
+- `GOV-WORK-001`
+- `SEC-INPUT-001`
+- `TEST-UNIT-001`
+- `OPS-OBS-001`
+- `ACC-WCAG-001`
 
 ## Contributing
 
-Contributions should improve enforceability, clarity, evidence requirements, security awareness, or portability. Read [`CONTRIBUTING.md`](CONTRIBUTING.md) before submitting changes.
+Read [`CONTRIBUTING.md`](CONTRIBUTING.md), [`SECURITY.md`](SECURITY.md), and the affected scoped `AGENTS.md` files before making changes.
 
-## Security reports
+## Sources
 
-Do not disclose exploitable security issues in a public issue. Follow [`SECURITY.md`](SECURITY.md).
+Public source frameworks and standards used as references are cataloged in [`SOURCES.md`](SOURCES.md).
 
 ## License
 
-A repository license has not yet been selected. Until a license is added, normal copyright restrictions apply even though the repository is public.
+A repository license has not yet been selected. Until one is added, normal copyright restrictions apply even though the repository is public.

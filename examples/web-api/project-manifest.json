@@ -1,0 +1,25 @@
+{
+  "name": "example-web-api",
+  "profile": "WEB_API",
+  "languages": [
+    "dotnet"
+  ],
+  "disciplines": [
+    "application-security",
+    "architecture",
+    "testing",
+    "api-engineering",
+    "privacy",
+    "observability",
+    "ci-cd",
+    "supply-chain"
+  ],
+  "platforms": [
+    "containers"
+  ],
+  "frameworks": [
+    "aspnet-core"
+  ],
+  "risk": "moderate",
+  "exceptions": []
+}

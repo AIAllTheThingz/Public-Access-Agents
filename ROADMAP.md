@@ -1,67 +1,39 @@
 # Roadmap
 
-## Current language packages
+## Completed foundation
 
-- PowerShell 7.x
-- .NET 10 LTS
-- JavaScript and TypeScript
+- Public repository and contribution model
+- Root agent instructions
+- PowerShell 7.x language package
+- .NET 10 LTS language package
+- JavaScript and TypeScript language package
+- Core governance baseline
+- Engineering discipline baseline
+- Platform and framework overlays
+- Project profiles
+- Templates and JSON schemas
+- Repository validation tools
 
-## Planned governance standards
+## Next language packages
 
-- organization contract
-- agent working method
-- risk classification
-- completion evidence
-- exception process
-- AI-generated code policy
-- secure-development policy
-- human-review policy
+1. Python
+2. Java
+3. Go
+4. Rust
+5. Bash
+6. SQL
+7. Terraform and OpenTofu language package
 
-## Planned engineering disciplines
+## Next maturity work
 
-1. Application security
-2. Testing and quality engineering
-3. Software supply chain
-4. CI/CD and GitHub Actions
-5. API and integration engineering
-6. Database engineering
-7. Data engineering
-8. Infrastructure as code
-9. Containers
-10. Kubernetes
-11. Observability
-12. Site reliability engineering
-13. Accessibility
-14. Privacy and data governance
-15. AI and agentic systems
-
-## Planned language packages
-
-- Python
-- Java
-- Go
-- Rust
-- Bash
-- Terraform and OpenTofu
-- SQL
-
-## Planned project profiles
-
-- web API
-- web application
-- worker service
-- command-line tool
-- public library
-- data pipeline
-- internal automation
-- multi-tenant SaaS
-- AI agent application
-
-## Planned tooling
-
-- standards manifest validator
-- Markdown link checker
-- rule identifier validator
-- package composer
-- project profile generator
-- completion-evidence schema validator
+- Add stable rule identifiers to every existing language package
+- Add automated Markdown reference validation
+- Add schema-backed completion reports to examples
+- Add threat-model examples
+- Add framework-specific test templates
+- Add changelog and semantic versioning policy
+- Select an open-source license
+- Add maintainers and code ownership
+- Publish versioned releases
+- Add compatibility matrices
+- Add migration guidance for standard updates

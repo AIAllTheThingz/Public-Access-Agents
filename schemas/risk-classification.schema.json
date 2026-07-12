@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Risk Classification",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "level",
+    "rationale",
+    "factors"
+  ],
+  "properties": {
+    "level": {
+      "enum": [
+        "low",
+        "moderate",
+        "high",
+        "critical"
+      ]
+    },
+    "rationale": {
+      "type": "string",
+      "minLength": 1
+    },
+    "factors": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "requiredReviewers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "rollbackRequired": {
+      "type": "boolean"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "example-minimal",
+  "profile": "CLI_TOOL",
+  "languages": [
+    "powershell"
+  ],
+  "disciplines": [
+    "testing",
+    "documentation",
+    "supply-chain"
+  ],
+  "platforms": [],
+  "frameworks": [],
+  "risk": "low",
+  "exceptions": []
+}

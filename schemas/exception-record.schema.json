@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Standards Exception",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "ruleId",
+    "owner",
+    "reason",
+    "risk",
+    "compensatingControls",
+    "expiresOn",
+    "status"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "ruleId": {
+      "type": "string"
+    },
+    "owner": {
+      "type": "string"
+    },
+    "reason": {
+      "type": "string"
+    },
+    "risk": {
+      "type": "string"
+    },
+    "compensatingControls": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "expiresOn": {
+      "type": "string",
+      "format": "date"
+    },
+    "status": {
+      "enum": [
+        "requested",
+        "approved",
+        "rejected",
+        "expired",
+        "closed"
+      ]
+    },
+    "approver": {
+      "type": "string"
+    }
+  }
+}

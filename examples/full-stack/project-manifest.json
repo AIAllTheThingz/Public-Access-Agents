@@ -1,0 +1,31 @@
+{
+  "name": "example-full-stack",
+  "profile": "WEB_APPLICATION",
+  "languages": [
+    "dotnet",
+    "javascript-typescript"
+  ],
+  "disciplines": [
+    "application-security",
+    "architecture",
+    "testing",
+    "api-engineering",
+    "database",
+    "accessibility",
+    "privacy",
+    "observability",
+    "ci-cd",
+    "supply-chain",
+    "release-engineering"
+  ],
+  "platforms": [
+    "containers",
+    "kubernetes"
+  ],
+  "frameworks": [
+    "aspnet-core",
+    "react"
+  ],
+  "risk": "high",
+  "exceptions": []
+}
