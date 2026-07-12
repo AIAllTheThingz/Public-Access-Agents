@@ -1,0 +1,29 @@
+name: Build project profile packages
+
+on:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out pull request branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          fetch-depth: 0
+
+      - name: Build project profile packages
+        shell: bash
+        run: |
+          if [[ -f bootstrap/profiles/build.py ]]; then
+            python bootstrap/profiles/build.py
+          else
+            echo "Profile packages are already generated; nothing to do."
+          fi
