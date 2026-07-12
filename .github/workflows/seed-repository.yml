@@ -1,0 +1,86 @@
+name: Expand standards packages
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "seed/**"
+
+permissions:
+  contents: write
+
+jobs:
+  expand:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Expand language packages
+        shell: python
+        run: |
+          from pathlib import Path
+          import base64
+          import shutil
+          import zipfile
+
+          packages = {
+              "powershell": Path("languages/powershell"),
+              "dotnet": Path("languages/dotnet"),
+              "javascript-typescript": Path("languages/javascript-typescript"),
+          }
+
+          for name, destination in packages.items():
+              encoded_path = Path("seed") / f"{name}.zip.b64"
+              archive_path = Path("seed") / f"{name}.zip"
+
+              archive_path.write_bytes(
+                  base64.b64decode(encoded_path.read_text(encoding="ascii"))
+              )
+
+              if destination.exists():
+                  shutil.rmtree(destination)
+
+              destination.mkdir(parents=True, exist_ok=True)
+
+              with zipfile.ZipFile(archive_path) as archive:
+                  archive.extractall(destination)
+
+          shutil.rmtree("seed")
+          Path(".github/workflows/seed-repository.yml").unlink()
+
+          temporary_files = [
+              "ACCESS_TEST.md",
+              "TREE_TEST.md",
+              "TREE_INLINE_TEST.md",
+              "TREE_CAPABILITY_TEST.md",
+              "CONNECTOR_WRITE_VERIFIED.md",
+              "FINAL_CONNECTOR_TEST.md",
+              "PLEASE_IGNORE_TEMPORARY_TEST.md",
+              "TEMPORARY_TEST_NOTICE.md",
+              "TEMP_WRITE_CHECK.md",
+              "TEMP_ACCESS_CONFIRMED.md",
+              "TEMP_FINAL_WRITE_CHECK.md",
+          ]
+
+          for temporary_file in temporary_files:
+              Path(temporary_file).unlink(missing_ok=True)
+
+      - name: Commit expanded standards
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+
+          if git diff --cached --quiet; then
+            echo "No repository changes were produced."
+            exit 0
+          fi
+
+          git commit -m "Expand language standards packages"
+          git push
