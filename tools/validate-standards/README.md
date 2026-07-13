@@ -1,7 +1,7 @@
 ---
 id: TOOL-PKG-VALIDATE-STANDARDS-001
 title: Validate Standards Tool
-version: 1.0.0
+version: 1.1.0
 status: baseline
 ---
 
@@ -9,7 +9,7 @@ status: baseline
 
 ## Purpose
 
-Validate repository root files, JSON parsing, unique document IDs, AGENTS.md depth, and final-branch hygiene.
+Validate repository root files, repository licensing, JSON parsing, unique document IDs, AGENTS.md depth, and final-branch hygiene.
 
 Status: **baseline**
 
@@ -45,10 +45,28 @@ python tools/validate-standards/validate_repository.py --help
 ## Checks and behavior
 
 - required root files
+- Apache-2.0 license text markers
+- required `NOTICE` copyright and license statements
+- `LICENSING.md` SPDX identifier, copyright, and stable links
+- stale “license not selected” wording
 - JSON syntax
 - duplicate front-matter IDs
 - minimum AGENTS.md depth
 - temporary bootstrap and diagnostic artifacts
+- committed Python bytecode and cache artifacts
+
+## Licensing checks
+
+The repository requires:
+
+- `LICENSE`
+- `NOTICE`
+- `LICENSING.md`
+- SPDX identifier `Apache-2.0`
+- copyright statement `Copyright 2026 Metello Zuccolini`
+- Apache License declarations in `README.md` and `CONTRIBUTING.md`
+
+The validator confirms required markers and repository declarations. It does not provide legal advice or determine whether every third-party dependency or referenced work is license-compatible.
 
 ## Examples
 
@@ -91,6 +109,16 @@ Do not catch and discard failures merely to keep CI green. Green output created 
 
 Central tests live under [`../tests/`](../tests/).
 
+Focused tests cover:
+
+- minimal repository success
+- bootstrap rejection
+- Python cache rejection
+- required license files
+- stale unlicensed wording
+- NOTICE contents
+- Apache-2.0 license markers
+
 Run focused tests:
 
 ```bash
@@ -120,7 +148,8 @@ Breaking changes include:
 
 - does not require front matter on every Markdown file
 - does not validate semantic correctness
-- does not replace schema, template, or link validation
+- does not determine third-party license compatibility
+- does not replace schema, template, tool, or link validation
 
 ## Review checklist
 
@@ -128,6 +157,7 @@ Reviewers should confirm:
 
 - documented behavior matches code
 - positive and negative tests exist
+- license checks reflect repository policy without modifying Apache-2.0 terms
 - output and exit codes are stable
 - filesystem and subprocess handling are safe
 - dependency changes are pinned and justified
@@ -136,8 +166,8 @@ Reviewers should confirm:
 
 ## Maintenance
 
-Update the script, README, manifest, examples, tests, catalog, and CI together when behavior changes.
+Update the script, README, manifest, examples, tests, catalog, licensing policy, and CI together when behavior changes.
 
 ## Completion boundary
 
-A successful execution establishes only the outcome of this tool's implemented checks or generation plan against the identified input. It does not grant authority, certify compliance, or prove production readiness.
+A successful execution establishes only the outcome of this tool's implemented checks against the identified input. It does not grant authority, provide legal advice, certify compliance, or prove production readiness.

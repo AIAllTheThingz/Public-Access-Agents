@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate repository structure, JSON, identifiers, and final-branch hygiene."""
+"""Validate repository structure, licensing, JSON, identifiers, and final-branch hygiene."""
 
 from __future__ import annotations
 
@@ -16,14 +16,17 @@ sys.path.insert(0, str(TOOLS_ROOT / "lib"))
 from standards_tools import Finding, ToolResult, add_common_arguments, execute_tool  # noqa: E402
 
 TOOL = "validate-standards"
-VERSION = "1.0.0"
+VERSION = "1.1.0"
 DEFAULT_ROOT = Path(__file__).resolve().parents[2]
 REQUIRED_ROOT = {
     "AGENTS.md",
     "README.md",
     "CATALOG.md",
     "CONTRIBUTING.md",
+    "LICENSE",
+    "LICENSING.md",
     "MANIFEST.md",
+    "NOTICE",
     "ROADMAP.md",
     "SECURITY.md",
     "SOURCES.md",
@@ -33,10 +36,102 @@ TEMPORARY_NAMES = {
     "profile-build-failure.log",
     "profile-repair-failure.log",
 }
+APACHE_LICENSE_MARKERS = (
+    "Apache License\nVersion 2.0, January 2004",
+    "TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION",
+    "END OF TERMS AND CONDITIONS",
+    "APPENDIX: How to apply the Apache License to your work.",
+)
+EXPECTED_COPYRIGHT = "Copyright 2026 Metello Zuccolini"
+SPDX_IDENTIFIER = "Apache-2.0"
+STALE_LICENSE_TEXT = "A repository license has not yet been selected"
 
 
 def relative(path: Path, root: Path) -> str:
     return path.relative_to(root).as_posix()
+
+
+def read_text(path: Path, findings: list[Finding], code: str) -> str | None:
+    try:
+        return path.read_text(encoding="utf-8")
+    except UnicodeDecodeError as exc:
+        findings.append(Finding(code, str(exc), path=path.name))
+        return None
+
+
+def validate_licensing(root: Path, findings: list[Finding]) -> None:
+    license_path = root / "LICENSE"
+    if license_path.is_file():
+        license_text = read_text(license_path, findings, "LICENSE_ENCODING")
+        if license_text is not None:
+            for marker in APACHE_LICENSE_MARKERS:
+                if marker not in license_text:
+                    findings.append(Finding(
+                        "LICENSE_INVALID",
+                        f"Apache-2.0 license text is missing required marker: {marker}",
+                        path="LICENSE",
+                    ))
+
+    notice_path = root / "NOTICE"
+    if notice_path.is_file():
+        notice_text = read_text(notice_path, findings, "NOTICE_ENCODING")
+        if notice_text is not None:
+            if EXPECTED_COPYRIGHT not in notice_text:
+                findings.append(Finding(
+                    "NOTICE_INVALID",
+                    f"NOTICE must contain the expected copyright statement: {EXPECTED_COPYRIGHT}",
+                    path="NOTICE",
+                ))
+            if "Apache License, Version 2.0" not in notice_text:
+                findings.append(Finding(
+                    "NOTICE_INVALID",
+                    "NOTICE must identify the Apache License, Version 2.0.",
+                    path="NOTICE",
+                ))
+
+    licensing_path = root / "LICENSING.md"
+    if licensing_path.is_file():
+        licensing_text = read_text(licensing_path, findings, "LICENSING_ENCODING")
+        if licensing_text is not None:
+            if SPDX_IDENTIFIER not in licensing_text:
+                findings.append(Finding(
+                    "LICENSING_POLICY_INVALID",
+                    f"LICENSING.md must contain the SPDX identifier {SPDX_IDENTIFIER}.",
+                    path="LICENSING.md",
+                ))
+            if EXPECTED_COPYRIGHT not in licensing_text:
+                findings.append(Finding(
+                    "LICENSING_POLICY_INVALID",
+                    f"LICENSING.md must contain the expected copyright statement: {EXPECTED_COPYRIGHT}",
+                    path="LICENSING.md",
+                ))
+            for required_link in ("[`LICENSE`](LICENSE)", "[`NOTICE`](NOTICE)"):
+                if required_link not in licensing_text:
+                    findings.append(Finding(
+                        "LICENSING_POLICY_INVALID",
+                        f"LICENSING.md must link to {required_link}.",
+                        path="LICENSING.md",
+                    ))
+
+    for name in ("README.md", "CONTRIBUTING.md"):
+        path = root / name
+        if not path.is_file():
+            continue
+        text = read_text(path, findings, "LICENSE_DECLARATION_ENCODING")
+        if text is None:
+            continue
+        if STALE_LICENSE_TEXT in text:
+            findings.append(Finding(
+                "LICENSE_SELECTION_STALE",
+                "Repository documentation still states that no license has been selected.",
+                path=name,
+            ))
+        if SPDX_IDENTIFIER not in text:
+            findings.append(Finding(
+                "LICENSE_DECLARATION_MISSING",
+                f"Repository documentation must identify the license with SPDX identifier {SPDX_IDENTIFIER}.",
+                path=name,
+            ))
 
 
 def run(args: argparse.Namespace) -> ToolResult:
@@ -48,6 +143,8 @@ def run(args: argparse.Namespace) -> ToolResult:
     for name in sorted(REQUIRED_ROOT):
         if not (root / name).is_file():
             findings.append(Finding("ROOT_FILE_MISSING", f"Missing required root file: {name}", path=name))
+
+    validate_licensing(root, findings)
 
     bootstrap = root / "bootstrap"
     if bootstrap.exists():
@@ -135,6 +232,7 @@ def run(args: argparse.Namespace) -> ToolResult:
 
     summary = {
         "rootFilesRequired": len(REQUIRED_ROOT),
+        "licensingFilesRequired": 3,
         "jsonFiles": json_count,
         "markdownFiles": markdown_count,
         "identifiedDocuments": len(ids),

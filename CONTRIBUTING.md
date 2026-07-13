@@ -26,6 +26,7 @@ A useful change should do at least one of the following:
 6. Update examples and templates.
 7. Validate Markdown links and structured files.
 8. Confirm no secrets or production-specific identifiers are present.
+9. Confirm all third-party material is compatible with the repository license and carries required attribution.
 
 ## Pull request description
 
@@ -58,6 +59,10 @@ Use authoritative public sources where possible.
 
 Do not copy large sections of third-party material. Summarize requirements and provide attribution.
 
-## License note
+## Contribution license
 
-A repository license has not yet been selected. Contributions should not include third-party content that requires incompatible licensing.
+This repository is licensed under the Apache License, Version 2.0 (`Apache-2.0`). See [`LICENSE`](LICENSE) and [`LICENSING.md`](LICENSING.md).
+
+Unless explicitly stated otherwise, any contribution intentionally submitted for inclusion in this repository is provided under Apache-2.0, consistent with Section 5 of the license and without additional terms or conditions.
+
+A submission that is not intended as a contribution must be conspicuously marked `Not a Contribution`. Do not submit third-party material whose license is incompatible with Apache-2.0 or whose required notices and attribution cannot be preserved.
