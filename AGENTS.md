@@ -10,10 +10,11 @@ Before modifying this repository:
 
 1. Read `README.md`, `CONTRIBUTING.md`, `SECURITY.md`, `MAINTAINERS.md`, and `CATALOG.md`.
 2. Read the applicable governance files.
-3. Read every scoped `AGENTS.md` between the repository root and the target file.
-4. Inspect referenced standards, schemas, examples, and templates.
-5. Classify the change as editorial, normative, compatibility-related, security-related, or breaking.
-6. Identify the applicable CODEOWNER, area owner, and specialist-review requirements.
+3. Read `RELEASE_POLICY.md` and `MATURITY_POLICY.md` when a change affects compatibility, versioning, maturity, deprecation, tags, release notes, or release automation.
+4. Read every scoped `AGENTS.md` between the repository root and the target file.
+5. Inspect referenced standards, schemas, examples, templates, release notes, and migration notes.
+6. Classify the change as editorial, normative, compatibility-related, security-related, breaking, or release-related.
+7. Identify the applicable CODEOWNER, area owner, specialist-review, and release-review requirements.
 
 ## Mandatory working method
 
@@ -21,8 +22,9 @@ Before modifying this repository:
 - Inspect existing behavior before proposing replacements.
 - Preserve stable rule identifiers.
 - Keep normative requirements testable.
-- Update cross-references, manifests, examples, schemas, and templates affected by the change.
-- Validate JSON, YAML, Markdown links, repository structure, ownership files, and executable tooling.
+- Update cross-references, manifests, examples, schemas, templates, changelog entries, and migration notes affected by the change.
+- Classify repository version impact according to `RELEASE_POLICY.md`.
+- Validate JSON, YAML, Markdown links, repository structure, ownership files, release contracts, and executable tooling.
 - Report what was validated and what was not.
 - Do not claim completion without evidence.
 - Do not treat CODEOWNERS routing as proof of authorization or independent review.
@@ -42,6 +44,9 @@ Before modifying this repository:
 - Do not bypass repository validation to make checks pass.
 - Do not merge a change that lacks the review class required by `MAINTAINERS.md`.
 - Do not represent self-review as independent specialist review.
+- Do not create a release tag from an unmerged branch or unreviewed commit.
+- Do not move or recreate a published release tag.
+- Do not promote a component to `stable` without the evidence and review required by `MATURITY_POLICY.md`.
 
 ## Required governance
 
@@ -57,6 +62,8 @@ All changes are subject to:
 - `governance/HUMAN_REVIEW_POLICY.md`
 - `MAINTAINERS.md`
 - `.github/CODEOWNERS`
+- `RELEASE_POLICY.md`
+- `MATURITY_POLICY.md`
 
 ## Completion evidence
 
@@ -64,6 +71,7 @@ The final summary must include:
 
 - files created, modified, or deleted
 - normative behavior changed
+- repository version and release impact
 - security impact
 - compatibility impact
 - validation performed
