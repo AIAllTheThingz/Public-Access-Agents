@@ -10,6 +10,10 @@
 - `SECURITY.md`
 - `MAINTAINERS.md`
 - `.github/CODEOWNERS`
+- `VERSION`
+- `CHANGELOG.md`
+- `RELEASE_POLICY.md`
+- `MATURITY_POLICY.md`
 - `ROADMAP.md`
 - `LICENSE`
 - `NOTICE`
@@ -27,7 +31,7 @@
 
 - current maintainer roster in `MAINTAINERS.md`
 - review routing in `.github/CODEOWNERS`
-- area ownership for governance, security, schemas, tools, standards packages, licensing, and repository documentation
+- area ownership for governance, security, schemas, tools, standards packages, licensing, releases, and repository documentation
 - editorial, normative, specialist, and legal review classes
 - merge and author self-merge authority
 - emergency-change and seven-day post-merge review requirements
@@ -35,6 +39,24 @@
 - appointment, reactivation, removal, and succession rules
 - branch-protection and review-enforcement expectations
 - explicit disclosure of the current single-maintainer limitation
+
+## Repository versioning and releases
+
+- canonical repository version in `VERSION`
+- repository changelog in `CHANGELOG.md`
+- Semantic Versioning and compatibility rules in `RELEASE_POLICY.md`
+- maturity states and promotion reviews in `MATURITY_POLICY.md`
+- versioned release notes under `releases/`
+- versioned migration notes under `releases/migrations/`
+- maturity review records and template under `maturity-reviews/`
+- release validation and deterministic artifact generation under `tools/release/`
+- tag-driven GitHub Release publication in `.github/workflows/release.yml`
+- ZIP and TAR.GZ source archives
+- SHA-256 checksum file
+- machine-readable release manifest
+- explicit `1.0.0` compatibility gate
+
+Current repository version: `0.9.0`.
 
 ## Complete governance system
 
@@ -172,18 +194,21 @@ Each complete example includes root and nested agent instructions, a project man
 - Draft 2020-12 schema and instance validation
 - reusable template package validation
 - tool package and executable-entry validation
+- repository release validation
+- deterministic release artifact generation
 - deterministic project-manifest generation
 - traceable agent-standards composition
 - unified validation aggregation
 - shared result library and JSON result contract
 - central unit tests and fixtures
-- tool selection, development, testing, security, troubleshooting, and compatibility guidance
+- tool selection, development, testing, security, troubleshooting, release, and compatibility guidance
 
-The stable validator entry paths remain present. All executable tools support text and JSON results, common exit-code semantics, and offline operation. Writing tools support dry-run and refuse replacement without explicit `--force`.
+The stable validator entry paths remain present. Shared executable tools support text and JSON results, common exit-code semantics, and offline operation. Writing tools preserve safe overwrite behavior. Release artifacts are checksum-backed and tied to the source commit.
 
 ## Validation
 
 ```bash
 python -m pip install -r tools/validate-schemas/requirements.txt
 python tools/validate-all/run_all.py --include-tests
+python tools/release/validate_release.py
 ```
