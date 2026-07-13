@@ -1,7 +1,7 @@
 ---
 id: TOOL-MANIFEST-001
 title: Toolchain Manifest
-version: 1.0.0
+version: 1.1.0
 status: baseline
 ---
 
@@ -30,6 +30,7 @@ status: baseline
 - `generate-manifest`
 - `compose-agents`
 - `validate-all`
+- `release`
 
 Each package requires:
 
@@ -38,9 +39,11 @@ Each package requires:
 - package manifest
 - examples README
 - central unit-test coverage
-- text and JSON output
+- text and JSON output where applicable
 - documented exit codes
 - documented limitations
+
+The release package additionally contains a deterministic artifact builder and tag-driven publication workflow.
 
 ## Shared support
 
@@ -51,11 +54,13 @@ Each package requires:
 ## Acceptance checks
 
 - every Python entry point compiles
-- every entry point supports `--help`
+- every validator entry point supports `--help`
 - all package READMEs meet minimum depth
 - no tool remains documentation-only or marked planned
 - unit tests pass
-- repository, link, schema, template, and tool validators pass
-- generation tools support dry-run and overwrite protection
+- repository, link, schema, template, tool, and release validators pass
+- generation tools support dry-run or overwrite protection as appropriate
+- release tooling validates tags and builds deterministic archives
+- release checksums and manifests are produced
 - JSON reports conform to the tool-result contract
 - no bootstrap or temporary diagnostic artifact remains
