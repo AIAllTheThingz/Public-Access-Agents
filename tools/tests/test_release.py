@@ -59,9 +59,18 @@ def make_release_root(root: Path, version: str = "0.9.0") -> None:
     )
     (root / ".github" / "workflows" / "release.yml").write_text(
         "tags:\n  - 'v*'\n"
-        "run: python tools/release/build_release.py && gh release create tag dist/SHA256SUMS.txt\n",
+        "run: python tools/release/build_release.py && gh release create tag "
+        "dist/SHA256SUMS.txt dist/RELEASE_NOTES.md\n",
         encoding="utf-8",
     )
+
+
+def init_fixture_repository(root: Path) -> None:
+    subprocess.run(["git", "init"], cwd=root, check=True, capture_output=True)
+    subprocess.run(["git", "config", "user.name", "Test"], cwd=root, check=True)
+    subprocess.run(["git", "config", "user.email", "test@example.invalid"], cwd=root, check=True)
+    subprocess.run(["git", "add", "."], cwd=root, check=True)
+    subprocess.run(["git", "commit", "-m", "fixture"], cwd=root, check=True, capture_output=True)
 
 
 def sha256(path: Path) -> str:
@@ -122,16 +131,38 @@ class ReleaseToolTests(unittest.TestCase):
             codes = {item["code"] for item in json_result(completed)["findings"]}
             self.assertIn("RELEASE_POLICY_SECTION_MISSING", codes)
 
+    def test_dirty_tracked_tree_is_rejected(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            make_release_root(root)
+            (root / "README.md").write_text("# Example\n", encoding="utf-8")
+            init_fixture_repository(root)
+            (root / "README.md").write_text("# Modified after commit\n", encoding="utf-8")
+            completed = subprocess.run(
+                [
+                    sys.executable,
+                    str(REPO_ROOT / "tools/release/build_release.py"),
+                    "--root",
+                    str(root),
+                    "--tag",
+                    "v0.9.0",
+                    "--output-dir",
+                    "dist",
+                ],
+                cwd=REPO_ROOT,
+                text=True,
+                capture_output=True,
+                check=False,
+            )
+            self.assertEqual(completed.returncode, 2)
+            self.assertIn("Tracked working-tree changes are present", completed.stderr)
+
     def test_release_archives_are_reproducible(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)
             make_release_root(root)
             (root / "README.md").write_text("# Example\n", encoding="utf-8")
-            subprocess.run(["git", "init"], cwd=root, check=True, capture_output=True)
-            subprocess.run(["git", "config", "user.name", "Test"], cwd=root, check=True)
-            subprocess.run(["git", "config", "user.email", "test@example.invalid"], cwd=root, check=True)
-            subprocess.run(["git", "add", "."], cwd=root, check=True)
-            subprocess.run(["git", "commit", "-m", "fixture"], cwd=root, check=True, capture_output=True)
+            init_fixture_repository(root)
 
             outputs = []
             for name in ("dist-one", "dist-two"):
@@ -160,6 +191,12 @@ class ReleaseToolTests(unittest.TestCase):
                 "SHA256SUMS.txt",
             ):
                 self.assertEqual(sha256(outputs[0] / artifact), sha256(outputs[1] / artifact))
+
+            manifest = json.loads((outputs[0] / "release-manifest.json").read_text(encoding="utf-8"))
+            self.assertEqual(manifest["sourceCommit"], subprocess.run(
+                ["git", "rev-parse", "HEAD"], cwd=root, text=True, capture_output=True, check=True
+            ).stdout.strip())
+            self.assertEqual(manifest["builderVersion"], "1.0.0")
 
 
 if __name__ == "__main__":
