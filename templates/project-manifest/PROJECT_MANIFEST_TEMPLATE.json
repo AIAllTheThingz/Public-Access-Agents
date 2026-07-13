@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "1.0.0",
+  "name": "{{PROJECT_NAME}}",
+  "profile": "{{PRIMARY_PROFILE}}",
+  "secondaryProfiles": [
+    "{{SECONDARY_PROFILE}}"
+  ],
+  "languages": [
+    "{{LANGUAGE_PACKAGE}}"
+  ],
+  "disciplines": [
+    "{{DISCIPLINE_PACKAGE}}"
+  ],
+  "platforms": [
+    "{{PLATFORM_PACKAGE}}"
+  ],
+  "frameworks": [
+    "{{FRAMEWORK_PACKAGE}}"
+  ],
+  "risk": "{{RISK_LEVEL}}",
+  "exceptions": [
+    "{{EXCEPTION_ID}}"
+  ],
+  "owners": [
+    "{{OWNER_ROLE}}"
+  ],
+  "evidenceLocation": "{{EVIDENCE_LOCATION}}"
+}

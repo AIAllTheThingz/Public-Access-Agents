@@ -112,6 +112,19 @@ The schema system defines versioned Draft 2020-12 contracts for project manifest
 
 Long-lived consumers should pin `schemas/v1/` contracts. Rolling top-level paths remain convenience entry points.
 
+## Reusable templates
+
+The template library provides governed, validated starting structures for agent instructions, architecture decisions, risk assessments, threat models, exceptions, completion evidence, machine-readable records, authorization, human review, production readiness, releases, recovery, and operations.
+
+- [Template library index](templates/README.md)
+- [Template catalog](templates/TEMPLATE_CATALOG.md)
+- [Selection guide](templates/TEMPLATE_SELECTION_GUIDE.md)
+- [Placeholder conventions](templates/PLACEHOLDER_CONVENTIONS.md)
+- [Customization policy](templates/CUSTOMIZATION_POLICY.md)
+- [Validation guide](templates/VALIDATION_GUIDE.md)
+
+The seven original template paths remain stable. Every template package now includes detailed adoption guidance, a review checklist, and a completed fictitious example.
+
 ## Composition examples
 
 The examples demonstrate how standards are selected, tailored, scoped, and supported by architecture, risk, testing, operations, and evidence documents.

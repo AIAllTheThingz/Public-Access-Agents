@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "1.0.0",
+  "testType": "{{TEST_TYPE}}",
+  "command": "{{COMMAND}}",
+  "result": "{{RESULT}}",
+  "environment": "{{ENVIRONMENT}}",
+  "startedAt": "{{STARTED_AT}}",
+  "completedAt": "{{COMPLETED_AT}}",
+  "evidence": "{{EVIDENCE}}",
+  "limitations": [
+    "{{LIMITATION}}"
+  ],
+  "artifact": "{{ARTIFACT}}",
+  "exitCode": "{{EXIT_CODE}}"
+}

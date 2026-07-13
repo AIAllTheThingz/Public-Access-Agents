@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "1.0.0",
+  "name": "example-report-service",
+  "profile": "INTERNAL_AUTOMATION",
+  "secondaryProfiles": [],
+  "languages": [
+    "python"
+  ],
+  "disciplines": [
+    "application-security",
+    "testing",
+    "documentation",
+    "observability"
+  ],
+  "platforms": [
+    "containers"
+  ],
+  "frameworks": [],
+  "risk": "moderate",
+  "exceptions": [],
+  "owners": [
+    "application-owner"
+  ],
+  "evidenceLocation": "docs/evidence/"
+}

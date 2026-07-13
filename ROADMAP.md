@@ -38,7 +38,14 @@
   - extension and migration guidance
   - positive and negative contract examples
   - executable schema and repository-instance validation
-- Templates
+- Complete template library:
+  - root and nested agent instructions
+  - architecture, risk, threat, exception, and completion records
+  - project manifest, test evidence, and artifact record templates
+  - authorization, human review, and production-readiness records
+  - release, rollback, recovery, and operational runbook templates
+  - selection, authoring, customization, placeholder, lifecycle, validation, and completion guidance
+  - completed examples and executable template validation
 - Repository validation tools
 - Complete standards-composition examples
 - Schema-shaped completion, test, artifact, risk, and exception evidence

@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "1.0.0",
+  "name": "{{ARTIFACT_NAME}}",
+  "type": "{{ARTIFACT_TYPE}}",
+  "digest": "{{DIGEST}}",
+  "sourceCommit": "{{SOURCE_COMMIT}}",
+  "buildRun": "{{BUILD_RUN}}",
+  "provenance": "{{PROVENANCE}}",
+  "signed": "{{SIGNED}}",
+  "signatureEvidence": "{{SIGNATURE_EVIDENCE}}",
+  "createdAt": "{{CREATED_AT}}",
+  "limitations": [
+    "{{LIMITATION}}"
+  ]
+}
