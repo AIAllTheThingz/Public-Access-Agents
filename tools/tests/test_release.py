@@ -1,0 +1,166 @@
+from __future__ import annotations
+
+import hashlib
+import json
+import subprocess
+import sys
+import tempfile
+import unittest
+from pathlib import Path
+
+from helpers import json_result, run_tool
+
+REPO_ROOT = Path(__file__).resolve().parents[2]
+
+
+def make_release_root(root: Path, version: str = "0.9.0") -> None:
+    (root / "releases" / "migrations").mkdir(parents=True)
+    (root / ".github" / "workflows").mkdir(parents=True)
+    (root / "VERSION").write_text(version + "\n", encoding="utf-8")
+    (root / "CHANGELOG.md").write_text(
+        f"# Changelog\n\n## [Unreleased]\n\n## [{version}] - 2030-01-01\n",
+        encoding="utf-8",
+    )
+    (root / "RELEASE_POLICY.md").write_text(
+        "# Release Policy\n\n"
+        "## Repository semantic versioning\n"
+        "## Pre-1.0 policy\n"
+        "## Deprecation windows\n90 calendar days\n180 calendar days\n"
+        "## Release process\n"
+        "## Git tags\nvMAJOR.MINOR.PATCH\n"
+        "## GitHub releases\n"
+        "## Release artifacts and checksums\n"
+        "## 1.0.0 compatibility gate\n",
+        encoding="utf-8",
+    )
+    (root / "MATURITY_POLICY.md").write_text(
+        "# Maturity\n\n"
+        "## Maturity states\n"
+        "## Promotion requirements\n"
+        "## Baseline to stable review\n"
+        "## Demotion and deprecation\n"
+        "## Review record\n",
+        encoding="utf-8",
+    )
+    (root / "releases" / f"{version}.md").write_text(
+        f"# Public-Access-Agents {version}\n\n"
+        "## Breaking changes\nNone.\n"
+        "## Normative changes\nNone.\n"
+        "## Editorial changes\nNone.\n"
+        "## Deprecations\nNone.\n"
+        "## Migration notes\nSee migration file.\n"
+        "## Security\nNone.\n"
+        "## Known limitations\nNone.\n",
+        encoding="utf-8",
+    )
+    (root / "releases" / "migrations" / f"{version}.md").write_text(
+        "# Migration\n\n## Required actions\nNone.\n",
+        encoding="utf-8",
+    )
+    (root / ".github" / "workflows" / "release.yml").write_text(
+        "tags:\n  - 'v*'\n"
+        "run: python tools/release/build_release.py && gh release create tag dist/SHA256SUMS.txt\n",
+        encoding="utf-8",
+    )
+
+
+def sha256(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+class ReleaseToolTests(unittest.TestCase):
+    def test_valid_release_program_passes(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            make_release_root(root)
+            completed = run_tool("tools/release/validate_release.py", "--format", "json", root=root)
+            self.assertEqual(completed.returncode, 0, completed.stdout + completed.stderr)
+            self.assertEqual(json_result(completed)["status"], "passed")
+
+    def test_invalid_semver_fails(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            make_release_root(root, "version-nine")
+            completed = run_tool("tools/release/validate_release.py", "--format", "json", root=root)
+            self.assertEqual(completed.returncode, 1)
+            codes = {item["code"] for item in json_result(completed)["findings"]}
+            self.assertIn("RELEASE_VERSION_INVALID", codes)
+
+    def test_missing_release_notes_fails(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            make_release_root(root)
+            (root / "releases" / "0.9.0.md").unlink()
+            completed = run_tool("tools/release/validate_release.py", "--format", "json", root=root)
+            self.assertEqual(completed.returncode, 1)
+            codes = {item["code"] for item in json_result(completed)["findings"]}
+            self.assertIn("RELEASE_NOTES_MISSING", codes)
+
+    def test_tag_mismatch_fails(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            make_release_root(root)
+            completed = run_tool(
+                "tools/release/validate_release.py",
+                "--format",
+                "json",
+                "--tag",
+                "v1.0.0",
+                root=root,
+            )
+            self.assertEqual(completed.returncode, 1)
+            codes = {item["code"] for item in json_result(completed)["findings"]}
+            self.assertIn("RELEASE_TAG_MISMATCH", codes)
+
+    def test_incomplete_release_policy_fails(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            make_release_root(root)
+            (root / "RELEASE_POLICY.md").write_text("# Release Policy\n", encoding="utf-8")
+            completed = run_tool("tools/release/validate_release.py", "--format", "json", root=root)
+            self.assertEqual(completed.returncode, 1)
+            codes = {item["code"] for item in json_result(completed)["findings"]}
+            self.assertIn("RELEASE_POLICY_SECTION_MISSING", codes)
+
+    def test_release_archives_are_reproducible(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            make_release_root(root)
+            (root / "README.md").write_text("# Example\n", encoding="utf-8")
+            subprocess.run(["git", "init"], cwd=root, check=True, capture_output=True)
+            subprocess.run(["git", "config", "user.name", "Test"], cwd=root, check=True)
+            subprocess.run(["git", "config", "user.email", "test@example.invalid"], cwd=root, check=True)
+            subprocess.run(["git", "add", "."], cwd=root, check=True)
+            subprocess.run(["git", "commit", "-m", "fixture"], cwd=root, check=True, capture_output=True)
+
+            outputs = []
+            for name in ("dist-one", "dist-two"):
+                completed = subprocess.run(
+                    [
+                        sys.executable,
+                        str(REPO_ROOT / "tools/release/build_release.py"),
+                        "--root",
+                        str(root),
+                        "--tag",
+                        "v0.9.0",
+                        "--output-dir",
+                        name,
+                    ],
+                    cwd=REPO_ROOT,
+                    text=True,
+                    capture_output=True,
+                    check=False,
+                )
+                self.assertEqual(completed.returncode, 0, completed.stdout + completed.stderr)
+                outputs.append(root / name)
+
+            for artifact in (
+                "Public-Access-Agents-0.9.0.zip",
+                "Public-Access-Agents-0.9.0.tar.gz",
+                "SHA256SUMS.txt",
+            ):
+                self.assertEqual(sha256(outputs[0] / artifact), sha256(outputs[1] / artifact))
+
+
+if __name__ == "__main__":
+    unittest.main()
