@@ -21,11 +21,64 @@ def json_result(completed):
 
 
 def make_required_root(root: Path) -> None:
+    maintainers = """# Maintainers and Repository Ownership
+
+## Current maintainer roster
+
+Metello Zuccolini @AIAllTheThingz
+
+### Current coverage limitation
+
+The repository currently has one active maintainer.
+
+## Area ownership
+
+### Independent specialist review
+
+The specialist reviewer must not be the author.
+
+## Merge authority
+
+## Author self-merge
+
+## Emergency changes
+
+## Inactivity
+
+## Appointment and succession
+
+## Branch protection and enforcement
+
+## Review cadence
+"""
+    codeowners = """* @AIAllTheThingz
+/MAINTAINERS.md @AIAllTheThingz
+/.github/CODEOWNERS @AIAllTheThingz
+/governance/ @AIAllTheThingz
+/SECURITY.md @AIAllTheThingz
+/schemas/ @AIAllTheThingz
+/tools/ @AIAllTheThingz
+/.github/workflows/ @AIAllTheThingz
+"""
     files = {
-        "AGENTS.md": "# Test Agents\n" + ("x" * 400),
-        "README.md": "# Test\n\nLicense: Apache-2.0\n",
+        "AGENTS.md": (
+            "# Test Agents\n"
+            "Read `MAINTAINERS.md` and `.github/CODEOWNERS`.\n"
+            + ("x" * 400)
+        ),
+        "README.md": (
+            "# Test\n\n"
+            "License: Apache-2.0\n\n"
+            "See [`MAINTAINERS.md`](MAINTAINERS.md) and "
+            "[`.github/CODEOWNERS`](.github/CODEOWNERS).\n"
+        ),
         "CATALOG.md": "# Test\n",
-        "CONTRIBUTING.md": "# Test\n\nContributions are licensed under Apache-2.0.\n",
+        "CONTRIBUTING.md": (
+            "# Test\n\n"
+            "Contributions are licensed under Apache-2.0.\n\n"
+            "See [`MAINTAINERS.md`](MAINTAINERS.md) and "
+            "[`.github/CODEOWNERS`](.github/CODEOWNERS).\n"
+        ),
         "LICENSE": (
             "Apache License\n"
             "Version 2.0, January 2004\n"
@@ -39,6 +92,8 @@ def make_required_root(root: Path) -> None:
             "Copyright 2026 Metello Zuccolini\n\n"
             "See [`LICENSE`](LICENSE) and [`NOTICE`](NOTICE).\n"
         ),
+        "MAINTAINERS.md": maintainers,
+        ".github/CODEOWNERS": codeowners,
         "MANIFEST.md": "# Test\n",
         "NOTICE": (
             "Public-Access-Agents\n"
@@ -50,4 +105,6 @@ def make_required_root(root: Path) -> None:
         "SOURCES.md": "# Test\n",
     }
     for name, content in files.items():
-        (root / name).write_text(content, encoding="utf-8")
+        path = root / name
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(content, encoding="utf-8")
