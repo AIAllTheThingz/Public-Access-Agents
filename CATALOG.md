@@ -125,6 +125,19 @@ The template library provides governed, validated starting structures for agent 
 
 The seven original template paths remain stable. Every template package now includes detailed adoption guidance, a review checklist, and a completed fictitious example.
 
+## Repository toolchain
+
+The executable toolchain validates repository structure, links, schemas, templates, and tool packages; generates project manifests; composes traceable standards bundles; and provides a unified validation runner.
+
+- [Toolchain index](tools/README.md)
+- [Tool catalog](tools/TOOL_CATALOG.md)
+- [Command and result contract](tools/TOOL_CONTRACT.md)
+- [Development guide](tools/DEVELOPMENT_GUIDE.md)
+- [Testing guide](tools/TESTING_GUIDE.md)
+- [Security boundaries](tools/SECURITY_BOUNDARIES.md)
+
+Stable entry points are preserved for the existing validators. `compose-agents` and `generate-manifest` are now executable rather than planned placeholders. Permanent CI invokes the unified validation runner.
+
 ## Composition examples
 
 The examples demonstrate how standards are selected, tailored, scoped, and supported by architecture, risk, testing, operations, and evidence documents.

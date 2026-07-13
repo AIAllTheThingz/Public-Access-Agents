@@ -1,28 +1,28 @@
 ---
-id: TOOL-PKG-COMPOSE-AGENTS-001
-title: Compose Agents Tool
+id: TOOL-PKG-VALIDATE-ALL-001
+title: Validate All Tool
 version: 1.0.0
 status: baseline
 ---
 
-# Compose Agents Tool
+# Validate All Tool
 
 ## Purpose
 
-Create a traceable standards bundle from a reviewed project manifest without concatenating or rewriting source standards.
+Run the complete repository validation pipeline in a stable order and aggregate structured results.
 
 Status: **baseline**
 
 ## Stable entry point
 
-[`compose_agents.py`](compose_agents.py)
+[`run_all.py`](run_all.py)
 
 The stable path is part of the repository tooling contract. Moving or renaming it requires migration guidance and CI updates.
 
 ## Operating mode
 
-- Reads: a project manifest and selected standards entry points
-- Writes: an atomic bundle directory when not in dry-run mode
+- Reads: validator entry points and repository content
+- Writes: only an optional aggregate result file
 - Network: none
 - Default behavior: safe and non-destructive
 
@@ -39,26 +39,26 @@ The stable path is part of the repository tooling contract. Moving or renaming i
 Tool-specific options are shown by:
 
 ```bash
-python tools/compose-agents/compose_agents.py --help
+python tools/validate-all/run_all.py --help
 ```
 
 ## Checks and behavior
 
-- manifest schema validity
-- selected package existence
-- required governance sources
-- root-contained source paths
-- source SHA-256 records
-- overwrite protection
+- validator discovery
+- JSON result parsing
+- exit-code propagation
+- aggregate status
+- optional unit tests
+- optional fail-fast behavior
 
 ## Examples
 
 ```bash
-python tools/compose-agents/compose_agents.py --manifest project-manifest.json --dry-run
+python tools/validate-all/run_all.py
 ```
 
 ```bash
-python tools/compose-agents/compose_agents.py --manifest project-manifest.json --output-dir generated/standards-bundle
+python tools/validate-all/run_all.py --include-tests --format json --output reports/validation.json
 ```
 
 ## Text and JSON results
@@ -95,7 +95,7 @@ Central tests live under [`../tests/`](../tests/).
 Run focused tests:
 
 ```bash
-python -m unittest discover -s tools/tests -p "test_compose_agents*.py"
+python -m unittest discover -s tools/tests -p "test_validate_all*.py"
 ```
 
 Run the complete suite:
@@ -119,9 +119,9 @@ Breaking changes include:
 
 ## Limitations
 
-- does not resolve policy conflicts automatically
-- does not generate complete project facts
-- does not authorize adoption or production use
+- does not replace tool-specific diagnostics
+- captures only bounded subprocess output
+- cannot prove checks omitted by underlying validators
 
 ## Review checklist
 

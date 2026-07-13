@@ -3,10 +3,17 @@
 
 from __future__ import annotations
 
+import argparse
 import json
 import re
+import sys
 from pathlib import Path
 from typing import Any
+
+TOOLS_ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(TOOLS_ROOT / "lib"))
+
+from standards_tools import Finding, ToolResult, add_common_arguments, execute_tool  # noqa: E402
 
 try:
     from jsonschema import Draft202012Validator, FormatChecker
@@ -16,10 +23,9 @@ except ImportError as exc:
         "python -m pip install -r tools/validate-schemas/requirements.txt"
     ) from exc
 
-ROOT = Path(__file__).resolve().parents[2]
-TEMPLATE_ROOT = ROOT / "templates"
-SCHEMA_ROOT = ROOT / "schemas" / "v1"
-
+TOOL = "validate-templates"
+VERSION = "1.0.0"
+DEFAULT_ROOT = Path(__file__).resolve().parents[2]
 PACKAGES = {
     "root": ("AGENTS_TEMPLATE.md", "EXAMPLE.md", None),
     "nested": ("AGENTS_TEMPLATE.md", "EXAMPLE.md", None),
@@ -28,21 +34,9 @@ PACKAGES = {
     "threat-model": ("THREAT_MODEL_TEMPLATE.md", "EXAMPLE.md", None),
     "exception": ("EXCEPTION_RECORD_TEMPLATE.md", "EXAMPLE.md", None),
     "completion": ("COMPLETION_REPORT_TEMPLATE.md", "EXAMPLE.md", None),
-    "project-manifest": (
-        "PROJECT_MANIFEST_TEMPLATE.json",
-        "EXAMPLE.json",
-        "project-manifest.schema.json",
-    ),
-    "test-evidence": (
-        "TEST_EVIDENCE_TEMPLATE.json",
-        "EXAMPLE.json",
-        "test-evidence.schema.json",
-    ),
-    "artifact-record": (
-        "ARTIFACT_RECORD_TEMPLATE.json",
-        "EXAMPLE.json",
-        "artifact-record.schema.json",
-    ),
+    "project-manifest": ("PROJECT_MANIFEST_TEMPLATE.json", "EXAMPLE.json", "project-manifest.schema.json"),
+    "test-evidence": ("TEST_EVIDENCE_TEMPLATE.json", "EXAMPLE.json", "test-evidence.schema.json"),
+    "artifact-record": ("ARTIFACT_RECORD_TEMPLATE.json", "EXAMPLE.json", "artifact-record.schema.json"),
     "authorization": ("CHANGE_AUTHORIZATION_TEMPLATE.md", "EXAMPLE.md", None),
     "human-review": ("HUMAN_REVIEW_TEMPLATE.md", "EXAMPLE.md", None),
     "production-readiness": ("PRODUCTION_READINESS_TEMPLATE.md", "EXAMPLE.md", None),
@@ -50,31 +44,18 @@ PACKAGES = {
     "recovery": ("ROLLBACK_RECOVERY_TEMPLATE.md", "EXAMPLE.md", None),
     "operations": ("RUNBOOK_TEMPLATE.md", "EXAMPLE.md", None),
 }
-
 REQUIRED_COLLECTION = [
-    "AGENTS.md",
-    "README.md",
-    "MANIFEST.md",
-    "TEMPLATE_CATALOG.md",
-    "TEMPLATE_SELECTION_GUIDE.md",
-    "AUTHORING_GUIDE.md",
-    "CUSTOMIZATION_POLICY.md",
-    "PLACEHOLDER_CONVENTIONS.md",
-    "TEMPLATE_LIFECYCLE.md",
-    "VALIDATION_GUIDE.md",
+    "AGENTS.md", "README.md", "MANIFEST.md", "TEMPLATE_CATALOG.md",
+    "TEMPLATE_SELECTION_GUIDE.md", "AUTHORING_GUIDE.md", "CUSTOMIZATION_POLICY.md",
+    "PLACEHOLDER_CONVENTIONS.md", "TEMPLATE_LIFECYCLE.md", "VALIDATION_GUIDE.md",
     "COMPLETION_CRITERIA.md",
 ]
-
 STABLE_PATHS = [
-    "root/AGENTS_TEMPLATE.md",
-    "nested/AGENTS_TEMPLATE.md",
-    "architecture-decision/ADR_TEMPLATE.md",
-    "completion/COMPLETION_REPORT_TEMPLATE.md",
-    "exception/EXCEPTION_RECORD_TEMPLATE.md",
-    "risk/RISK_ASSESSMENT_TEMPLATE.md",
+    "root/AGENTS_TEMPLATE.md", "nested/AGENTS_TEMPLATE.md",
+    "architecture-decision/ADR_TEMPLATE.md", "completion/COMPLETION_REPORT_TEMPLATE.md",
+    "exception/EXCEPTION_RECORD_TEMPLATE.md", "risk/RISK_ASSESSMENT_TEMPLATE.md",
     "threat-model/THREAT_MODEL_TEMPLATE.md",
 ]
-
 FRONTMATTER_ID = re.compile(r"^id:\s*(\S+)\s*$", re.MULTILINE)
 PLACEHOLDER = re.compile(r"\{\{([^{}]+)\}\}")
 VALID_PLACEHOLDER = re.compile(r"^[A-Z][A-Z0-9_]*$")
@@ -90,148 +71,132 @@ def load_json(path: Path) -> Any:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def main() -> int:
-    errors: list[str] = []
+def rel(path: Path, root: Path) -> str:
+    return path.relative_to(root).as_posix()
+
+
+def run(args: argparse.Namespace) -> ToolResult:
+    root = args.root.resolve()
+    template_root = root / "templates"
+    schema_root = root / "schemas" / "v1"
+    findings: list[Finding] = []
+    ids: dict[str, Path] = {}
 
     for name in REQUIRED_COLLECTION:
-        path = TEMPLATE_ROOT / name
+        path = template_root / name
         if not path.is_file():
-            errors.append(f"Missing template collection file: {path.relative_to(ROOT)}")
+            findings.append(Finding("TEMPLATE_COLLECTION_FILE_MISSING", "Missing collection file.", path=rel(path, root)))
 
-    for relative in STABLE_PATHS:
-        path = TEMPLATE_ROOT / relative
+    for stable in STABLE_PATHS:
+        path = template_root / stable
         if not path.is_file():
-            errors.append(f"Missing stable template path: {path.relative_to(ROOT)}")
+            findings.append(Finding("TEMPLATE_STABLE_PATH_MISSING", "Missing stable template path.", path=rel(path, root)))
 
-    ids: dict[str, Path] = {}
-    for path in sorted(TEMPLATE_ROOT.rglob("*.md")):
+    for path in sorted(template_root.rglob("*.md")):
         text = path.read_text(encoding="utf-8")
         match = FRONTMATTER_ID.search(text)
         if not match:
-            errors.append(f"Missing front-matter ID: {path.relative_to(ROOT)}")
+            findings.append(Finding("TEMPLATE_ID_MISSING", "Markdown document lacks front-matter ID.", path=rel(path, root)))
             continue
-        doc_id = match.group(1)
-        if doc_id in ids:
-            errors.append(
-                f"Duplicate template document ID {doc_id}: "
-                f"{ids[doc_id].relative_to(ROOT)} and {path.relative_to(ROOT)}"
-            )
+        document_id = match.group(1)
+        if document_id in ids:
+            findings.append(Finding(
+                "TEMPLATE_ID_DUPLICATE",
+                f"ID also used by {rel(ids[document_id], root)}: {document_id}",
+                path=rel(path, root),
+            ))
         else:
-            ids[doc_id] = path
+            ids[document_id] = path
 
     for slug, (template_name, example_name, schema_name) in PACKAGES.items():
-        package = TEMPLATE_ROOT / slug
-        required = [
-            package / template_name,
-            package / "README.md",
-            package / "REVIEW_CHECKLIST.md",
-            package / "examples" / example_name,
-        ]
-        if schema_name is not None:
+        package = template_root / slug
+        required = [package / template_name, package / "README.md", package / "REVIEW_CHECKLIST.md", package / "examples" / example_name]
+        if schema_name:
             required.append(package / "examples" / "README.md")
-
         for path in required:
             if not path.is_file():
-                errors.append(f"Missing template package file: {path.relative_to(ROOT)}")
+                findings.append(Finding("TEMPLATE_PACKAGE_FILE_MISSING", "Missing package file.", path=rel(path, root)))
 
         readme = package / "README.md"
-        if readme.is_file():
-            readme_text = readme.read_text(encoding="utf-8")
-            if len(readme_text.splitlines()) < 100:
-                errors.append(f"README appears incomplete: {readme.relative_to(ROOT)}")
-        else:
-            readme_text = ""
+        readme_text = readme.read_text(encoding="utf-8") if readme.is_file() else ""
+        if readme.is_file() and len(readme_text.splitlines()) < args.minimum_readme_lines:
+            findings.append(Finding(
+                "TEMPLATE_README_THIN",
+                f"README has fewer than {args.minimum_readme_lines} lines.",
+                path=rel(readme, root),
+            ))
 
         template = package / template_name
         if template.is_file():
             template_text = template.read_text(encoding="utf-8")
             placeholders = PLACEHOLDER.findall(template_text)
             if not placeholders:
-                errors.append(f"Template contains no placeholders: {template.relative_to(ROOT)}")
-
+                findings.append(Finding("TEMPLATE_NO_PLACEHOLDERS", "Template contains no documented placeholders.", path=rel(template, root)))
             for placeholder in placeholders:
-                if not VALID_PLACEHOLDER.fullmatch(placeholder):
-                    errors.append(
-                        f"Invalid placeholder {{{{{placeholder}}}}} in "
-                        f"{template.relative_to(ROOT)}"
-                    )
-                    continue
                 token = "{{" + placeholder + "}}"
-                if token not in readme_text:
-                    errors.append(
-                        f"Undocumented placeholder {token} in {template.relative_to(ROOT)}"
-                    )
-
+                if not VALID_PLACEHOLDER.fullmatch(placeholder):
+                    findings.append(Finding("TEMPLATE_PLACEHOLDER_INVALID", f"Invalid placeholder: {token}", path=rel(template, root)))
+                elif token not in readme_text:
+                    findings.append(Finding("TEMPLATE_PLACEHOLDER_UNDOCUMENTED", f"Placeholder is absent from package README: {token}", path=rel(template, root)))
             if template.suffix == ".json":
                 try:
                     load_json(template)
-                except Exception as exc:  # noqa: BLE001
-                    errors.append(f"Invalid JSON template {template.relative_to(ROOT)}: {exc}")
+                except (json.JSONDecodeError, UnicodeDecodeError) as exc:
+                    findings.append(Finding("TEMPLATE_JSON_INVALID", str(exc), path=rel(template, root)))
 
         example = package / "examples" / example_name
         if example.is_file():
             example_text = example.read_text(encoding="utf-8")
             if PLACEHOLDER.search(example_text):
-                errors.append(f"Example contains unresolved placeholder: {example.relative_to(ROOT)}")
+                findings.append(Finding("TEMPLATE_EXAMPLE_PLACEHOLDER", "Completed example contains unresolved placeholder.", path=rel(example, root)))
             if re.search(r"\bTBD\b|<TODO>", example_text, re.IGNORECASE):
-                errors.append(f"Example contains unfinished marker: {example.relative_to(ROOT)}")
+                findings.append(Finding("TEMPLATE_EXAMPLE_UNFINISHED", "Completed example contains unfinished marker.", path=rel(example, root)))
             for pattern in SECRET_PATTERNS:
                 if pattern.search(example_text):
-                    errors.append(f"Example contains secret-like value: {example.relative_to(ROOT)}")
-
-            if example.suffix == ".json":
+                    findings.append(Finding("TEMPLATE_EXAMPLE_SECRET", "Example contains a secret-like value.", path=rel(example, root)))
+            if example.suffix == ".json" and schema_name:
                 try:
                     instance = load_json(example)
-                except Exception as exc:  # noqa: BLE001
-                    errors.append(f"Invalid JSON example {example.relative_to(ROOT)}: {exc}")
-                else:
-                    if schema_name:
-                        schema_path = SCHEMA_ROOT / schema_name
-                        if not schema_path.is_file():
-                            errors.append(
-                                f"Missing schema for example {example.relative_to(ROOT)}: "
-                                f"{schema_path.relative_to(ROOT)}"
-                            )
-                        else:
-                            schema = load_json(schema_path)
-                            validator = Draft202012Validator(
-                                schema, format_checker=FormatChecker()
-                            )
-                            schema_errors = sorted(
-                                validator.iter_errors(instance),
-                                key=lambda error: list(error.absolute_path),
-                            )
-                            for error in schema_errors:
-                                location = "/" + "/".join(
-                                    str(part) for part in error.absolute_path
-                                )
-                                errors.append(
-                                    f"{example.relative_to(ROOT)} failed "
-                                    f"{schema_path.relative_to(ROOT)} at "
-                                    f"{location or '/'}: {error.message}"
-                                )
+                    schema_path = schema_root / schema_name
+                    schema = load_json(schema_path)
+                    validator = Draft202012Validator(schema, format_checker=FormatChecker())
+                    for error in sorted(validator.iter_errors(instance), key=lambda item: list(item.absolute_path)):
+                        findings.append(Finding(
+                            "TEMPLATE_EXAMPLE_SCHEMA",
+                            error.message,
+                            path=rel(example, root),
+                            details={"schema": rel(schema_path, root), "pointer": "/" + "/".join(str(part) for part in error.absolute_path)},
+                        ))
+                except (FileNotFoundError, json.JSONDecodeError) as exc:
+                    findings.append(Finding("TEMPLATE_EXAMPLE_JSON", str(exc), path=rel(example, root)))
 
         checklist = package / "REVIEW_CHECKLIST.md"
-        if checklist.is_file():
-            checklist_text = checklist.read_text(encoding="utf-8")
-            if "## Decision" not in checklist_text:
-                errors.append(
-                    f"Review checklist lacks decision section: {checklist.relative_to(ROOT)}"
-                )
+        if checklist.is_file() and "## Decision" not in checklist.read_text(encoding="utf-8"):
+            findings.append(Finding("TEMPLATE_CHECKLIST_DECISION", "Review checklist lacks a Decision section.", path=rel(checklist, root)))
 
-    if errors:
-        print("Template validation failed:")
-        for error in errors:
-            print(f"- {error}")
-        return 1
-
-    print(
-        "Template validation passed: "
-        f"{len(PACKAGES)} packages, "
-        f"{len(ids)} identified Markdown documents, "
-        f"{len(STABLE_PATHS)} stable legacy paths."
+    return ToolResult.from_findings(
+        tool=TOOL,
+        version=VERSION,
+        findings=findings,
+        summary={
+            "packages": len(PACKAGES),
+            "identifiedDocuments": len(ids),
+            "stablePaths": len(STABLE_PATHS),
+            "findings": len(findings),
+        },
     )
-    return 0
+
+
+def build_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(description=__doc__)
+    add_common_arguments(parser, default_root=DEFAULT_ROOT)
+    parser.add_argument("--minimum-readme-lines", type=int, default=100)
+    parser.add_argument("--debug", action="store_true", help=argparse.SUPPRESS)
+    return parser
+
+
+def main(argv: list[str] | None = None) -> int:
+    return execute_tool(tool=TOOL, version=VERSION, parser=build_parser(), run=run, argv=argv)
 
 
 if __name__ == "__main__":
