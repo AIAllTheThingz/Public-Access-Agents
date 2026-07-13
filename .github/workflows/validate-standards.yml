@@ -20,29 +20,9 @@ jobs:
       - name: Install validation dependencies
         shell: bash
         run: |
-          if [[ -f tools/validate-schemas/requirements.txt ]]; then
-            python -m pip install --disable-pip-version-check --quiet \
-              -r tools/validate-schemas/requirements.txt
-          else
-            echo "Schema validation requirements are not present yet."
-          fi
+          python -m pip install --disable-pip-version-check --quiet \
+            -r tools/validate-schemas/requirements.txt
 
-      - name: Validate repository when catalog is present
+      - name: Run complete validation pipeline
         shell: bash
-        run: |
-          if [[ ! -f tools/validate-standards/validate_repository.py ]] || \
-             [[ ! -f tools/check-links/check_links.py ]]; then
-            echo "Catalog validation tools are not present yet; skipping validation until expansion completes."
-            exit 0
-          fi
-
-          python tools/validate-standards/validate_repository.py
-          python tools/check-links/check_links.py
-
-          if [[ -f tools/validate-schemas/validate_schemas.py ]]; then
-            python tools/validate-schemas/validate_schemas.py
-          fi
-
-          if [[ -f tools/validate-templates/validate_templates.py ]]; then
-            python tools/validate-templates/validate_templates.py
-          fi
+        run: python tools/validate-all/run_all.py --include-tests
