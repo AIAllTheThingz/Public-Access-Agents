@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0.0",
+  "name": "example-template-library",
+  "type": "standards-composition",
+  "digest": "sha256:0123456789abcdef",
+  "sourceCommit": "0000000000000000000000000000000000000000",
+  "buildRun": "example-run-0042",
+  "provenance": "fictitious documentation example",
+  "signed": false,
+  "createdAt": "2030-01-01T00:00:00Z",
+  "limitations": [
+    "Not a release artifact."
+  ]
+}

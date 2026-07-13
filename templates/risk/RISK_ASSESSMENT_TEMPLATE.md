@@ -1,27 +1,48 @@
-# Change Risk Assessment
+---
+id: TEMPLATE-RISK-001
+title: Change Risk Assessment Template
+version: 0.2.0
+status: baseline
+template_type: risk-assessment
+---
 
-## Change
+# Change Risk Assessment Template
 
-## Classification
+- Change ID: `{{CHANGE_ID}}`
+- Summary: {{CHANGE_SUMMARY}}
+- Classification: `{{RISK_LEVEL}}`
+- Risk owner: {{RISK_OWNER}}
+- Rollback required: `{{ROLLBACK_REQUIRED}}`
 
-- Low
-- Moderate
-- High
-- Critical
+## Rationale
 
-## Factors
+{{RISK_RATIONALE}}
+
+## Risk factors
 
 | Factor | Assessment |
 |---|---|
-| Data sensitivity | |
-| Privilege | |
-| External exposure | |
-| Blast radius | |
-| Reversibility | |
-| Availability impact | |
-| Safety impact | |
-| Dependency risk | |
+| Data sensitivity | {{DATA_SENSITIVITY}} |
+| Privilege | {{PRIVILEGE}} |
+| External exposure | {{EXTERNAL_EXPOSURE}} |
+| Blast radius | {{BLAST_RADIUS}} |
+| Reversibility | {{REVERSIBILITY}} |
+| Availability impact | {{AVAILABILITY_IMPACT}} |
+| Safety impact | {{SAFETY_IMPACT}} |
+| Dependency and supply-chain risk | {{DEPENDENCY_RISK}} |
 
-## Required review and evidence
+## Required controls
 
-## Residual risk owner
+{{REQUIRED_CONTROLS}}
+
+Include required review, authorization, validation, rollout, observation, rollback, and evidence.
+
+## Residual risk
+
+{{RESIDUAL_RISK}}
+
+## Reassessment triggers
+
+{{REASSESSMENT_TRIGGERS}}
+
+Risk must be reassessed when scope, data, privilege, target, dependency, rollout, or recovery assumptions change.

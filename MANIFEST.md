@@ -110,6 +110,26 @@ Each complete profile package includes scoped agent instructions, a useful READM
 
 The six stable rolling filenames remain present. Long-lived consumers should pin the versioned paths.
 
+## Complete template library
+
+- root and nested agent-instruction templates
+- architecture decision records
+- risk assessments
+- threat models
+- standards exception records
+- completion reports
+- project manifest, test evidence, and artifact record JSON templates
+- change authorization and human review records
+- production-readiness reviews
+- release plans
+- rollback and recovery plans
+- operational runbooks
+- template selection, authoring, customization, placeholder, lifecycle, validation, and completion guidance
+- package review checklists and completed fictitious examples
+- executable template validation under `tools/validate-templates/`
+
+The seven original template paths remain stable.
+
 ## Complete composition examples
 
 - `examples/minimal`
@@ -121,7 +141,6 @@ Each complete example includes root and nested agent instructions, a project man
 
 ## Baseline supporting standards
 
-- `templates`
 - `tools`
 
 ## Validation
@@ -131,4 +150,5 @@ python -m pip install -r tools/validate-schemas/requirements.txt
 python tools/validate-standards/validate_repository.py
 python tools/check-links/check_links.py
 python tools/validate-schemas/validate_schemas.py
+python tools/validate-templates/validate_templates.py
 ```

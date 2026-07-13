@@ -9,7 +9,7 @@ status: baseline
 
 ## Purpose
 
-The tools validate repository structure, links, schema contracts, examples, and machine-readable evidence.
+The tools validate repository structure, links, schema contracts, template packages, examples, and machine-readable evidence.
 
 ## Commands
 
@@ -25,6 +25,7 @@ Run all validators:
 python tools/validate-standards/validate_repository.py
 python tools/check-links/check_links.py
 python tools/validate-schemas/validate_schemas.py
+python tools/validate-templates/validate_templates.py
 ```
 
 ## Tool catalog
@@ -32,6 +33,7 @@ python tools/validate-schemas/validate_schemas.py
 - [`validate-standards`](validate-standards/) checks repository structure, identifiers, JSON parsing, and required references.
 - [`check-links`](check-links/) checks relative Markdown links.
 - [`validate-schemas`](validate-schemas/) checks Draft 2020-12 schemas, versioned equivalence, positive and negative examples, formats, and repository instances.
+- [`validate-templates`](validate-templates/) checks template packages, stable paths, placeholders, examples, and schema-backed records.
 - [`compose-agents`](compose-agents/) documents agent-instruction composition.
 - [`generate-manifest`](generate-manifest/) documents manifest generation.
 

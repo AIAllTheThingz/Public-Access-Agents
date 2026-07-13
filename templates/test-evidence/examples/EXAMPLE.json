@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "1.0.0",
+  "testType": "template-validation",
+  "command": "python tools/validate-templates/validate_templates.py",
+  "result": "passed",
+  "environment": "fictitious CI runner",
+  "startedAt": "2030-01-01T00:00:00Z",
+  "completedAt": "2030-01-01T00:00:03Z",
+  "evidence": "workflow run example",
+  "limitations": [
+    "No adopting project was tested."
+  ],
+  "artifact": "0000000000000000000000000000000000000000",
+  "exitCode": 0
+}
