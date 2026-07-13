@@ -46,7 +46,15 @@
   - release, rollback, recovery, and operational runbook templates
   - selection, authoring, customization, placeholder, lifecycle, validation, and completion guidance
   - completed examples and executable template validation
-- Repository validation tools
+- Complete repository toolchain:
+  - repository structure, link, schema, template, and tool validation
+  - deterministic project-manifest generation
+  - traceable standards-bundle composition
+  - shared JSON result and exit-code contract
+  - unified validation runner
+  - central unit-test suite
+  - permanent CI integration
+  - tool development, security, troubleshooting, and compatibility guidance
 - Complete standards-composition examples
 - Schema-shaped completion, test, artifact, risk, and exception evidence
 - Root and nested `AGENTS.md` composition examples

@@ -139,9 +139,21 @@ The seven original template paths remain stable.
 
 Each complete example includes root and nested agent instructions, a project manifest, composition rationale, tailoring decisions, architecture, risk, testing, operations, completion evidence, and schema-shaped JSON evidence.
 
-## Baseline supporting standards
+## Complete repository toolchain
 
-- `tools`
+- repository structure validation
+- relative Markdown link and anchor validation
+- Draft 2020-12 schema and instance validation
+- reusable template package validation
+- tool package and executable-entry validation
+- deterministic project-manifest generation
+- traceable agent-standards composition
+- unified validation aggregation
+- shared result library and JSON result contract
+- central unit tests and fixtures
+- tool selection, development, testing, security, troubleshooting, and compatibility guidance
+
+The stable validator entry paths remain present. All executable tools support text and JSON results, common exit-code semantics, and offline operation. Writing tools support dry-run and refuse replacement without explicit `--force`.
 
 ## Validation
 

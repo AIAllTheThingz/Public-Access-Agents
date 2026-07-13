@@ -1,12 +1,18 @@
 #!/usr/bin/env python3
-"""Validate schema documents, examples, and repository instances."""
+"""Validate Draft 2020-12 schemas, examples, and repository instances."""
 
 from __future__ import annotations
 
+import argparse
 import json
 import sys
 from pathlib import Path
 from typing import Any
+
+TOOLS_ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(TOOLS_ROOT / "lib"))
+
+from standards_tools import Finding, ToolResult, add_common_arguments, execute_tool  # noqa: E402
 
 try:
     import jsonschema
@@ -17,9 +23,9 @@ except ImportError as exc:
         "python -m pip install -r tools/validate-schemas/requirements.txt"
     ) from exc
 
-ROOT = Path(__file__).resolve().parents[2]
-SCHEMA_ROOT = ROOT / "schemas"
-
+TOOL = "validate-schemas"
+VERSION = "1.0.0"
+DEFAULT_ROOT = Path(__file__).resolve().parents[2]
 SCHEMA_NAMES = [
     "artifact-record",
     "completion-result",
@@ -28,7 +34,6 @@ SCHEMA_NAMES = [
     "risk-classification",
     "test-evidence",
 ]
-
 INSTANCE_RULES = [
     ("project-manifest.json", "project-manifest"),
     ("completion-result", "completion-result"),
@@ -40,56 +45,68 @@ INSTANCE_RULES = [
 
 
 def load_json(path: Path) -> Any:
-    try:
-        return json.loads(path.read_text(encoding="utf-8"))
-    except json.JSONDecodeError as exc:
-        raise RuntimeError(
-            f"Invalid JSON in {path.relative_to(ROOT)} at line {exc.lineno}, "
-            f"column {exc.colno}: {exc.msg}"
-        ) from exc
+    return json.loads(path.read_text(encoding="utf-8"))
 
 
-def json_pointer(parts: list[Any]) -> str:
+def pointer(parts: list[Any]) -> str:
     if not parts:
         return "/"
-    encoded = []
-    for part in parts:
-        text = str(part).replace("~", "~0").replace("/", "~1")
-        encoded.append(text)
-    return "/" + "/".join(encoded)
+    return "/" + "/".join(str(part).replace("~", "~0").replace("/", "~1") for part in parts)
 
 
-def normalized_schema(schema: dict[str, Any]) -> dict[str, Any]:
+def normalized(schema: dict[str, Any]) -> dict[str, Any]:
     value = json.loads(json.dumps(schema))
     value.pop("$id", None)
     value.pop("x-versionedSchema", None)
     return value
 
 
-def validate_instance(instance_path: Path, schema_path: Path, expect_valid: bool) -> list[str]:
+def remote_refs(value: Any, location: str="/") -> list[tuple[str, str]]:
+    found: list[tuple[str, str]] = []
+    if isinstance(value, dict):
+        for key, child in value.items():
+            child_location = f"{location.rstrip('/')}/{key}"
+            if key == "$ref" and isinstance(child, str) and child.startswith(("http://", "https://")):
+                found.append((child_location, child))
+            found.extend(remote_refs(child, child_location))
+    elif isinstance(value, list):
+        for index, child in enumerate(value):
+            found.extend(remote_refs(child, f"{location.rstrip('/')}/{index}"))
+    return found
+
+
+def instance_findings(instance_path: Path, schema_path: Path, root: Path, expect_valid: bool) -> list[Finding]:
     instance = load_json(instance_path)
     schema = load_json(schema_path)
     validator = Draft202012Validator(schema, format_checker=FormatChecker())
-    errors = sorted(validator.iter_errors(instance), key=lambda error: list(error.absolute_path))
-
-    relative_instance = instance_path.relative_to(ROOT)
-    relative_schema = schema_path.relative_to(ROOT)
-
-    if expect_valid and errors:
+    errors = sorted(validator.iter_errors(instance), key=lambda item: list(item.absolute_path))
+    rel_instance = instance_path.relative_to(root).as_posix()
+    if expect_valid:
         return [
-            f"{relative_instance} failed {relative_schema} at "
-            f"{json_pointer(list(error.absolute_path))}: {error.message}"
+            Finding(
+                "SCHEMA_INSTANCE_INVALID",
+                error.message,
+                path=rel_instance,
+                details={
+                    "schema": schema_path.relative_to(root).as_posix(),
+                    "pointer": pointer(list(error.absolute_path)),
+                    "validator": error.validator,
+                },
+            )
             for error in errors
         ]
-
-    if not expect_valid and not errors:
-        return [f"{relative_instance} unexpectedly passed {relative_schema}"]
-
+    if not errors:
+        return [Finding(
+            "NEGATIVE_EXAMPLE_PASSED",
+            "Intentionally invalid example unexpectedly passed validation.",
+            path=rel_instance,
+            details={"schema": schema_path.relative_to(root).as_posix()},
+        )]
     return []
 
 
-def discover_schema(instance_path: Path) -> str | None:
-    name = instance_path.name.lower()
+def discover(path: Path) -> str | None:
+    name = path.name.lower()
     for marker, schema_name in INSTANCE_RULES:
         if marker == "project-manifest.json" and name == marker:
             return schema_name
@@ -98,75 +115,114 @@ def discover_schema(instance_path: Path) -> str | None:
     return None
 
 
-def main() -> int:
-    errors: list[str] = []
+def run(args: argparse.Namespace) -> ToolResult:
+    root = args.root.resolve()
+    schema_root = root / "schemas"
+    findings: list[Finding] = []
+    schema_ids: dict[str, str] = {}
+    positive_count = 0
+    negative_count = 0
+    instance_count = 0
+    unsafe_names: set[str] = set()
 
     for name in SCHEMA_NAMES:
-        rolling_path = SCHEMA_ROOT / f"{name}.schema.json"
-        versioned_path = SCHEMA_ROOT / "v1" / f"{name}.schema.json"
+        rolling = schema_root / f"{name}.schema.json"
+        versioned = schema_root / "v1" / f"{name}.schema.json"
+        for path, kind in ((rolling, "rolling"), (versioned, "versioned")):
+            if not path.is_file():
+                findings.append(Finding("SCHEMA_MISSING", f"Missing {kind} schema.", path=path.relative_to(root).as_posix()))
+                continue
+            try:
+                schema = load_json(path)
+                Draft202012Validator.check_schema(schema)
+            except (json.JSONDecodeError, jsonschema.SchemaError) as exc:
+                findings.append(Finding("SCHEMA_INVALID", str(exc), path=path.relative_to(root).as_posix()))
+                continue
+            schema_id = schema.get("$id")
+            if not isinstance(schema_id, str) or not schema_id:
+                findings.append(Finding("SCHEMA_ID_MISSING", "Schema lacks a non-empty $id.", path=path.relative_to(root).as_posix()))
+            elif schema_id in schema_ids:
+                findings.append(Finding(
+                    "SCHEMA_ID_DUPLICATE",
+                    f"Schema $id is also used by {schema_ids[schema_id]}: {schema_id}",
+                    path=path.relative_to(root).as_posix(),
+                ))
+            else:
+                schema_ids[schema_id] = path.relative_to(root).as_posix()
+            refs = remote_refs(schema)
+            if refs:
+                unsafe_names.add(name)
+            for location, ref in refs:
+                findings.append(Finding(
+                    "SCHEMA_REMOTE_REF",
+                    f"Remote $ref is not allowed in offline repository validation: {ref}",
+                    path=path.relative_to(root).as_posix(),
+                    details={"pointer": location},
+                ))
 
-        if not rolling_path.is_file():
-            errors.append(f"Missing rolling schema: {rolling_path.relative_to(ROOT)}")
+        if rolling.is_file() and versioned.is_file():
+            if normalized(load_json(rolling)) != normalized(load_json(versioned)):
+                findings.append(Finding(
+                    "SCHEMA_VERSION_MISMATCH",
+                    "Rolling and versioned schemas differ beyond identifier metadata.",
+                    path=rolling.relative_to(root).as_posix(),
+                ))
+
+        if name in unsafe_names:
             continue
-        if not versioned_path.is_file():
-            errors.append(f"Missing versioned schema: {versioned_path.relative_to(ROOT)}")
-            continue
 
-        rolling = load_json(rolling_path)
-        versioned = load_json(versioned_path)
-
-        try:
-            Draft202012Validator.check_schema(rolling)
-        except jsonschema.SchemaError as exc:
-            errors.append(f"Invalid schema {rolling_path.relative_to(ROOT)}: {exc.message}")
-
-        try:
-            Draft202012Validator.check_schema(versioned)
-        except jsonschema.SchemaError as exc:
-            errors.append(f"Invalid schema {versioned_path.relative_to(ROOT)}: {exc.message}")
-
-        if normalized_schema(rolling) != normalized_schema(versioned):
-            errors.append(
-                f"Rolling and versioned schemas differ beyond identifier metadata: {name}"
-            )
-
-        example_root = SCHEMA_ROOT / "examples" / name
-        valid_path = example_root / "valid.example.json"
-        invalid_path = example_root / "invalid.example.json"
-
-        if not valid_path.is_file():
-            errors.append(f"Missing positive example: {valid_path.relative_to(ROOT)}")
+        example_root = schema_root / "examples" / name
+        valid_example = example_root / "valid.example.json"
+        invalid_example = example_root / "invalid.example.json"
+        if valid_example.is_file() and versioned.is_file():
+            positive_count += 1
+            findings.extend(instance_findings(valid_example, versioned, root, True))
         else:
-            errors.extend(validate_instance(valid_path, versioned_path, True))
-
-        if not invalid_path.is_file():
-            errors.append(f"Missing negative example: {invalid_path.relative_to(ROOT)}")
+            findings.append(Finding("SCHEMA_POSITIVE_EXAMPLE_MISSING", "Missing positive example.", path=valid_example.relative_to(root).as_posix()))
+        if invalid_example.is_file() and versioned.is_file():
+            negative_count += 1
+            findings.extend(instance_findings(invalid_example, versioned, root, False))
         else:
-            errors.extend(validate_instance(invalid_path, versioned_path, False))
+            findings.append(Finding("SCHEMA_NEGATIVE_EXAMPLE_MISSING", "Missing negative example.", path=invalid_example.relative_to(root).as_posix()))
 
-    for path in sorted(ROOT.rglob("*.json")):
-        if SCHEMA_ROOT in path.parents:
-            continue
-        schema_name = discover_schema(path)
-        if schema_name is None:
-            continue
-        schema_path = SCHEMA_ROOT / "v1" / f"{schema_name}.schema.json"
-        errors.extend(validate_instance(path, schema_path, True))
+    if not args.skip_repository_instances:
+        for path in sorted(root.rglob("*.json")):
+            if schema_root in path.parents or (root / "tools" / "contracts") in path.parents:
+                continue
+            schema_name = discover(path)
+            if schema_name is None:
+                continue
+            instance_count += 1
+            schema_path = schema_root / "v1" / f"{schema_name}.schema.json"
+            if schema_path.is_file():
+                findings.extend(instance_findings(path, schema_path, root, True))
 
-    if errors:
-        print("Schema validation failed:")
-        for error in errors:
-            print(f"- {error}")
-        return 1
-
-    print(
-        "Schema validation passed: "
-        f"{len(SCHEMA_NAMES)} rolling schemas, "
-        f"{len(SCHEMA_NAMES)} versioned schemas, "
-        f"{len(SCHEMA_NAMES)} positive examples, "
-        f"{len(SCHEMA_NAMES)} negative examples."
+    return ToolResult.from_findings(
+        tool=TOOL,
+        version=VERSION,
+        findings=findings,
+        summary={
+            "rollingSchemas": len(SCHEMA_NAMES),
+            "versionedSchemas": len(SCHEMA_NAMES),
+            "positiveExamples": positive_count,
+            "negativeExamples": negative_count,
+            "repositoryInstances": instance_count,
+            "schemaIdentifiers": len(schema_ids),
+            "findings": len(findings),
+        },
     )
-    return 0
+
+
+def build_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(description=__doc__)
+    add_common_arguments(parser, default_root=DEFAULT_ROOT)
+    parser.add_argument("--skip-repository-instances", action="store_true", help="Validate contracts and examples only.")
+    parser.add_argument("--debug", action="store_true", help=argparse.SUPPRESS)
+    return parser
+
+
+def main(argv: list[str] | None = None) -> int:
+    return execute_tool(tool=TOOL, version=VERSION, parser=build_parser(), run=run, argv=argv)
 
 
 if __name__ == "__main__":
