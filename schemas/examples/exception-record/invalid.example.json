@@ -1,0 +1,10 @@
+{
+  "id": "EX-1",
+  "ruleId": "RULE-1",
+  "owner": "",
+  "reason": "",
+  "risk": "",
+  "compensatingControls": [],
+  "expiresOn": "not-a-date",
+  "status": "permanent"
+}

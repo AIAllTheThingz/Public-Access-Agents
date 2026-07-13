@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0.0",
+  "testType": "schema-validation",
+  "command": "python tools/validate-schemas/validate_schemas.py",
+  "result": "passed",
+  "environment": "fictitious CI runner",
+  "startedAt": "2030-01-01T00:00:00Z",
+  "completedAt": "2030-01-01T00:00:01Z",
+  "evidence": "illustrative example",
+  "limitations": [
+    "No application runtime was exercised."
+  ],
+  "exitCode": 0
+}

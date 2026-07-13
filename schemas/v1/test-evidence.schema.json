@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://raw.githubusercontent.com/AIAllTheThingz/Public-Access-Agents/main/schemas/test-evidence.schema.json",
+  "$id": "https://raw.githubusercontent.com/AIAllTheThingz/Public-Access-Agents/main/schemas/v1/test-evidence.schema.json",
   "title": "Test Evidence",
   "description": "Records an executed or explicitly not-run validation command, result, environment, timing, evidence, and limitations.",
   "type": "object",
@@ -70,6 +70,5 @@
       "additionalProperties": true
     }
   },
-  "x-schemaVersion": "1.0.0",
-  "x-versionedSchema": "v1/test-evidence.schema.json"
+  "x-schemaVersion": "1.0.0"
 }

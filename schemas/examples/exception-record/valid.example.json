@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "EXAMPLE-EXCEPTION-001",
+  "ruleId": "EXAMPLE-RULE-001",
+  "owner": "fictitious-owner",
+  "reason": "Illustrative temporary compatibility constraint.",
+  "risk": "A bounded unsupported component remains temporarily.",
+  "riskLevel": "moderate",
+  "compensatingControls": [
+    "Restricted exposure",
+    "Additional monitoring"
+  ],
+  "expiresOn": "2030-01-31",
+  "status": "requested"
+}

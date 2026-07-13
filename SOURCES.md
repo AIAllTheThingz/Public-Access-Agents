@@ -30,6 +30,13 @@ These sources inform the repository. The repository summarizes and operationaliz
 
 - OpenTelemetry documentation: https://opentelemetry.io/docs/
 
+## JSON Schema and validation
+
+- JSON Schema specification and current dialect information: https://json-schema.org/specification
+- JSON Schema Draft 2020-12 meta-schema: https://json-schema.org/draft/2020-12/schema
+- Python jsonschema documentation: https://python-jsonschema.readthedocs.io/
+- Python jsonschema package releases: https://pypi.org/project/jsonschema/
+
 ## Use of external sources
 
 When adding a requirement derived from an external source:

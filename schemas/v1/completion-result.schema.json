@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://raw.githubusercontent.com/AIAllTheThingz/Public-Access-Agents/main/schemas/completion-result.schema.json",
+  "$id": "https://raw.githubusercontent.com/AIAllTheThingz/Public-Access-Agents/main/schemas/v1/completion-result.schema.json",
   "title": "Completion Result",
   "description": "Records implementation state, validation outcomes, limitations, risk, compatibility impact, and review without treating a single successful command as proof of full completion.",
   "type": "object",
@@ -124,6 +124,5 @@
       "additionalProperties": true
     }
   },
-  "x-schemaVersion": "1.0.0",
-  "x-versionedSchema": "v1/completion-result.schema.json"
+  "x-schemaVersion": "1.0.0"
 }

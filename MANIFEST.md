@@ -98,6 +98,18 @@ The platform collection also includes selection, shared-responsibility, change-l
 
 Each complete profile package includes scoped agent instructions, a useful README, a manifest, six profile-specific standards, adoption and review templates, an evidence template, and an adoption example. The uppercase canonical profile files remain stable compatibility entry points.
 
+## Complete schema system
+
+- six rolling Draft 2020-12 schemas under `schemas/`
+- six version-pinned schemas under `schemas/v1/`
+- schema agent instructions and manifest
+- schema catalog
+- versioning, compatibility, extension, migration, validation, and design guidance
+- positive and negative examples for every contract
+- executable schema validation tooling under `tools/validate-schemas/`
+
+The six stable rolling filenames remain present. Long-lived consumers should pin the versioned paths.
+
 ## Complete composition examples
 
 - `examples/minimal`
@@ -110,12 +122,13 @@ Each complete example includes root and nested agent instructions, a project man
 ## Baseline supporting standards
 
 - `templates`
-- `schemas`
 - `tools`
 
 ## Validation
 
 ```bash
+python -m pip install -r tools/validate-schemas/requirements.txt
 python tools/validate-standards/validate_repository.py
 python tools/check-links/check_links.py
+python tools/validate-schemas/validate_schemas.py
 ```
