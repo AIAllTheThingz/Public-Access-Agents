@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import subprocess
 import sys
 from pathlib import Path
 
@@ -62,7 +63,22 @@ def run(args: argparse.Namespace) -> ToolResult:
             findings.append(Finding("TEMPORARY_ARTIFACT", "Temporary diagnostic artifact remains.", path=name))
 
     generated_artifacts: set[str] = set()
-    for path in sorted(root.rglob("*")):
+    tracked = subprocess.run(
+        ["git", "-C", str(root), "ls-files", "-z"],
+        check=False,
+        capture_output=True,
+        text=False,
+    )
+    if tracked.returncode == 0:
+        candidates = [
+            root / item.decode("utf-8", errors="surrogateescape")
+            for item in tracked.stdout.split(b"\0")
+            if item
+        ]
+    else:
+        candidates = list(root.rglob("*"))
+
+    for path in candidates:
         if "__pycache__" in path.parts or path.suffix in {".pyc", ".pyo"}:
             generated_artifacts.add(relative(path, root))
     for artifact in sorted(generated_artifacts):
