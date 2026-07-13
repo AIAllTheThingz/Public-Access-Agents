@@ -17,7 +17,7 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Install schema validator
+      - name: Install validation dependencies
         shell: bash
         run: |
           if [[ -f tools/validate-schemas/requirements.txt ]]; then
@@ -41,4 +41,8 @@ jobs:
 
           if [[ -f tools/validate-schemas/validate_schemas.py ]]; then
             python tools/validate-schemas/validate_schemas.py
+          fi
+
+          if [[ -f tools/validate-templates/validate_templates.py ]]; then
+            python tools/validate-templates/validate_templates.py
           fi
