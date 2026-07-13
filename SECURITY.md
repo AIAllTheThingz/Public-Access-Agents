@@ -4,7 +4,13 @@
 
 Do not open a public issue for an exploitable vulnerability involving this repository, its automation, or a published validation tool.
 
-Use GitHub's private vulnerability reporting feature when enabled. If private reporting is unavailable, contact the repository owner through a private GitHub channel before public disclosure.
+Use GitHub's private vulnerability reporting feature when enabled. If private reporting is unavailable, contact the active Security Maintainer identified in [`MAINTAINERS.md`](MAINTAINERS.md) through a private GitHub channel before public disclosure.
+
+## Security ownership
+
+Security-maintainer responsibilities, required independent specialist review, emergency-change authority, and post-merge review requirements are defined in [`MAINTAINERS.md`](MAINTAINERS.md).
+
+Security-sensitive paths are routed through [`.github/CODEOWNERS`](.github/CODEOWNERS). CODEOWNERS routes review requests; it does not replace confidential reporting, prove reviewer independence, or grant merge authority.
 
 ## Scope
 
