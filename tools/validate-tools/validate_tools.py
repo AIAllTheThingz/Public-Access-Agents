@@ -17,7 +17,7 @@ sys.path.insert(0, str(TOOLS_ROOT / "lib"))
 from standards_tools import Finding, ToolResult, add_common_arguments, execute_tool  # noqa: E402
 
 TOOL = "validate-tools"
-VERSION = "1.0.0"
+VERSION = "1.1.0"
 DEFAULT_ROOT = Path(__file__).resolve().parents[2]
 TOOL_PACKAGES = {
     "validate-standards": "validate_repository.py",
@@ -28,6 +28,7 @@ TOOL_PACKAGES = {
     "generate-manifest": "generate_manifest.py",
     "compose-agents": "compose_agents.py",
     "validate-all": "run_all.py",
+    "release": "validate_release.py",
 }
 REQUIRED_COLLECTION = [
     "AGENTS.md", "README.md", "MANIFEST.md", "TOOL_CATALOG.md", "TOOL_CONTRACT.md",
@@ -84,10 +85,12 @@ def run(args: argparse.Namespace) -> ToolResult:
             text = script.read_text(encoding="utf-8")
             if not text.startswith("#!/usr/bin/env python3"):
                 findings.append(Finding("TOOL_SHEBANG", "Python entry point lacks the standard shebang.", path=rel(script, root)))
+
+        for python_file in sorted(package.glob("*.py")):
             try:
-                py_compile.compile(str(script), doraise=True)
+                py_compile.compile(str(python_file), doraise=True)
             except py_compile.PyCompileError as exc:
-                findings.append(Finding("TOOL_COMPILE", str(exc), path=rel(script, root)))
+                findings.append(Finding("TOOL_COMPILE", str(exc), path=rel(python_file, root)))
 
     tests = sorted((tools / "tests").glob("test_*.py"))
     if len(tests) < len(TOOL_PACKAGES):
