@@ -3,6 +3,7 @@
 ## Completed foundation
 
 - Public repository and contribution model
+- Apache License 2.0 repository licensing and contribution terms
 - Root agent instructions
 - Complete governance operating system
 - Complete engineering discipline packages
@@ -68,7 +69,6 @@
 - Add additional composition examples for data pipelines, internal automation, public libraries, security tools, and AI agent applications
 - Add policy-dependency checks
 - Add changelog and semantic versioning policy
-- Select an open-source license
 - Add maintainers and code ownership
 - Publish versioned releases
 - Add package maturity reviews that promote baseline packages to stable

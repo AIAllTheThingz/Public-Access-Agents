@@ -9,6 +9,17 @@
 - `CONTRIBUTING.md`
 - `SECURITY.md`
 - `ROADMAP.md`
+- `LICENSE`
+- `NOTICE`
+- `LICENSING.md`
+
+## Repository licensing
+
+- Apache License, Version 2.0 (`Apache-2.0`)
+- Copyright 2026 Metello Zuccolini
+- complete license text in `LICENSE`
+- attribution and project notice in `NOTICE`
+- repository licensing scope and third-party-content guidance in `LICENSING.md`
 
 ## Complete governance system
 
@@ -159,8 +170,5 @@ The stable validator entry paths remain present. All executable tools support te
 
 ```bash
 python -m pip install -r tools/validate-schemas/requirements.txt
-python tools/validate-standards/validate_repository.py
-python tools/check-links/check_links.py
-python tools/validate-schemas/validate_schemas.py
-python tools/validate-templates/validate_templates.py
+python tools/validate-all/run_all.py --include-tests
 ```

@@ -80,4 +80,8 @@ Public source frameworks and standards used as references are cataloged in [`SOU
 
 ## License
 
-A repository license has not yet been selected. Until one is added, normal copyright restrictions apply even though the repository is public.
+This repository is licensed under the Apache License, Version 2.0 (`Apache-2.0`).
+
+Copyright 2026 Metello Zuccolini.
+
+See [`LICENSE`](LICENSE), [`NOTICE`](NOTICE), and [`LICENSING.md`](LICENSING.md).
