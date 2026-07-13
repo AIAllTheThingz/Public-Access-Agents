@@ -57,3 +57,13 @@
 # Executable tooling, dependencies, and automation
 /tools/ @AIAllTheThingz
 /.github/workflows/ @AIAllTheThingz
+
+# Repository versioning, maturity, and release publication override generic routes
+/VERSION @AIAllTheThingz
+/CHANGELOG.md @AIAllTheThingz
+/RELEASE_POLICY.md @AIAllTheThingz
+/MATURITY_POLICY.md @AIAllTheThingz
+/releases/ @AIAllTheThingz
+/maturity-reviews/ @AIAllTheThingz
+/tools/release/ @AIAllTheThingz
+/.github/workflows/release.yml @AIAllTheThingz
