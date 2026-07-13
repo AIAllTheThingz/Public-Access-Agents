@@ -4,6 +4,15 @@
 
 - Public repository and contribution model
 - Apache License 2.0 repository licensing and contribution terms
+- Repository maintainer and ownership model:
+  - current maintainer roster
+  - CODEOWNERS review routing
+  - review ownership by repository area
+  - independent specialist-review requirements
+  - merge and self-merge authority
+  - emergency-change and post-merge review rules
+  - inactivity, appointment, removal, and succession rules
+  - branch-protection and enforcement expectations
 - Root agent instructions
 - Complete governance operating system
 - Complete engineering discipline packages
@@ -69,6 +78,7 @@
 - Add additional composition examples for data pipelines, internal automation, public libraries, security tools, and AI agent applications
 - Add policy-dependency checks
 - Add changelog and semantic versioning policy
-- Add maintainers and code ownership
+- Add additional active maintainers and independent specialist reviewers
+- Configure and verify branch rules against the maintainer policy
 - Publish versioned releases
 - Add package maturity reviews that promote baseline packages to stable

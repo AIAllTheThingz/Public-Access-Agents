@@ -8,11 +8,12 @@ This repository contains public engineering standards for coding agents. Changes
 
 Before modifying this repository:
 
-1. Read `README.md`, `CONTRIBUTING.md`, `SECURITY.md`, and `CATALOG.md`.
+1. Read `README.md`, `CONTRIBUTING.md`, `SECURITY.md`, `MAINTAINERS.md`, and `CATALOG.md`.
 2. Read the applicable governance files.
 3. Read every scoped `AGENTS.md` between the repository root and the target file.
 4. Inspect referenced standards, schemas, examples, and templates.
 5. Classify the change as editorial, normative, compatibility-related, security-related, or breaking.
+6. Identify the applicable CODEOWNER, area owner, and specialist-review requirements.
 
 ## Mandatory working method
 
@@ -21,9 +22,10 @@ Before modifying this repository:
 - Preserve stable rule identifiers.
 - Keep normative requirements testable.
 - Update cross-references, manifests, examples, schemas, and templates affected by the change.
-- Validate JSON, YAML, Markdown links, and repository structure.
+- Validate JSON, YAML, Markdown links, repository structure, ownership files, and executable tooling.
 - Report what was validated and what was not.
 - Do not claim completion without evidence.
+- Do not treat CODEOWNERS routing as proof of authorization or independent review.
 
 ## Non-negotiable rules
 
@@ -38,6 +40,8 @@ Before modifying this repository:
 - Do not reformat unrelated files.
 - Do not modify generated or vendored files unless the task requires it.
 - Do not bypass repository validation to make checks pass.
+- Do not merge a change that lacks the review class required by `MAINTAINERS.md`.
+- Do not represent self-review as independent specialist review.
 
 ## Required governance
 
@@ -51,6 +55,8 @@ All changes are subject to:
 - `governance/AI_GENERATED_CODE_POLICY.md`
 - `governance/SECURE_DEVELOPMENT_POLICY.md`
 - `governance/HUMAN_REVIEW_POLICY.md`
+- `MAINTAINERS.md`
+- `.github/CODEOWNERS`
 
 ## Completion evidence
 
@@ -62,4 +68,5 @@ The final summary must include:
 - compatibility impact
 - validation performed
 - validation not performed
+- required owners and reviewers
 - remaining limitations and risks

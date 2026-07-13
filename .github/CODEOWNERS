@@ -1,0 +1,59 @@
+# Public-Access-Agents review routing
+#
+# CODEOWNERS requests review. It does not grant merge authority, prove
+# specialist independence, or replace the requirements in MAINTAINERS.md.
+#
+# Current ownership is assigned to the sole active maintainer. Sensitive
+# normative changes still require a qualified reviewer who is not the author.
+#
+# GitHub uses the last matching pattern. Broad collection ownership therefore
+# appears before sensitive and contract-specific overrides.
+
+# Default repository owner
+* @AIAllTheThingz
+
+# Broad standards package collections
+/languages/ @AIAllTheThingz
+/disciplines/ @AIAllTheThingz
+/platforms/ @AIAllTheThingz
+/frameworks/ @AIAllTheThingz
+/profiles/ @AIAllTheThingz
+/templates/ @AIAllTheThingz
+/examples/ @AIAllTheThingz
+
+# Repository catalog, release planning, and public documentation
+/README.md @AIAllTheThingz
+/CATALOG.md @AIAllTheThingz
+/MANIFEST.md @AIAllTheThingz
+/ROADMAP.md @AIAllTheThingz
+/SOURCES.md @AIAllTheThingz
+
+# Licensing and attribution
+/LICENSE @AIAllTheThingz
+/NOTICE @AIAllTheThingz
+/LICENSING.md @AIAllTheThingz
+
+# Repository authority, governance, ownership, and contribution policy
+/AGENTS.md @AIAllTheThingz
+/CONTRIBUTING.md @AIAllTheThingz
+/governance/ @AIAllTheThingz
+/MAINTAINERS.md @AIAllTheThingz
+/.github/CODEOWNERS @AIAllTheThingz
+
+# Security-sensitive policy and standards override broad collection routes
+/SECURITY.md @AIAllTheThingz
+/governance/SECURE_DEVELOPMENT_POLICY.md @AIAllTheThingz
+/governance/THREAT_MODELING_POLICY.md @AIAllTheThingz
+/governance/VULNERABILITY_RESPONSE.md @AIAllTheThingz
+/disciplines/application-security/ @AIAllTheThingz
+/profiles/security-tool/ @AIAllTheThingz
+
+# Machine-readable contracts and schema-backed evidence override template routes
+/schemas/ @AIAllTheThingz
+/templates/project-manifest/ @AIAllTheThingz
+/templates/test-evidence/ @AIAllTheThingz
+/templates/artifact-record/ @AIAllTheThingz
+
+# Executable tooling, dependencies, and automation
+/tools/ @AIAllTheThingz
+/.github/workflows/ @AIAllTheThingz

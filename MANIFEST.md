@@ -8,6 +8,8 @@
 - `SOURCES.md`
 - `CONTRIBUTING.md`
 - `SECURITY.md`
+- `MAINTAINERS.md`
+- `.github/CODEOWNERS`
 - `ROADMAP.md`
 - `LICENSE`
 - `NOTICE`
@@ -20,6 +22,19 @@
 - complete license text in `LICENSE`
 - attribution and project notice in `NOTICE`
 - repository licensing scope and third-party-content guidance in `LICENSING.md`
+
+## Repository maintenance and ownership
+
+- current maintainer roster in `MAINTAINERS.md`
+- review routing in `.github/CODEOWNERS`
+- area ownership for governance, security, schemas, tools, standards packages, licensing, and repository documentation
+- editorial, normative, specialist, and legal review classes
+- merge and author self-merge authority
+- emergency-change and seven-day post-merge review requirements
+- active, unavailable, inactive, and emeritus maintainer states
+- appointment, reactivation, removal, and succession rules
+- branch-protection and review-enforcement expectations
+- explicit disclosure of the current single-maintainer limitation
 
 ## Complete governance system
 

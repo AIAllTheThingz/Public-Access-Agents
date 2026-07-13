@@ -70,9 +70,17 @@ The nearest scoped `AGENTS.md` may add stricter rules for its directory. It must
 
 Normative rules should include a stable identifier, a concrete requirement, expected evidence, and an exception path where applicable.
 
+## Maintainers and ownership
+
+Repository ownership, area review, specialist-review requirements, merge authority, emergency changes, inactivity, and succession are defined in [`MAINTAINERS.md`](MAINTAINERS.md).
+
+Review routing is defined in [`.github/CODEOWNERS`](.github/CODEOWNERS). CODEOWNERS requests review; it does not grant merge authority or replace the independence requirements in the maintainer policy.
+
+The repository currently has one active maintainer: **Metello Zuccolini** ([@AIAllTheThingz](https://github.com/AIAllTheThingz)). Independent specialist review must come from a qualified reviewer who is not the author.
+
 ## Contributing
 
-Read [`CONTRIBUTING.md`](CONTRIBUTING.md), [`SECURITY.md`](SECURITY.md), and the affected scoped `AGENTS.md` files before making changes.
+Read [`CONTRIBUTING.md`](CONTRIBUTING.md), [`SECURITY.md`](SECURITY.md), [`MAINTAINERS.md`](MAINTAINERS.md), and the affected scoped `AGENTS.md` files before making changes.
 
 ## Sources
 

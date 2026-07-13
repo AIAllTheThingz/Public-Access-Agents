@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate repository structure, licensing, JSON, identifiers, and final-branch hygiene."""
+"""Validate repository structure, licensing, ownership, JSON, identifiers, and final-branch hygiene."""
 
 from __future__ import annotations
 
@@ -16,7 +16,7 @@ sys.path.insert(0, str(TOOLS_ROOT / "lib"))
 from standards_tools import Finding, ToolResult, add_common_arguments, execute_tool  # noqa: E402
 
 TOOL = "validate-standards"
-VERSION = "1.1.0"
+VERSION = "1.2.0"
 DEFAULT_ROOT = Path(__file__).resolve().parents[2]
 REQUIRED_ROOT = {
     "AGENTS.md",
@@ -25,6 +25,7 @@ REQUIRED_ROOT = {
     "CONTRIBUTING.md",
     "LICENSE",
     "LICENSING.md",
+    "MAINTAINERS.md",
     "MANIFEST.md",
     "NOTICE",
     "ROADMAP.md",
@@ -45,6 +46,33 @@ APACHE_LICENSE_MARKERS = (
 EXPECTED_COPYRIGHT = "Copyright 2026 Metello Zuccolini"
 SPDX_IDENTIFIER = "Apache-2.0"
 STALE_LICENSE_TEXT = "A repository license has not yet been selected"
+EXPECTED_MAINTAINER_NAME = "Metello Zuccolini"
+EXPECTED_MAINTAINER = "@AIAllTheThingz"
+MAINTAINER_MARKERS = (
+    "# Maintainers and Repository Ownership",
+    "## Current maintainer roster",
+    "### Current coverage limitation",
+    "## Area ownership",
+    "### Independent specialist review",
+    "## Merge authority",
+    "## Author self-merge",
+    "## Emergency changes",
+    "## Inactivity",
+    "## Appointment and succession",
+    "## Branch protection and enforcement",
+    "## Review cadence",
+)
+REQUIRED_CODEOWNER_ROUTES = {
+    "*": EXPECTED_MAINTAINER,
+    "/MAINTAINERS.md": EXPECTED_MAINTAINER,
+    "/.github/CODEOWNERS": EXPECTED_MAINTAINER,
+    "/governance/": EXPECTED_MAINTAINER,
+    "/SECURITY.md": EXPECTED_MAINTAINER,
+    "/schemas/": EXPECTED_MAINTAINER,
+    "/tools/": EXPECTED_MAINTAINER,
+    "/.github/workflows/": EXPECTED_MAINTAINER,
+}
+STALE_OWNERSHIP_ROADMAP = "Add maintainers and code ownership"
 
 
 def relative(path: Path, root: Path) -> str:
@@ -55,7 +83,7 @@ def read_text(path: Path, findings: list[Finding], code: str) -> str | None:
     try:
         return path.read_text(encoding="utf-8")
     except UnicodeDecodeError as exc:
-        findings.append(Finding(code, str(exc), path=path.name))
+        findings.append(Finding(code, str(exc), path=relative(path, path.parent)))
         return None
 
 
@@ -134,6 +162,114 @@ def validate_licensing(root: Path, findings: list[Finding]) -> None:
             ))
 
 
+def parse_codeowners(text: str, findings: list[Finding]) -> dict[str, list[str]]:
+    routes: dict[str, list[str]] = {}
+    for line_number, line in enumerate(text.splitlines(), start=1):
+        stripped = line.strip()
+        if not stripped or stripped.startswith("#"):
+            continue
+        parts = stripped.split()
+        if len(parts) < 2:
+            findings.append(Finding(
+                "CODEOWNERS_INVALID",
+                "CODEOWNERS route must contain a path pattern and at least one owner.",
+                path=".github/CODEOWNERS",
+                line=line_number,
+            ))
+            continue
+        routes[parts[0]] = parts[1:]
+    return routes
+
+
+def validate_ownership(root: Path, findings: list[Finding]) -> None:
+    maintainers_path = root / "MAINTAINERS.md"
+    if maintainers_path.is_file():
+        maintainers_text = read_text(maintainers_path, findings, "MAINTAINERS_ENCODING")
+        if maintainers_text is not None:
+            for marker in MAINTAINER_MARKERS:
+                if marker not in maintainers_text:
+                    findings.append(Finding(
+                        "MAINTAINERS_POLICY_INCOMPLETE",
+                        f"MAINTAINERS.md is missing required section marker: {marker}",
+                        path="MAINTAINERS.md",
+                    ))
+            for identity in (EXPECTED_MAINTAINER_NAME, EXPECTED_MAINTAINER):
+                if identity not in maintainers_text:
+                    findings.append(Finding(
+                        "MAINTAINER_ROSTER_INVALID",
+                        f"MAINTAINERS.md must identify the current maintainer: {identity}",
+                        path="MAINTAINERS.md",
+                    ))
+            if "one active maintainer" not in maintainers_text:
+                findings.append(Finding(
+                    "MAINTAINER_LIMITATION_MISSING",
+                    "MAINTAINERS.md must disclose the current single-maintainer limitation.",
+                    path="MAINTAINERS.md",
+                ))
+            if "must not be the author" not in maintainers_text:
+                findings.append(Finding(
+                    "SPECIALIST_INDEPENDENCE_MISSING",
+                    "MAINTAINERS.md must require independent specialist review where applicable.",
+                    path="MAINTAINERS.md",
+                ))
+
+    codeowners_path = root / ".github" / "CODEOWNERS"
+    if not codeowners_path.is_file():
+        findings.append(Finding(
+            "CODEOWNERS_MISSING",
+            "Repository review routing file is missing.",
+            path=".github/CODEOWNERS",
+        ))
+    else:
+        codeowners_text = read_text(codeowners_path, findings, "CODEOWNERS_ENCODING")
+        if codeowners_text is not None:
+            routes = parse_codeowners(codeowners_text, findings)
+            for pattern, required_owner in REQUIRED_CODEOWNER_ROUTES.items():
+                owners = routes.get(pattern)
+                if owners is None:
+                    findings.append(Finding(
+                        "CODEOWNERS_ROUTE_MISSING",
+                        f"CODEOWNERS is missing required route: {pattern}",
+                        path=".github/CODEOWNERS",
+                    ))
+                elif required_owner not in owners:
+                    findings.append(Finding(
+                        "CODEOWNERS_OWNER_MISSING",
+                        f"CODEOWNERS route {pattern} must include {required_owner}.",
+                        path=".github/CODEOWNERS",
+                    ))
+
+    required_links = {
+        "README.md": ("[`MAINTAINERS.md`](MAINTAINERS.md)", "[`.github/CODEOWNERS`](.github/CODEOWNERS)"),
+        "CONTRIBUTING.md": ("[`MAINTAINERS.md`](MAINTAINERS.md)", "[`.github/CODEOWNERS`](.github/CODEOWNERS)"),
+        "AGENTS.md": ("`MAINTAINERS.md`", "`.github/CODEOWNERS`"),
+    }
+    for name, markers in required_links.items():
+        path = root / name
+        if not path.is_file():
+            continue
+        text = read_text(path, findings, "OWNERSHIP_DECLARATION_ENCODING")
+        if text is None:
+            continue
+        for marker in markers:
+            if marker not in text:
+                findings.append(Finding(
+                    "OWNERSHIP_DECLARATION_MISSING",
+                    f"{name} must reference ownership contract {marker}.",
+                    path=name,
+                ))
+
+    roadmap = root / "ROADMAP.md"
+    if roadmap.is_file():
+        roadmap_text = read_text(roadmap, findings, "ROADMAP_ENCODING")
+        if roadmap_text is not None and STALE_OWNERSHIP_ROADMAP in roadmap_text:
+            findings.append(Finding(
+                "OWNERSHIP_ROADMAP_STALE",
+                "ROADMAP.md still lists maintainers and code ownership as unfinished.",
+                path="ROADMAP.md",
+            ))
+
+
 def run(args: argparse.Namespace) -> ToolResult:
     root = args.root.resolve()
     findings: list[Finding] = []
@@ -145,6 +281,7 @@ def run(args: argparse.Namespace) -> ToolResult:
             findings.append(Finding("ROOT_FILE_MISSING", f"Missing required root file: {name}", path=name))
 
     validate_licensing(root, findings)
+    validate_ownership(root, findings)
 
     bootstrap = root / "bootstrap"
     if bootstrap.exists():
@@ -233,6 +370,8 @@ def run(args: argparse.Namespace) -> ToolResult:
     summary = {
         "rootFilesRequired": len(REQUIRED_ROOT),
         "licensingFilesRequired": 3,
+        "ownershipFilesRequired": 2,
+        "codeownerRoutesRequired": len(REQUIRED_CODEOWNER_ROUTES),
         "jsonFiles": json_count,
         "markdownFiles": markdown_count,
         "identifiedDocuments": len(ids),
