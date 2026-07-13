@@ -1,0 +1,56 @@
+# Public-Access-Agents review routing
+#
+# CODEOWNERS requests review. It does not grant merge authority, prove
+# specialist independence, or replace the requirements in MAINTAINERS.md.
+#
+# Current ownership is assigned to the sole active maintainer. Sensitive
+# normative changes still require a qualified reviewer who is not the author.
+
+# Default repository owner
+* @AIAllTheThingz
+
+# Repository authority, governance, ownership, and contribution policy
+/AGENTS.md @AIAllTheThingz
+/MAINTAINERS.md @AIAllTheThingz
+/.github/CODEOWNERS @AIAllTheThingz
+/CONTRIBUTING.md @AIAllTheThingz
+/governance/ @AIAllTheThingz
+
+# Security-sensitive policy and standards
+/SECURITY.md @AIAllTheThingz
+/governance/SECURE_DEVELOPMENT_POLICY.md @AIAllTheThingz
+/governance/THREAT_MODELING_POLICY.md @AIAllTheThingz
+/governance/VULNERABILITY_RESPONSE.md @AIAllTheThingz
+/disciplines/application-security/ @AIAllTheThingz
+/profiles/security-tool/ @AIAllTheThingz
+
+# Machine-readable contracts and schema-backed evidence
+/schemas/ @AIAllTheThingz
+/templates/project-manifest/ @AIAllTheThingz
+/templates/test-evidence/ @AIAllTheThingz
+/templates/artifact-record/ @AIAllTheThingz
+
+# Executable tooling, dependencies, and automation
+/tools/ @AIAllTheThingz
+/.github/workflows/ @AIAllTheThingz
+
+# Licensing and attribution
+/LICENSE @AIAllTheThingz
+/NOTICE @AIAllTheThingz
+/LICENSING.md @AIAllTheThingz
+
+# Standards package collections
+/languages/ @AIAllTheThingz
+/disciplines/ @AIAllTheThingz
+/platforms/ @AIAllTheThingz
+/frameworks/ @AIAllTheThingz
+/profiles/ @AIAllTheThingz
+/templates/ @AIAllTheThingz
+/examples/ @AIAllTheThingz
+
+# Repository catalog, release planning, and public documentation
+/README.md @AIAllTheThingz
+/CATALOG.md @AIAllTheThingz
+/MANIFEST.md @AIAllTheThingz
+/ROADMAP.md @AIAllTheThingz
+/SOURCES.md @AIAllTheThingz
