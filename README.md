@@ -8,6 +8,21 @@ AI coding agents can generate useful software quickly. They can also generate fr
 
 These standards improve behavior. They do not guarantee security, correctness, compliance, or production readiness.
 
+## Current repository version
+
+The current repository version is defined in [`VERSION`](VERSION).
+
+Current version: **0.9.0**
+
+This is a pre-1.0 compatibility baseline. It is usable and versioned, but it does not yet represent the final stable compatibility commitment.
+
+See:
+
+- [`CHANGELOG.md`](CHANGELOG.md)
+- [`RELEASE_POLICY.md`](RELEASE_POLICY.md)
+- [`MATURITY_POLICY.md`](MATURITY_POLICY.md)
+- [`releases/`](releases/README.md)
+
 ## Start here
 
 1. Read the root [`AGENTS.md`](AGENTS.md).
@@ -16,7 +31,8 @@ These standards improve behavior. They do not guarantee security, correctness, c
 4. Copy the relevant language package from [`languages/`](languages/README.md).
 5. Add scoped standards for applicable disciplines, platforms, and frameworks.
 6. Tailor the result without weakening security, validation, testing, or completion-evidence requirements.
-7. Validate the repository with the tools under [`tools/`](tools/README.md).
+7. Record the repository version or tag used by the adopting project.
+8. Validate the repository with the tools under [`tools/`](tools/README.md).
 
 ## Repository structure
 
@@ -31,7 +47,9 @@ These standards improve behavior. They do not guarantee security, correctness, c
 | [`templates/`](templates/README.md) | Root and nested agent files, completion evidence, threat models, ADRs, and exceptions |
 | [`schemas/`](schemas/README.md) | Machine-readable evidence and manifest schemas |
 | [`examples/`](examples/README.md) | Example compositions showing how standards fit together |
-| [`tools/`](tools/README.md) | Repository validation and composition utilities |
+| [`tools/`](tools/README.md) | Repository validation, composition, and release utilities |
+| [`releases/`](releases/README.md) | Versioned release notes and migration guidance |
+| [`maturity-reviews/`](maturity-reviews/README.md) | Evidence-backed maturity promotion and demotion records |
 
 ## Current language packages
 
@@ -66,9 +84,21 @@ project/
 
 The nearest scoped `AGENTS.md` may add stricter rules for its directory. It must not silently weaken applicable parent rules.
 
+Adopters should record the repository version, tag, or source commit used so future upgrades can be reviewed against an explicit compatibility boundary.
+
 ## Rule format
 
 Normative rules should include a stable identifier, a concrete requirement, expected evidence, and an exception path where applicable.
+
+## Releases and maturity
+
+Repository releases use Semantic Versioning as adapted by [`RELEASE_POLICY.md`](RELEASE_POLICY.md).
+
+Release notes identify breaking, normative, editorial, tooling, security, deprecation, migration, and known-limitation changes.
+
+Component maturity is governed by [`MATURITY_POLICY.md`](MATURITY_POLICY.md). A repository release does not automatically promote every package from `baseline` to `stable`.
+
+`1.0.0` is reserved for a reviewed compatibility commitment that satisfies the release, ownership, adoption-testing, specialist-review, migration, and maturity gates.
 
 ## Maintainers and ownership
 
@@ -80,7 +110,7 @@ The repository currently has one active maintainer: **Metello Zuccolini** ([@AIA
 
 ## Contributing
 
-Read [`CONTRIBUTING.md`](CONTRIBUTING.md), [`SECURITY.md`](SECURITY.md), [`MAINTAINERS.md`](MAINTAINERS.md), and the affected scoped `AGENTS.md` files before making changes.
+Read [`CONTRIBUTING.md`](CONTRIBUTING.md), [`SECURITY.md`](SECURITY.md), [`MAINTAINERS.md`](MAINTAINERS.md), [`RELEASE_POLICY.md`](RELEASE_POLICY.md), and the affected scoped `AGENTS.md` files before making changes.
 
 ## Sources
 
