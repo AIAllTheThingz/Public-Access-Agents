@@ -17,6 +17,7 @@ import zipfile
 from pathlib import Path
 
 DEFAULT_ROOT = Path(__file__).resolve().parents[2]
+BUILDER_VERSION = "1.0.0"
 FIXED_ZIP_TIME = (1980, 1, 1, 0, 0, 0)
 ARCHIVE_PREFIX = "Public-Access-Agents"
 
@@ -31,6 +32,15 @@ def run_git(root: Path, *args: str) -> str:
     if completed.returncode != 0:
         raise RuntimeError(completed.stderr.strip() or f"git {' '.join(args)} failed")
     return completed.stdout.strip()
+
+
+def ensure_clean_tracked_tree(root: Path) -> None:
+    status = run_git(root, "status", "--porcelain", "--untracked-files=no")
+    if status:
+        raise RuntimeError(
+            "Tracked working-tree changes are present. Commit or restore them before building "
+            "release artifacts so sourceCommit matches the packaged content."
+        )
 
 
 def tracked_files(root: Path) -> list[Path]:
@@ -99,6 +109,8 @@ def build(root: Path, output_dir: Path, tag: str | None, force: bool) -> dict:
     if tag and tag != expected_tag:
         raise ValueError(f"Tag {tag!r} does not match VERSION; expected {expected_tag!r}.")
 
+    ensure_clean_tracked_tree(root)
+
     release_notes = root / "releases" / f"{version}.md"
     migration_notes = root / "releases" / "migrations" / f"{version}.md"
     for path in (release_notes, migration_notes):
@@ -149,6 +161,7 @@ def build(root: Path, output_dir: Path, tag: str | None, force: bool) -> dict:
 
         manifest = {
             "formatVersion": "1.0.0",
+            "builderVersion": BUILDER_VERSION,
             "project": "Public-Access-Agents",
             "version": version,
             "tag": tag or expected_tag,
