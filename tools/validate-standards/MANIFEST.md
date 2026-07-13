@@ -1,7 +1,7 @@
 ---
 id: TOOL-PKG-VALIDATE-STANDARDS-001-MANIFEST
 title: Validate Standards Tool Manifest
-version: 1.1.0
+version: 1.2.0
 status: baseline
 ---
 
@@ -27,6 +27,15 @@ status: baseline
 - NOTICE attribution and copyright
 - LICENSING.md SPDX and stable-link declarations
 - README and CONTRIBUTING license declarations
+- required MAINTAINERS.md
+- required .github/CODEOWNERS
+- current maintainer identity
+- area ownership and specialist-review policy sections
+- merge, emergency, inactivity, succession, and enforcement policy sections
+- current single-maintainer limitation
+- default and sensitive-area CODEOWNERS routes
+- ownership references in root guidance
+- stale ownership-roadmap language
 - JSON syntax
 - unique front-matter IDs
 - AGENTS.md minimum depth
@@ -41,5 +50,8 @@ status: baseline
 - exit codes match the common contract
 - positive and negative tests pass
 - missing or invalid licensing files fail validation
+- missing or incomplete maintainer policy fails validation
+- missing or incomplete CODEOWNERS routes fail validation
+- ownership and specialist-review limitations remain explicit
 - stable path remains unchanged
 - documentation and examples match behavior
