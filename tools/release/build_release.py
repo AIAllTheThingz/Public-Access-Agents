@@ -72,6 +72,15 @@ def sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
+def artifact_record(path: Path, role: str) -> dict:
+    return {
+        "name": path.name,
+        "role": role,
+        "sha256": sha256(path),
+        "sizeBytes": path.stat().st_size,
+    }
+
+
 def write_zip(root: Path, files: list[Path], output: Path, top: str) -> None:
     with zipfile.ZipFile(output, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=9) as archive:
         for path in files:
@@ -133,31 +142,21 @@ def build(root: Path, output_dir: Path, tag: str | None, force: bool) -> dict:
 
         zip_path = staging / f"{top}.zip"
         tar_path = staging / f"{top}.tar.gz"
+        release_asset = staging / "RELEASE_NOTES.md"
+        migration_asset = staging / "MIGRATION_NOTES.md"
+        manifest_path = staging / "release-manifest.json"
+
         write_zip(root, files, zip_path, top)
         write_tar_gz(root, files, tar_path, top)
+        release_asset.write_text(release_notes.read_text(encoding="utf-8"), encoding="utf-8")
+        migration_asset.write_text(migration_notes.read_text(encoding="utf-8"), encoding="utf-8")
 
-        (staging / "RELEASE_NOTES.md").write_text(
-            release_notes.read_text(encoding="utf-8"), encoding="utf-8"
-        )
-        (staging / "MIGRATION_NOTES.md").write_text(
-            migration_notes.read_text(encoding="utf-8"), encoding="utf-8"
-        )
-
-        artifacts = []
-        for path in (zip_path, tar_path):
-            artifacts.append({
-                "name": path.name,
-                "sha256": sha256(path),
-                "sizeBytes": path.stat().st_size,
-            })
-
-        (staging / "SHA256SUMS.txt").write_text(
-            "".join(
-                f"{item['sha256']}  {item['name']}\n"
-                for item in sorted(artifacts, key=lambda value: value["name"])
-            ),
-            encoding="utf-8",
-        )
+        artifacts = [
+            artifact_record(zip_path, "source-archive-zip"),
+            artifact_record(tar_path, "source-archive-tar-gz"),
+            artifact_record(release_asset, "release-notes"),
+            artifact_record(migration_asset, "migration-notes"),
+        ]
 
         manifest = {
             "formatVersion": "1.0.0",
@@ -169,12 +168,21 @@ def build(root: Path, output_dir: Path, tag: str | None, force: bool) -> dict:
             "archiveRoot": top,
             "trackedFiles": len(files),
             "artifacts": artifacts,
-            "releaseNotes": "RELEASE_NOTES.md",
-            "migrationNotes": "MIGRATION_NOTES.md",
+            "releaseNotes": release_asset.name,
+            "migrationNotes": migration_asset.name,
             "checksums": "SHA256SUMS.txt",
         }
-        (staging / "release-manifest.json").write_text(
+        manifest_path.write_text(
             json.dumps(manifest, indent=2, sort_keys=True) + "\n",
+            encoding="utf-8",
+        )
+
+        checksum_targets = [zip_path, tar_path, release_asset, migration_asset, manifest_path]
+        (staging / "SHA256SUMS.txt").write_text(
+            "".join(
+                f"{sha256(path)}  {path.name}\n"
+                for path in sorted(checksum_targets, key=lambda value: value.name)
+            ),
             encoding="utf-8",
         )
         shutil.move(str(staging), output_dir)
