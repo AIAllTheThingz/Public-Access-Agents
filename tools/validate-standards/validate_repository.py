@@ -61,6 +61,17 @@ def run(args: argparse.Namespace) -> ToolResult:
         if path.exists():
             findings.append(Finding("TEMPORARY_ARTIFACT", "Temporary diagnostic artifact remains.", path=name))
 
+    generated_artifacts: set[str] = set()
+    for path in sorted(root.rglob("*")):
+        if "__pycache__" in path.parts or path.suffix in {".pyc", ".pyo"}:
+            generated_artifacts.add(relative(path, root))
+    for artifact in sorted(generated_artifacts):
+        findings.append(Finding(
+            "PYTHON_CACHE_PRESENT",
+            "Generated Python cache or bytecode must not be committed.",
+            path=artifact,
+        ))
+
     json_count = 0
     for path in sorted(root.rglob("*.json")):
         json_count += 1
