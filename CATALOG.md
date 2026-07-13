@@ -99,6 +99,19 @@ Project profiles are complete composition packages that select and organize gove
 
 See the [profiles index](profiles/README.md) for selection, primary and secondary composition, risk scaling, adoption, evidence, lifecycle, and maintenance guidance.
 
+## Machine-readable schemas
+
+The schema system defines versioned Draft 2020-12 contracts for project manifests, risk classifications, standards exceptions, test evidence, artifact records, and completion results.
+
+- [Schema index](schemas/README.md)
+- [Schema catalog](schemas/SCHEMA_CATALOG.md)
+- [Versioning policy](schemas/VERSIONING_POLICY.md)
+- [Compatibility policy](schemas/COMPATIBILITY_POLICY.md)
+- [Validation guide](schemas/VALIDATION_GUIDE.md)
+- [Executable examples](schemas/examples/)
+
+Long-lived consumers should pin `schemas/v1/` contracts. Rolling top-level paths remain convenience entry points.
+
 ## Composition examples
 
 The examples demonstrate how standards are selected, tailored, scoped, and supported by architecture, risk, testing, operations, and evidence documents.

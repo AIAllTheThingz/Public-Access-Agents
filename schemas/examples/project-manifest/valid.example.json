@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.0.0",
+  "name": "example-service",
+  "profile": "WEB_API",
+  "languages": [
+    "python"
+  ],
+  "disciplines": [
+    "application-security",
+    "testing"
+  ],
+  "platforms": [
+    "containers"
+  ],
+  "frameworks": [
+    "fastapi"
+  ],
+  "risk": "moderate",
+  "exceptions": []
+}

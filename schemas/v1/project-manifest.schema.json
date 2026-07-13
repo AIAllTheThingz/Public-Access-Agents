@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://raw.githubusercontent.com/AIAllTheThingz/Public-Access-Agents/main/schemas/project-manifest.schema.json",
+  "$id": "https://raw.githubusercontent.com/AIAllTheThingz/Public-Access-Agents/main/schemas/v1/project-manifest.schema.json",
   "title": "Project Standards Manifest",
   "description": "Declares the selected project profile, languages, disciplines, platforms, frameworks, risk, exceptions, and project-specific composition metadata.",
   "type": "object",
@@ -103,6 +103,5 @@
       "additionalProperties": true
     }
   },
-  "x-schemaVersion": "1.0.0",
-  "x-versionedSchema": "v1/project-manifest.schema.json"
+  "x-schemaVersion": "1.0.0"
 }

@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://raw.githubusercontent.com/AIAllTheThingz/Public-Access-Agents/main/schemas/exception-record.schema.json",
+  "$id": "https://raw.githubusercontent.com/AIAllTheThingz/Public-Access-Agents/main/schemas/v1/exception-record.schema.json",
   "title": "Standards Exception",
   "description": "Records a time-bounded deviation from a specific rule, including ownership, rationale, risk, compensating controls, approval, status, and closure.",
   "type": "object",
@@ -102,6 +102,5 @@
       "additionalProperties": true
     }
   },
-  "x-schemaVersion": "1.0.0",
-  "x-versionedSchema": "v1/exception-record.schema.json"
+  "x-schemaVersion": "1.0.0"
 }

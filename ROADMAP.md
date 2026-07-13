@@ -31,7 +31,14 @@
   - Security tool
   - AI agent application
 - Profile selection, composition, risk-and-evidence, lifecycle, and decision-matrix guidance
-- Templates and JSON schemas
+- Complete schema system:
+  - six rolling Draft 2020-12 contracts
+  - six version-pinned version 1 contracts
+  - versioning and compatibility policy
+  - extension and migration guidance
+  - positive and negative contract examples
+  - executable schema and repository-instance validation
+- Templates
 - Repository validation tools
 - Complete standards-composition examples
 - Schema-shaped completion, test, artifact, risk, and exception evidence
@@ -44,7 +51,7 @@
 - Add current provider-service compatibility matrices and migration guidance
 - Add executable validation templates for containers, Kubernetes, infrastructure as code, and cloud platforms
 - Add additional composition examples for data pipelines, internal automation, public libraries, security tools, and AI agent applications
-- Add governance schema validation and policy-dependency checks
+- Add policy-dependency checks
 - Add changelog and semantic versioning policy
 - Select an open-source license
 - Add maintainers and code ownership

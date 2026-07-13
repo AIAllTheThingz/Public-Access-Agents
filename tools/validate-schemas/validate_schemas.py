@@ -1,3 +1,19 @@
+#!/usr/bin/env python3
+"""Validate schema documents, examples, and repository instances."""
+
+from __future__ import annotations
+
+import json
+import sys
+from pathlib import Path
+from typing import Any
+
+try:
+    import jsonschema
+    from jsonschema import Draft202012Validator, FormatChecker
+except ImportError as exc:
+    raise SystemExit(
+        "Missing dependency 'jsonschema'. Install with: "
         "python -m pip install -r tools/validate-schemas/requirements.txt"
     ) from exc
 
@@ -119,3 +135,39 @@ def main() -> int:
         invalid_path = example_root / "invalid.example.json"
 
         if not valid_path.is_file():
+            errors.append(f"Missing positive example: {valid_path.relative_to(ROOT)}")
+        else:
+            errors.extend(validate_instance(valid_path, versioned_path, True))
+
+        if not invalid_path.is_file():
+            errors.append(f"Missing negative example: {invalid_path.relative_to(ROOT)}")
+        else:
+            errors.extend(validate_instance(invalid_path, versioned_path, False))
+
+    for path in sorted(ROOT.rglob("*.json")):
+        if SCHEMA_ROOT in path.parents:
+            continue
+        schema_name = discover_schema(path)
+        if schema_name is None:
+            continue
+        schema_path = SCHEMA_ROOT / "v1" / f"{schema_name}.schema.json"
+        errors.extend(validate_instance(path, schema_path, True))
+
+    if errors:
+        print("Schema validation failed:")
+        for error in errors:
+            print(f"- {error}")
+        return 1
+
+    print(
+        "Schema validation passed: "
+        f"{len(SCHEMA_NAMES)} rolling schemas, "
+        f"{len(SCHEMA_NAMES)} versioned schemas, "
+        f"{len(SCHEMA_NAMES)} positive examples, "
+        f"{len(SCHEMA_NAMES)} negative examples."
+    )
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

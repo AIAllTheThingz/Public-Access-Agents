@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0.0",
+  "level": "high",
+  "rationale": "Illustrative privileged production change.",
+  "factors": {
+    "privilege": "administrative",
+    "blastRadius": "multiple systems"
+  },
+  "requiredReviewers": [
+    "security-reviewer",
+    "operations-owner"
+  ],
+  "rollbackRequired": true
+}
