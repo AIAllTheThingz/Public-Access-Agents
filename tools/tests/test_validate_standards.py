@@ -83,6 +83,65 @@ class ValidateStandardsTests(unittest.TestCase):
             codes = {item["code"] for item in json_result(completed)["findings"]}
             self.assertIn("LICENSE_INVALID", codes)
 
+    def test_missing_maintainers_fails(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            make_required_root(root)
+            (root / "MAINTAINERS.md").unlink()
+            completed = run_tool("tools/validate-standards/validate_repository.py", "--format", "json", root=root)
+            self.assertEqual(completed.returncode, 1)
+            findings = json_result(completed)["findings"]
+            self.assertTrue(
+                any(item["code"] == "ROOT_FILE_MISSING" and item.get("path") == "MAINTAINERS.md" for item in findings)
+            )
+
+    def test_missing_codeowners_fails(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            make_required_root(root)
+            (root / ".github" / "CODEOWNERS").unlink()
+            completed = run_tool("tools/validate-standards/validate_repository.py", "--format", "json", root=root)
+            self.assertEqual(completed.returncode, 1)
+            codes = {item["code"] for item in json_result(completed)["findings"]}
+            self.assertIn("CODEOWNERS_MISSING", codes)
+
+    def test_missing_sensitive_codeowner_route_fails(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            make_required_root(root)
+            codeowners = root / ".github" / "CODEOWNERS"
+            text = codeowners.read_text(encoding="utf-8").replace("/schemas/ @AIAllTheThingz\n", "")
+            codeowners.write_text(text, encoding="utf-8")
+            completed = run_tool("tools/validate-standards/validate_repository.py", "--format", "json", root=root)
+            self.assertEqual(completed.returncode, 1)
+            codes = {item["code"] for item in json_result(completed)["findings"]}
+            self.assertIn("CODEOWNERS_ROUTE_MISSING", codes)
+
+    def test_incomplete_maintainer_policy_fails(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            make_required_root(root)
+            maintainers = root / "MAINTAINERS.md"
+            text = maintainers.read_text(encoding="utf-8").replace("## Emergency changes\n", "")
+            maintainers.write_text(text, encoding="utf-8")
+            completed = run_tool("tools/validate-standards/validate_repository.py", "--format", "json", root=root)
+            self.assertEqual(completed.returncode, 1)
+            codes = {item["code"] for item in json_result(completed)["findings"]}
+            self.assertIn("MAINTAINERS_POLICY_INCOMPLETE", codes)
+
+    def test_stale_ownership_roadmap_fails(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            make_required_root(root)
+            (root / "ROADMAP.md").write_text(
+                "# Roadmap\n\n- Add maintainers and code ownership\n",
+                encoding="utf-8",
+            )
+            completed = run_tool("tools/validate-standards/validate_repository.py", "--format", "json", root=root)
+            self.assertEqual(completed.returncode, 1)
+            codes = {item["code"] for item in json_result(completed)["findings"]}
+            self.assertIn("OWNERSHIP_ROADMAP_STALE", codes)
+
 
 if __name__ == "__main__":
     unittest.main()
