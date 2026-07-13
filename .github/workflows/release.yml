@@ -77,4 +77,5 @@ jobs:
             dist/Public-Access-Agents-*.tar.gz \
             dist/SHA256SUMS.txt \
             dist/release-manifest.json \
+            dist/RELEASE_NOTES.md \
             dist/MIGRATION_NOTES.md
