@@ -26,6 +26,7 @@
 - `platforms/SKILL.md`
 - `virtualization/SKILL.md`
 - `operating-systems/SKILL.md`
+- `networking/SKILL.md`
 
 These progressive-disclosure routers select and compose existing standards packages. They do not replace root governance or scoped `AGENTS.md` instructions.
 
@@ -169,6 +170,17 @@ The virtualization collection also includes selection, shared-responsibility, ch
 Each complete operating-system package includes scoped agent instructions, an operations-and-automation standard, adoption and review templates, an evidence template, a fictitious adoption example, and a manifest.
 
 The operating-system collection also includes selection, shared-responsibility, change-lifecycle, current-release, and upgrade/migration guidance.
+
+## Complete networking packages
+
+- `networking/hpe-aruba-networking`
+- `networking/cisco-networking`
+- `networking/juniper-networks`
+- `networking/brocade-networking`
+
+Each complete networking package includes scoped agent instructions, an operations-and-automation standard, adoption and review templates, an evidence template, a fictitious adoption example, and a manifest.
+
+The networking collection also includes vendor/ownership selection, shared-responsibility, change-lifecycle, topology, firmware, recovery, and migration/refresh guidance.
 
 ## Complete project profile packages
 

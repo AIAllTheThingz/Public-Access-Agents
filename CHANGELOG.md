@@ -25,6 +25,8 @@ Release notes distinguish:
 - Added shared virtualization requirements for target identity, supported automation interfaces, discovery, validation, dry-run or planning, authorization, bounded execution, actual-state verification, backup, recovery, lifecycle, and migration.
 - Added an operating-system engineering skill and complete baseline packages for Windows Server 2016/2019/2022/2025, Windows 10/11 clients, the RHEL family, Ubuntu Server/Desktop, Debian, SUSE Linux Enterprise, Oracle Linux, macOS, and FreeBSD.
 - Added shared OS requirements for authoritative target and policy identity, current lifecycle verification, trusted repositories and artifacts, staged/canary rollout, access preservation, bounded automation and restarts, actual-state verification, recovery, upgrades, migrations, destructive actions, and decommissioning.
+- Added a network engineering skill and complete baseline packages for HPE Aruba Networking, Cisco, Juniper Networks, and Broadcom Brocade Fabric OS/SANnav, including explicit ownership triage for legacy Brocade Ethernet/IP product lines.
+- Added shared networking requirements for authoritative device/controller/fabric identity, configuration ownership, management/control/data-plane separation, transactional changes, topology and redundancy safety, bounded execution, actual-state verification, firmware lifecycle, rollback, recovery, and migration/refresh.
 
 ### Editorial changes
 
@@ -36,11 +38,13 @@ Release notes distinguish:
 - Integrated skill validation and its positive, boundary, negative, and deterministic tests into the complete validation pipeline.
 - Extended the repository skill-collection regression test to cover the virtualization router and its nine package routes.
 - Extended the skill-collection regression test to cover the operating-system router and its nine package routes.
+- Extended the skill-collection regression test to cover the networking router and its four package routes.
 
 ### Security
 
 - Added virtualization safeguards for privileged control planes, ambiguous object selection, bulk or destructive actions, management-plane exposure, network and storage changes, snapshots and checkpoints, backup and restore, device passthrough, unsupported lifecycle states, and cross-platform migration.
 - Added OS safeguards for privileged fleet actions, ambiguous target selection, repository and package trust, security-control bypass, identity and remote-access loss, restart and partial-fleet failure, encryption and recovery material, destructive endpoint actions, unsupported lifecycle states, and user-data privacy.
+- Added networking safeguards for high-blast-radius control planes, ambiguous device/controller/fabric scope, conflicting configuration owners, management loss, loops and convergence failure, redundancy sequencing, policy exposure, unsupported firmware/hardware, Fibre Channel zoning and multipath changes, and sensitive topology or support data.
 
 ### Deprecations
 
@@ -48,7 +52,7 @@ Release notes distinguish:
 
 ### Migration notes
 
-- Existing adopters may continue using `AGENTS.md` and package entry points directly. Agents that support skills may additionally use `languages/SKILL.md`, `frameworks/SKILL.md`, `platforms/SKILL.md`, `virtualization/SKILL.md`, and `operating-systems/SKILL.md` without changing existing package paths.
+- Existing adopters may continue using `AGENTS.md` and package entry points directly. Agents that support skills may additionally use `languages/SKILL.md`, `frameworks/SKILL.md`, `platforms/SKILL.md`, `virtualization/SKILL.md`, `operating-systems/SKILL.md`, and `networking/SKILL.md` without changing existing package paths.
 
 ## [0.9.0] - 2026-07-13
 

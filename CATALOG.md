@@ -9,6 +9,7 @@ This catalog lists the standards available for composition into a project.
 - [Platform engineering skill](platforms/SKILL.md)
 - [Virtualization engineering skill](virtualization/SKILL.md)
 - [Operating-system engineering skill](operating-systems/SKILL.md)
+- [Network engineering skill](networking/SKILL.md)
 
 These collection-level skills select and compose the detailed packages below. They supplement rather than replace repository governance and scoped `AGENTS.md` instructions.
 
@@ -108,6 +109,17 @@ Operating-system packages are complete, independently adoptable overlays for pro
 - [FreeBSD](operating-systems/freebsd/)
 
 See the [operating-systems index](operating-systems/README.md) for current-release semantics, selection, shared responsibility, safe change phases, automation, security, recovery, upgrade, and migration guidance.
+
+## Networking
+
+Networking packages are complete, independently adoptable overlays for device and controller ownership, management/control/data planes, routing, switching, topology, high availability, policy, telemetry, lifecycle, software/firmware, recovery, migration, and automation.
+
+- [HPE Aruba Networking](networking/hpe-aruba-networking/)
+- [Cisco networking](networking/cisco-networking/)
+- [Juniper Networks](networking/juniper-networks/)
+- [Brocade networking and Fibre Channel fabrics](networking/brocade-networking/)
+
+See the [networking index](networking/README.md) for vendor and ownership selection, shared responsibility, safe change phases, topology controls, automation, security, recovery, firmware, and migration guidance.
 
 ## Frameworks
 
