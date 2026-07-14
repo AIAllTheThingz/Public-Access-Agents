@@ -7,6 +7,7 @@ This catalog lists the standards available for composition into a project.
 - [Language engineering skill](languages/SKILL.md)
 - [Framework engineering skill](frameworks/SKILL.md)
 - [Platform engineering skill](platforms/SKILL.md)
+- [Virtualization engineering skill](virtualization/SKILL.md)
 
 These collection-level skills select and compose the detailed packages below. They supplement rather than replace repository governance and scoped `AGENTS.md` instructions.
 
@@ -74,6 +75,22 @@ Platform packages are complete, independently adoptable overlays for execution, 
 - [Google Cloud Platform](platforms/gcp/)
 
 See the [platforms index](platforms/README.md) for selection, shared responsibility, change lifecycle, decision scaling, adoption, validation, and maintenance guidance.
+
+## Virtualization
+
+Virtualization packages are complete, independently adoptable overlays for hypervisor managers, clusters and pools, hosts, virtual machines, virtual networking and storage, backup and recovery, automation, lifecycle, and migration.
+
+- [VMware vSphere and ESXi](virtualization/vsphere-esxi/)
+- [XenServer and Citrix Hypervisor](virtualization/xenserver-citrix-hypervisor/)
+- [Proxmox VE](virtualization/proxmox-ve/)
+- [XCP-ng](virtualization/xcp-ng/)
+- [KVM and libvirt](virtualization/kvm-libvirt/)
+- [Nutanix AHV](virtualization/nutanix-ahv/)
+- [Microsoft Hyper-V](virtualization/microsoft-hyper-v/)
+- [Red Hat Virtualization](virtualization/red-hat-virtualization/)
+- [Oracle Linux KVM](virtualization/oracle-linux-kvm/)
+
+See the [virtualization index](virtualization/README.md) for selection, shared responsibility, safe change phases, automation, lifecycle, recovery, and migration guidance.
 
 ## Frameworks
 

@@ -29,7 +29,7 @@ See:
 2. Select one or more standards from the [`CATALOG.md`](CATALOG.md).
 3. Select a project profile from [`profiles/`](profiles/README.md).
 4. Copy the relevant language package from [`languages/`](languages/README.md).
-5. Add scoped standards for applicable disciplines, platforms, and frameworks.
+5. Add scoped standards for applicable disciplines, platforms, virtualization systems, and frameworks.
 6. Tailor the result without weakening security, validation, testing, or completion-evidence requirements.
 7. Record the repository version or tag used by the adopting project.
 8. Validate the repository with the tools under [`tools/`](tools/README.md).
@@ -41,6 +41,7 @@ Use the collection-level skills when an agent must select and apply the reposito
 - [`languages/SKILL.md`](languages/SKILL.md) routes advanced coding and scripting work to the applicable language packages.
 - [`frameworks/SKILL.md`](frameworks/SKILL.md) composes framework and underlying language packages for application work.
 - [`platforms/SKILL.md`](platforms/SKILL.md) composes platform packages for infrastructure and deployment work while preserving authorization boundaries.
+- [`virtualization/SKILL.md`](virtualization/SKILL.md) composes hypervisor and virtualization-management packages for safe automation, operations, recovery, and migration work.
 
 The skills are progressive-disclosure routers. They load only the packages relevant to the repository and request; they do not replace root governance, scoped `AGENTS.md` files, or accountable human review.
 
@@ -52,6 +53,7 @@ The skills are progressive-disclosure routers. They load only the packages relev
 | [`disciplines/`](disciplines/README.md) | Security, architecture, testing, APIs, data, accessibility, operations, and delivery |
 | [`languages/`](languages/README.md) | Copyable language-specific standards packages |
 | [`platforms/`](platforms/README.md) | Containers, Kubernetes, infrastructure as code, and cloud platforms |
+| [`virtualization/`](virtualization/README.md) | Hypervisors, virtualization managers, clusters, hosts, guests, virtual networking and storage, recovery, and migration |
 | [`frameworks/`](frameworks/README.md) | Framework-specific scoped agent instructions |
 | [`profiles/`](profiles/README.md) | Project-type overlays such as web API, worker service, and AI agent application |
 | [`templates/`](templates/README.md) | Root and nested agent files, completion evidence, threat models, ADRs, and exceptions |
@@ -75,6 +77,20 @@ The skills are progressive-disclosure routers. They load only the packages relev
 - Terraform and OpenTofu
 
 Each language directory is independently adoptable and includes mandatory agent instructions, supporting standards, templates, examples, and a package manifest.
+
+## Current virtualization packages
+
+- VMware vSphere and ESXi
+- XenServer and Citrix Hypervisor
+- Proxmox VE
+- XCP-ng
+- KVM and libvirt
+- Nutanix AHV
+- Microsoft Hyper-V
+- Red Hat Virtualization
+- Oracle Linux KVM and Oracle Linux Virtualization Manager
+
+Each virtualization directory is independently adoptable and includes mandatory agent instructions, an operations-and-automation standard, adoption and review templates, an evidence record, a fictitious example, and a package manifest.
 
 ## Adoption model
 
