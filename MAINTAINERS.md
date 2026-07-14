@@ -77,6 +77,7 @@ The Security Maintainer coordinates private vulnerability handling, security-sen
 | Platforms | `platforms/` | @AIAllTheThingz | Relevant platform specialist for provider or operational changes |
 | Virtualization | `virtualization/` | @AIAllTheThingz | Relevant virtualization specialist for hypervisor, control-plane, recovery, lifecycle, or migration changes |
 | Operating systems | `operating-systems/` | @AIAllTheThingz | Relevant operating-system specialist for lifecycle, servicing, security, recovery, upgrade, or fleet-management changes |
+| Networking | `networking/` | @AIAllTheThingz | Relevant network specialist for control-plane, routing, switching, fabric, security, lifecycle, firmware, recovery, or migration changes |
 | Frameworks | `frameworks/` | @AIAllTheThingz | Relevant framework specialist for normative changes |
 | Project profiles | `profiles/` | @AIAllTheThingz | Profile and affected-area review |
 | Templates and examples | `templates/`, `examples/` | @AIAllTheThingz | Affected contract or governance owner |

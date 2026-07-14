@@ -69,6 +69,21 @@ These sources inform the repository. The repository summarizes and operationaliz
 - FreeBSD security information: https://www.freebsd.org/security/
 - FreeBSD Handbook: https://docs.freebsd.org/en/books/handbook/
 
+## Networking
+
+- HPE Aruba Networking AOS-CX documentation portal: https://arubanetworking.hpe.com/techdocs/AOS-CX/help_portal/Content/home.htm
+- HPE Networking Support Portal: https://networkingsupport.hpe.com/
+- HPE security bulletin library: https://support.hpe.com/connect/s/securitybulletinlibrary?language=en_US
+- Cisco IOS and NX-OS software support: https://www.cisco.com/c/en/us/support/ios-nx-os-software/index.html
+- Cisco IOS XE programmability: https://developer.cisco.com/iosxe/
+- Cisco security advisories: https://sec.cloudapps.cisco.com/security/center/publicationListing.x
+- Juniper documentation: https://www.juniper.net/documentation/
+- Junos OS documentation: https://www.juniper.net/documentation/product/us/en/junos-os/
+- Junos OS dates and milestones: https://support.juniper.net/support/eol/software/junos/
+- Broadcom Brocade Fabric Operating System: https://www.broadcom.com/products/fibre-channel-networking/software/fabric-operating-system
+- Broadcom Brocade SANnav Management Portal: https://www.broadcom.com/products/fibre-channel-networking/software/sannav-management-portal
+- Broadcom Fabric OS technical documentation: https://techdocs.broadcom.com/us/en/fibre-channel-networking/fabric-os.html
+
 ## Observability
 
 - OpenTelemetry documentation: https://opentelemetry.io/docs/
