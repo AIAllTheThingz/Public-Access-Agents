@@ -1,7 +1,7 @@
 ---
 id: TOOL-PKG-VALIDATE-ALL-001
 title: Validate All Tool
-version: 1.1.0
+version: 1.2.0
 status: baseline
 ---
 
@@ -48,11 +48,12 @@ The runner executes:
 
 1. `validate-standards`
 2. `check-links`
-3. `validate-schemas`
-4. `validate-templates`
-5. `validate-tools`
-6. `validate-release`
-7. unit tests when `--include-tests` is supplied
+3. `validate-skills`
+4. `validate-schemas`
+5. `validate-templates`
+6. `validate-tools`
+7. `validate-release`
+8. unit tests when `--include-tests` is supplied
 
 Release validation checks the repository version, changelog, release notes, migration notes, release and maturity policies, tag workflow, and optional tag matching.
 
@@ -62,6 +63,7 @@ Release validation checks the repository version, changelog, release notes, migr
 - JSON result parsing
 - exit-code propagation
 - aggregate status
+- skill entry-point and package-routing validation
 - repository release-contract validation
 - optional unit tests
 - optional fail-fast behavior

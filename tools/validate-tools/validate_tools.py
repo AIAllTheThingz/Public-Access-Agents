@@ -17,11 +17,12 @@ sys.path.insert(0, str(TOOLS_ROOT / "lib"))
 from standards_tools import Finding, ToolResult, add_common_arguments, execute_tool  # noqa: E402
 
 TOOL = "validate-tools"
-VERSION = "1.1.0"
+VERSION = "1.2.0"
 DEFAULT_ROOT = Path(__file__).resolve().parents[2]
 TOOL_PACKAGES = {
     "validate-standards": "validate_repository.py",
     "check-links": "check_links.py",
+    "validate-skills": "validate_skills.py",
     "validate-schemas": "validate_schemas.py",
     "validate-templates": "validate_templates.py",
     "validate-tools": "validate_tools.py",

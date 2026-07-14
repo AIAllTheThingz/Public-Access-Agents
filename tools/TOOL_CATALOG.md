@@ -1,7 +1,7 @@
 ---
 id: TOOL-CATALOG-001
 title: Tool Catalog
-version: 1.1.0
+version: 1.2.0
 status: baseline
 ---
 
@@ -13,6 +13,7 @@ status: baseline
 |---|---|---|---|---|
 | Validate Standards | Repository tree | None | None | Repository maintainers |
 | Check Links | Markdown files | None | None | Documentation maintainers |
+| Validate Skills | Skill files, package routes, manifests, local links, and optional UI metadata | Optional result file | None | Tooling and standards maintainers |
 | Validate Schemas | Schemas and JSON instances | None | `jsonschema[format]` | Schema maintainers |
 | Validate Templates | Templates, examples, schemas | None | `jsonschema[format]` | Template maintainers |
 | Validate Tools | Tool packages and tests | None | None | Tool maintainers |
@@ -28,6 +29,7 @@ Stable Python entry paths include:
 
 - `tools/validate-standards/validate_repository.py`
 - `tools/check-links/check_links.py`
+- `tools/validate-skills/validate_skills.py`
 - `tools/validate-schemas/validate_schemas.py`
 - `tools/validate-templates/validate_templates.py`
 - `tools/validate-tools/validate_tools.py`

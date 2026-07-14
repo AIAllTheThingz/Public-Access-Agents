@@ -69,7 +69,7 @@
   - selection, authoring, customization, placeholder, lifecycle, validation, and completion guidance
   - completed examples and executable template validation
 - Complete repository toolchain:
-  - repository structure, link, schema, template, tool, and release validation
+  - repository structure, link, skill, schema, template, tool, and release validation
   - deterministic project-manifest generation
   - traceable standards-bundle composition
   - deterministic release artifact generation
