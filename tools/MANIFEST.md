@@ -1,7 +1,7 @@
 ---
 id: TOOL-MANIFEST-001
 title: Toolchain Manifest
-version: 1.1.0
+version: 1.2.0
 status: baseline
 ---
 
@@ -24,6 +24,7 @@ status: baseline
 
 - `validate-standards`
 - `check-links`
+- `validate-skills`
 - `validate-schemas`
 - `validate-templates`
 - `validate-tools`
@@ -58,7 +59,7 @@ The release package additionally contains a deterministic artifact builder and t
 - all package READMEs meet minimum depth
 - no tool remains documentation-only or marked planned
 - unit tests pass
-- repository, link, schema, template, tool, and release validators pass
+- repository, link, skill, schema, template, tool, and release validators pass
 - generation tools support dry-run or overwrite protection as appropriate
 - release tooling validates tags and builds deterministic archives
 - release checksums and manifests are produced

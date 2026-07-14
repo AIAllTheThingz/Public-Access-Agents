@@ -1,7 +1,7 @@
 ---
 id: TOOL-PKG-VALIDATE-TOOLS-001-MANIFEST
 title: Validate Tools Tool Manifest
-version: 1.1.0
+version: 1.2.0
 status: baseline
 ---
 
@@ -23,7 +23,8 @@ status: baseline
 
 ## Required package checks
 
-- nine declared executable tool packages
+- ten declared executable tool packages
+- skill validator and its central unit-test module
 - release validator and deterministic release builder
 - all package Python entry points compile
 - at least one test module per declared package

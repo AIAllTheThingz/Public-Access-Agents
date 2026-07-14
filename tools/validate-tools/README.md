@@ -1,7 +1,7 @@
 ---
 id: TOOL-PKG-VALIDATE-TOOLS-001
 title: Validate Tools Tool
-version: 1.1.0
+version: 1.2.0
 status: baseline
 ---
 
@@ -48,6 +48,7 @@ The validator requires these packages:
 
 - `validate-standards`
 - `check-links`
+- `validate-skills`
 - `validate-schemas`
 - `validate-templates`
 - `validate-tools`

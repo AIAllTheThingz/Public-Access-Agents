@@ -199,6 +199,7 @@ Each complete example includes root and nested agent instructions, a project man
 
 - repository structure validation
 - relative Markdown link and anchor validation
+- skill metadata, package-routing, registration, and local-link validation
 - Draft 2020-12 schema and instance validation
 - reusable template package validation
 - tool package and executable-entry validation

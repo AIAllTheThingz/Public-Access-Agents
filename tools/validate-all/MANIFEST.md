@@ -1,7 +1,7 @@
 ---
 id: TOOL-PKG-VALIDATE-ALL-001-MANIFEST
 title: Validate All Tool Manifest
-version: 1.1.0
+version: 1.2.0
 status: baseline
 ---
 
@@ -25,6 +25,7 @@ status: baseline
 
 - `validate-standards`
 - `check-links`
+- `validate-skills`
 - `validate-schemas`
 - `validate-templates`
 - `validate-tools`

@@ -1,7 +1,7 @@
 ---
 id: TOOL-INDEX-001
 title: Repository Toolchain
-version: 1.1.0
+version: 1.2.0
 status: baseline
 ---
 
@@ -15,6 +15,7 @@ It provides:
 
 - repository structure validation
 - Markdown link and anchor validation
+- skill entry-point and package-routing validation
 - JSON Schema validation
 - template package validation
 - tool package validation
@@ -32,6 +33,7 @@ The tools are deliberately conservative. They validate implemented contracts and
 |---|---|---|---|
 | [Validate Standards](validate-standards/) | `validate_repository.py` | read-only | Validate root files, licensing, ownership, JSON parsing, unique IDs, AGENTS depth, and final-branch hygiene. |
 | [Check Links](check-links/) | `check_links.py` | read-only | Validate relative Markdown targets and local heading anchors without network access. |
+| [Validate Skills](validate-skills/) | `validate_skills.py` | read-only | Validate skill metadata, progressive disclosure, package routing, registration, local links, and optional UI metadata. |
 | [Validate Schemas](validate-schemas/) | `validate_schemas.py` | read-only | Validate Draft 2020-12 contracts, examples, versioned equivalence, and repository instances. |
 | [Validate Templates](validate-templates/) | `validate_templates.py` | read-only | Validate template packages, placeholders, examples, stable paths, and schema-backed JSON. |
 | [Validate Tools](validate-tools/) | `validate_tools.py` | read-only | Validate tool package structure, executable entry points, contracts, documentation, and tests. |
@@ -201,11 +203,12 @@ The runner executes validators in this order:
 
 1. repository structure
 2. Markdown links and anchors
-3. schemas and instances
-4. templates
-5. tools
-6. release program
-7. unit tests
+3. skill entry points and package routes
+4. schemas and instances
+5. templates
+6. tools
+7. release program
+8. unit tests
 
 Order matters because later validators rely on contracts established by earlier ones.
 
