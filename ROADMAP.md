@@ -60,6 +60,12 @@
   - macOS
   - FreeBSD
 - Operating-system selection, current-release, shared-responsibility, change-lifecycle, security, recovery, upgrade, migration, and decommission guidance
+- Complete networking packages for:
+  - HPE Aruba Networking
+  - Cisco networking
+  - Juniper Networks
+  - Broadcom Brocade Fabric OS and SANnav, with legacy Brocade Ethernet ownership triage
+- Network vendor/ownership selection, shared-responsibility, change-lifecycle, control-plane safety, topology, firmware, recovery, and migration/refresh guidance
 - Complete project profile packages for:
   - Web API
   - Web application
