@@ -14,14 +14,14 @@ A useful change should do at least one of the following:
 - remove ambiguity
 - improve portability
 - reduce unnecessary duplication
-- add a well-scoped discipline or language package
+- add a well-scoped discipline, language, platform, virtualization, operating-system, or framework package
 
 ## Before opening a pull request
 
 1. Read the root `AGENTS.md`.
 2. Read [`MAINTAINERS.md`](MAINTAINERS.md) and identify the applicable area owner and review class.
 3. Read [`RELEASE_POLICY.md`](RELEASE_POLICY.md) and [`MATURITY_POLICY.md`](MATURITY_POLICY.md) when the change affects compatibility, versions, deprecations, maturity, tags, release notes, or release automation.
-4. Read the affected language, discipline, platform, virtualization, framework, profile, schema, template, or tool standards.
+4. Read the affected language, discipline, platform, virtualization, operating-system, framework, profile, schema, template, or tool standards.
 5. Keep the change focused.
 6. Explain whether the change is editorial, normative, compatibility-related, security-related, breaking, or release-related.
 7. Identify the expected patch, minor, major, prerelease, or no-release impact.

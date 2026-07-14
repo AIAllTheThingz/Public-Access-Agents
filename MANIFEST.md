@@ -25,6 +25,7 @@
 - `frameworks/SKILL.md`
 - `platforms/SKILL.md`
 - `virtualization/SKILL.md`
+- `operating-systems/SKILL.md`
 
 These progressive-disclosure routers select and compose existing standards packages. They do not replace root governance or scoped `AGENTS.md` instructions.
 
@@ -152,6 +153,22 @@ The platform collection also includes selection, shared-responsibility, change-l
 Each complete virtualization package includes scoped agent instructions, an operations-and-automation standard, adoption and review templates, an evidence template, a fictitious adoption example, and a manifest.
 
 The virtualization collection also includes selection, shared-responsibility, change-lifecycle, and cross-platform migration guidance.
+
+## Complete operating-system packages
+
+- `operating-systems/windows-server`
+- `operating-systems/windows-client`
+- `operating-systems/rhel-family`
+- `operating-systems/ubuntu`
+- `operating-systems/debian`
+- `operating-systems/suse-linux-enterprise`
+- `operating-systems/oracle-linux`
+- `operating-systems/macos`
+- `operating-systems/freebsd`
+
+Each complete operating-system package includes scoped agent instructions, an operations-and-automation standard, adoption and review templates, an evidence template, a fictitious adoption example, and a manifest.
+
+The operating-system collection also includes selection, shared-responsibility, change-lifecycle, current-release, and upgrade/migration guidance.
 
 ## Complete project profile packages
 
