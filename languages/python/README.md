@@ -66,7 +66,7 @@ The package is structurally complete and suitable for adoption. Projects must ta
 4. Define formatting, linting, typing, testing, build, and package commands.
 5. Define package boundaries, import behavior, configuration sources, and entry points.
 6. Define trust boundaries for files, APIs, databases, messages, subprocesses, and serialized data.
-7. Add framework, platform, data, security, and project-profile overlays where applicable.
+7. Add framework, platform, virtualization, operating-system, networking, data, security, and project-profile overlays where applicable.
 8. Review templates and examples before copying them.
 9. Run repository and package validation.
 10. Review the composed standard with an accountable Python maintainer.

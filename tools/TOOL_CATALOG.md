@@ -19,8 +19,8 @@ status: baseline
 | Validate Tools | Tool packages and tests | None | None | Tool maintainers |
 | Validate Release | Version, changelog, release notes, migration notes, release and maturity policies, tag state | Optional result file | None | Release Manager and Tooling Maintainer |
 | Build Release | Git-tracked repository files and versioned notes | Release distribution directory | None | Release Manager and Tooling Maintainer |
-| Generate Manifest | Profiles, package directories, schema | Manifest file | `jsonschema[format]` | Project adopter |
-| Compose Agents | Project manifest and selected standards | Bundle directory | `jsonschema[format]` | Project adopter |
+| Generate Manifest | Profiles; language, discipline, framework, platform, virtualization, operating-system, and networking package directories; schema | Manifest file | `jsonschema[format]` | Project adopter |
+| Compose Agents | Project manifest and selected governance, profile, language, discipline, framework, platform, virtualization, operating-system, and networking standards | Bundle directory | `jsonschema[format]` | Project adopter |
 | Validate All | Validator entry points and tests | Optional result file | Validator dependencies | Repository maintainers |
 
 ## Stable entry points

@@ -83,7 +83,7 @@ A complete profile should define:
 - typical starting risk and escalation factors
 - required governance
 - required and conditional disciplines
-- language, framework, and platform selection considerations
+- language, framework, platform, virtualization, operating-system, and networking selection considerations
 - architecture and trust boundaries
 - security and privacy decisions
 - testing and validation

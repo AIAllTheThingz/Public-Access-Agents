@@ -1,7 +1,7 @@
 ---
 id: SCHEMA-CATALOG-001
 title: Schema Catalog
-version: 0.2.0
+version: 0.3.0
 status: baseline
 ---
 
@@ -16,7 +16,7 @@ This catalog maps each machine-readable contract to stable paths, versioned path
 | `artifact-record` | `artifact-record.schema.json` | `v1/artifact-record.schema.json` | Identifies a produced artifact, its source revision, digest, build context, provenance, and signing state. |
 | `completion-result` | `completion-result.schema.json` | `v1/completion-result.schema.json` | Records implementation state, validation outcomes, limitations, risk, compatibility impact, and review without treating a single successful command as proof of full completion. |
 | `exception-record` | `exception-record.schema.json` | `v1/exception-record.schema.json` | Records a time-bounded deviation from a specific rule, including ownership, rationale, risk, compensating controls, approval, status, and closure. |
-| `project-manifest` | `project-manifest.schema.json` | `v1/project-manifest.schema.json` | Declares the selected project profile, languages, disciplines, platforms, frameworks, risk, exceptions, and project-specific composition metadata. |
+| `project-manifest` | `project-manifest.schema.json` | `v1/project-manifest.schema.json` | Declares the selected project profile; language, discipline, framework, platform, virtualization, operating-system, and networking packages; risk; exceptions; and project-specific composition metadata. |
 | `risk-classification` | `risk-classification.schema.json` | `v1/risk-classification.schema.json` | Records a change risk level, rationale, evaluated factors, required reviewers, rollback requirement, ownership, and reassessment triggers. |
 | `test-evidence` | `test-evidence.schema.json` | `v1/test-evidence.schema.json` | Records an executed or explicitly not-run validation command, result, environment, timing, evidence, and limitations. |
 
@@ -50,7 +50,7 @@ The adopting repository must assign:
 
 Consumers must:
 
-- pin a versioned schema for durable automation
+- use a major-version schema for durable automation and pin a repository tag or commit when exact immutability is required
 - reject unknown top-level fields unless an extension policy says otherwise
 - retain the original instance used for a decision
 - record the validator and schema version

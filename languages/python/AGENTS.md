@@ -8,7 +8,7 @@ title: Python Agent Standard
 
 ## Purpose
 
-This file defines mandatory rules for coding agents that create, modify, review, test, secure, or document Python work. The package is project-agnostic and supplements the repository governance, discipline, platform, framework, and project-profile standards.
+This file defines mandatory rules for coding agents that create, modify, review, test, secure, or document Python work. The package is project-agnostic and supplements repository governance and applicable discipline, framework, platform, virtualization, operating-system, networking, and project-profile standards.
 
 > Make the smallest safe, maintainable, testable, observable, and well-documented change that satisfies the requirement.
 

@@ -34,7 +34,7 @@ This standard applies to:
 2. Explicit authorized user requirements
 3. The nearest more-specific `AGENTS.md`
 4. This platform package `AGENTS.md`
-5. Referenced project profile, language, discipline, framework, and platform standards
+5. Referenced project profile, language, discipline, framework, platform, virtualization, operating-system, and networking standards
 6. Repository conventions
 7. General agent preferences
 

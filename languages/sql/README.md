@@ -68,7 +68,7 @@ The package is structurally complete and suitable for adoption. Projects must ta
 5. Define parameterization, least privilege, dynamic SQL, secret handling, and audit requirements.
 6. Define formatting, linting, parse or compile checks, database tests, migration tests, and representative-data tests.
 7. Define data classification, retention, backup, restore, reconciliation, and destructive-change approvals.
-8. Add database, security, privacy, data, platform, and project-profile overlays.
+8. Add applicable discipline, framework, platform, virtualization, operating-system, networking, and project-profile overlays.
 9. Run repository and package validation.
 10. Review the composed standard with an accountable database maintainer.
 

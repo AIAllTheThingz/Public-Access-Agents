@@ -9,7 +9,7 @@ status: baseline
 
 - [ ] The project profile is selected.
 - [ ] The [Python language package](../../../languages/python/) is adopted.
-- [ ] Relevant disciplines and platforms are selected.
+- [ ] Relevant disciplines, platforms, virtualization systems, operating systems, and networking systems are selected or explicitly omitted.
 - [ ] Exact framework, language, runtime, and build versions are declared.
 - [ ] Application architecture and framework extension points are documented.
 - [ ] Configuration sources, precedence, validation, and secrets are defined.

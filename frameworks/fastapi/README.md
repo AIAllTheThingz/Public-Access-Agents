@@ -79,7 +79,7 @@ Start with [`AGENTS.md`](AGENTS.md). It preserves the framework's mandatory rule
 2. Select the project profile.
 3. Adopt the [Python language package](../../languages/python/).
 4. Confirm this framework package applies.
-5. Select relevant disciplines and platforms.
+5. Select relevant disciplines, platforms, virtualization systems, operating systems, and networking systems.
 6. Copy or compose the complete package.
 7. Preserve stable identifiers.
 8. Declare exact supported framework, language, runtime, build, and deployment constraints.

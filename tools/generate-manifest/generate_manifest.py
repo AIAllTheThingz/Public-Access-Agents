@@ -24,7 +24,7 @@ except ImportError as exc:
     ) from exc
 
 TOOL = "generate-manifest"
-VERSION = "1.0.0"
+VERSION = "1.1.0"
 DEFAULT_ROOT = Path(__file__).resolve().parents[2]
 DISCIPLINE_LINK = re.compile(r"disciplines/([^/]+)/AGENTS\.md")
 FRONTMATTER_ID = re.compile(r"^id:\s*(\S+)\s*$", re.MULTILINE)
@@ -105,12 +105,20 @@ def run(args: argparse.Namespace) -> ToolResult:
     disciplines = ensure_selection(root, "disciplines", unique(disciplines))
     platforms = ensure_selection(root, "platforms", select(args.platform, config, "platforms"))
     frameworks = ensure_selection(root, "frameworks", select(args.framework, config, "frameworks"))
+    virtualization = ensure_selection(
+        root, "virtualization", select(args.virtualization, config, "virtualization")
+    )
+    operating_systems = ensure_selection(
+        root, "operating-systems", select(args.operating_system, config, "operatingSystems")
+    )
+    networking = ensure_selection(root, "networking", select(args.networking, config, "networking"))
 
     secondary_inputs = select(args.secondary_profile, config, "secondaryProfiles")
     secondary_profiles = [resolve_profile(value, root)[0] for value in secondary_inputs]
 
+    infrastructure_selections = virtualization or operating_systems or networking
     manifest: dict[str, Any] = {
-        "schemaVersion": "1.0.0",
+        "schemaVersion": "1.1.0" if infrastructure_selections else "1.0.0",
         "name": str(name),
         "profile": profile,
         "languages": languages,
@@ -120,6 +128,9 @@ def run(args: argparse.Namespace) -> ToolResult:
         "secondaryProfiles": secondary_profiles,
         "platforms": platforms,
         "frameworks": frameworks,
+        "virtualization": virtualization,
+        "operatingSystems": operating_systems,
+        "networking": networking,
         "exceptions": select(args.exception, config, "exceptions"),
         "owners": select(args.owner, config, "owners"),
     }
@@ -170,6 +181,9 @@ def run(args: argparse.Namespace) -> ToolResult:
             "disciplines": len(disciplines),
             "platforms": len(platforms),
             "frameworks": len(frameworks),
+            "virtualization": len(virtualization),
+            "operatingSystems": len(operating_systems),
+            "networking": len(networking),
             "dryRun": args.dry_run,
             "written": not args.dry_run,
         },
@@ -192,6 +206,9 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--discipline", action="append", default=[])
     parser.add_argument("--platform", action="append", default=[])
     parser.add_argument("--framework", action="append", default=[])
+    parser.add_argument("--virtualization", action="append", default=[])
+    parser.add_argument("--operating-system", action="append", default=[])
+    parser.add_argument("--networking", action="append", default=[])
     parser.add_argument("--risk", choices=("low", "moderate", "high", "critical"))
     parser.add_argument("--exception", action="append", default=[])
     parser.add_argument("--owner", action="append", default=[])

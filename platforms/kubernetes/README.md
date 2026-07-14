@@ -10,7 +10,7 @@ status: baseline
 
 Define secure, isolated, observable, resilient, and reviewable Kubernetes workload and cluster-facing configuration.
 
-This package is a project-agnostic platform overlay. It specializes governance and relevant language, framework, discipline, and profile standards for work on this platform.
+This package is a project-agnostic platform overlay. It specializes governance and relevant language, framework, discipline, virtualization, operating-system, networking, and profile standards for work on this platform.
 
 Status: **baseline**
 
@@ -79,7 +79,7 @@ Start with [`AGENTS.md`](AGENTS.md). It preserves the platform's mandatory rule 
 1. Read root governance and the [platform collection guide](../README.md).
 2. Select the project profile.
 3. Confirm this platform controls a material boundary.
-4. Select applicable language, framework, discipline, and companion platform packages.
+4. Select applicable language, framework, discipline, companion platform, virtualization, operating-system, and networking packages.
 5. Copy or compose the complete package.
 6. Preserve stable identifiers.
 7. Declare exact target types, tools, versions, environments, identities, and ownership.

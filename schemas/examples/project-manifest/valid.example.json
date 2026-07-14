@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "1.0.0",
+  "schemaVersion": "1.1.0",
   "name": "example-service",
   "profile": "WEB_API",
   "languages": [
@@ -14,6 +14,15 @@
   ],
   "frameworks": [
     "fastapi"
+  ],
+  "virtualization": [
+    "kvm-libvirt"
+  ],
+  "operatingSystems": [
+    "ubuntu"
+  ],
+  "networking": [
+    "cisco-networking"
   ],
   "risk": "moderate",
   "exceptions": []

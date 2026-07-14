@@ -66,7 +66,7 @@ The package is structurally complete and suitable for adoption. Projects must ta
 4. Define formatting, linting, test, documentation, benchmark, fuzz, audit, and build commands.
 5. Define unsafe-code policy and required safety documentation.
 6. Define async runtime, cancellation, shutdown, thread, and synchronization behavior where applicable.
-7. Add platform, security, API, database, and project-profile overlays.
+7. Add applicable discipline, framework, platform, virtualization, operating-system, networking, and project-profile overlays.
 8. Review build scripts, proc macros, native dependencies, and executable tooling.
 9. Run repository and package validation.
 10. Review the composed standard with an accountable Rust maintainer.

@@ -1,4 +1,5 @@
 {
+  "schemaVersion": "1.1.0",
   "name": "example-web-api",
   "profile": "WEB_API",
   "languages": [
@@ -22,6 +23,9 @@
   "frameworks": [
     "aspnet-core"
   ],
+  "virtualization": [],
+  "operatingSystems": [],
+  "networking": [],
   "risk": "moderate",
   "exceptions": []
 }

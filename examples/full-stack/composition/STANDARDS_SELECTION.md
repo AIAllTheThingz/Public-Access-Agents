@@ -49,6 +49,9 @@ This document explains why the example selects each standards package. It preven
 
 - **Data Engineering:** The example stores application records but does not define analytical pipelines, lineage, or publication workflows.
 - **No major omission:** This high-risk composition intentionally adopts a broad set of disciplines.
+- **Virtualization:** The example does not administer the infrastructure beneath Kubernetes.
+- **Operating systems:** Node and endpoint operating-system management remains outside the application scope.
+- **Networking:** Application and Kubernetes networking are modeled, but external device and fabric control planes are not selected.
 
 An omission is valid only for the current fictitious scope. It is not a permanent exemption.
 
@@ -61,13 +64,13 @@ An omission is valid only for the current fictitious scope. It is not a permanen
 - Are build, dependency, artifact, deployment, and release concerns represented?
 - Are availability, recovery, incident, or on-call expectations represented?
 - Are documentation and accountable review represented?
-- Would adding a real database, identity provider, cloud platform, external API, or regulated data change the selection?
+- Would adding a real database, identity provider, cloud platform, hypervisor, managed operating system, network control plane, external API, or regulated data change the selection?
 
 ## Change triggers
 
 Reassess the composition when:
 
-- a new component, language, framework, platform, data store, or external system is added
+- a new component, language, framework, platform, virtualization system, operating system, networking system, data store, or external system is added
 - public contracts or compatibility obligations change
 - personal, sensitive, confidential, or regulated data enters scope
 - production deployment, on-call, availability, or recovery expectations are introduced

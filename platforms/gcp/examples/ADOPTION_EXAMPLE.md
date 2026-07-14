@@ -41,7 +41,7 @@ The adopting project would declare:
 
 ## Example root instruction excerpt
 
-> Use the Google Cloud Platform package as a platform overlay. Preserve governance, profile, language, discipline, framework, and other platform requirements. Confirm the target and actor before modification. Review destructive, public, privileged, data, recovery, and cost impact. Verify actual state and record exact evidence.
+> Use the Google Cloud Platform package as a platform overlay. Preserve governance, profile, language, discipline, framework, platform, virtualization, operating-system, and networking requirements. Confirm the target and actor before modification. Review destructive, public, privileged, data, recovery, and cost impact. Verify actual state and record exact evidence.
 
 ## Example change workflow
 

@@ -1,7 +1,7 @@
 ---
 id: TOOL-PKG-COMPOSE-AGENTS-001-EXAMPLE
 title: Compose Agents Tool Examples
-version: 1.0.0
+version: 1.1.0
 status: baseline
 ---
 
@@ -19,7 +19,7 @@ python tools/compose-agents/compose_agents.py --manifest project-manifest.json -
 
 ## Expected behavior
 
-Examples use fictitious or repository-local inputs. Review the command before execution and use dry-run for writing tools.
+Examples use fictitious or repository-local inputs. Schema 1.1 manifests may select virtualization, operating-system, and networking packages; the composed bundle records and copies their standard entry points. Review the command before execution and use dry-run for writing tools.
 
 ## Boundary
 

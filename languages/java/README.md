@@ -14,7 +14,7 @@ It defines how coding agents should inspect, design, implement, test, secure, do
 
 **Status:** `baseline`
 
-The package is structurally complete and suitable for adoption. Projects must tailor runtime, build, framework, platform, deployment, and organization-specific requirements before treating it as a final production standard.
+The package is structurally complete and suitable for adoption. Projects must tailor runtime, build, framework, platform, virtualization, operating-system, networking, deployment, and organization-specific requirements before treating it as a final production standard.
 
 ## Intended scope
 
@@ -66,7 +66,7 @@ The package is structurally complete and suitable for adoption. Projects must ta
 4. Define compiler, formatting, static-analysis, test, package, and verification commands.
 5. Define module and package boundaries, configuration sources, and public APIs.
 6. Define database, messaging, serialization, authentication, authorization, and secret-management requirements.
-7. Add framework, platform, database, API, security, and project-profile overlays.
+7. Add framework, platform, virtualization, operating-system, networking, database, API, security, and project-profile overlays.
 8. Review build plugins, annotation processors, code generators, and executable dependency hooks.
 9. Run repository and package validation.
 10. Review the composed standard with an accountable Java maintainer.

@@ -67,7 +67,7 @@ Higher-risk examples include additional threat-model, data-handling, accessibili
 2. Read its `README.md` before copying anything.
 3. Compare its `project-manifest.json` to the actual project.
 4. Replace fictitious project facts with reviewed facts.
-5. Re-select profiles, languages, disciplines, platforms, and frameworks based on actual scope.
+5. Re-select profiles, languages, disciplines, frameworks, platforms, virtualization systems, operating systems, and networking systems based on actual scope.
 6. Copy or compose the complete applicable standards packages.
 7. Tailor the root `AGENTS.md` without weakening inherited controls.
 8. Add nested `AGENTS.md` files only where scope or responsibility changes.
@@ -84,10 +84,13 @@ A complete project normally combines:
 2. One [project profile](../profiles/README.md)
 3. One or more [language packages](../languages/README.md)
 4. Relevant [discipline packages](../disciplines/README.md)
-5. Applicable [platform standards](../platforms/README.md)
-6. Applicable [framework standards](../frameworks/README.md)
-7. Project-specific root and nested instructions
-8. Machine-readable manifests and evidence
+5. Applicable [framework standards](../frameworks/README.md)
+6. Applicable [platform standards](../platforms/README.md)
+7. Applicable [virtualization standards](../virtualization/README.md)
+8. Applicable [operating-system standards](../operating-systems/README.md)
+9. Applicable [networking standards](../networking/README.md)
+10. Project-specific root and nested instructions
+11. Machine-readable manifests and evidence
 
 The examples show these layers as references. Adopting repositories may copy, vendor, generate, or otherwise compose the standards according to their governance model.
 
@@ -136,7 +139,7 @@ python tools/validate-standards/validate_repository.py
 python tools/check-links/check_links.py
 ```
 
-An adopting repository must add project-specific validation for its runtime, tests, packaging, deployment, infrastructure, security, accessibility, data, and operational requirements.
+An adopting repository must add project-specific validation for its runtime, tests, packaging, deployment, platform, virtualization, operating-system, networking, security, accessibility, data, and operational requirements.
 
 ## Maintaining examples
 

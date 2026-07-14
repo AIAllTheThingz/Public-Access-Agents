@@ -1,7 +1,7 @@
 ---
 id: TOOL-PKG-GENERATE-MANIFEST-001-MANIFEST
 title: Generate Manifest Tool Manifest
-version: 1.0.0
+version: 1.1.0
 status: baseline
 ---
 
@@ -30,3 +30,5 @@ status: baseline
 - positive and negative tests pass
 - stable path remains unchanged
 - documentation and examples match behavior
+- virtualization, operating-system, and networking selections validate against real package directories
+- legacy inputs retain their previous manifest shape and schema version

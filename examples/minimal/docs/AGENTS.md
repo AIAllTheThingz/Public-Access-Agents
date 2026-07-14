@@ -20,7 +20,7 @@ The example root `AGENTS.md` and all selected shared standards remain applicable
 
 - Keep the directory documentation-only unless the example is intentionally expanded.
 - Do not add production values, credentials, endpoints, or real data.
-- Follow the selected language, discipline, platform, and framework standards.
+- Follow the selected language, discipline, framework, platform, virtualization, operating-system, and networking standards.
 - Keep interfaces explicit and validate all external input.
 - Add tests or test expectations with behavior changes.
 - Preserve cancellation, cleanup, error, and failure behavior.

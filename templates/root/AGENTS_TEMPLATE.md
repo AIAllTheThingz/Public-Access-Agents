@@ -1,7 +1,7 @@
 ---
 id: TEMPLATE-ROOT-001
 title: Root Agent Instructions Template
-version: 0.2.0
+version: 0.3.0
 status: baseline
 template_type: root-agents
 ---
@@ -36,6 +36,9 @@ More-specific nested `AGENTS.md` files may specialize or strengthen local requir
 - Discipline packages: {{DISCIPLINE_PACKAGES}}
 - Framework packages: {{FRAMEWORK_PACKAGES}}
 - Platform packages: {{PLATFORM_PACKAGES}}
+- Virtualization packages: {{VIRTUALIZATION_PACKAGES}}
+- Operating-system packages: {{OPERATING_SYSTEM_PACKAGES}}
+- Networking packages: {{NETWORKING_PACKAGES}}
 
 ## Project facts
 

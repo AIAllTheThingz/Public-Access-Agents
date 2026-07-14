@@ -60,7 +60,7 @@ web-api/
 
 ## Selected profile
 
-[WEB_API](../../profiles/WEB_API.md) provides the project-type overlay. It supplements rather than replaces governance, language, discipline, platform, and framework standards.
+[WEB_API](../../profiles/WEB_API.md) provides the project-type overlay. It supplements rather than replaces governance, language, discipline, framework, platform, virtualization, operating-system, and networking standards.
 
 ## Selected languages
 
@@ -90,6 +90,18 @@ The selection rationale is documented in [`composition/STANDARDS_SELECTION.md`](
 ## Selected frameworks
 
 - [ASP.NET Core](../../frameworks/aspnet-core/)
+
+## Selected virtualization
+
+- None selected; the example models a container boundary and does not administer its underlying hypervisor.
+
+## Selected operating systems
+
+- None selected; the example does not own host or endpoint operating-system configuration.
+
+## Selected networking
+
+- None selected; application network behavior is in scope, but physical or virtual network-device control planes are not.
 
 ## Architecture summary
 
@@ -176,7 +188,7 @@ Example digests, commits, runs, timestamps, and reviewers are fictitious or expl
 
 1. Replace the fictitious project name and summary.
 2. Reclassify risk using actual impact and reversibility.
-3. Re-select the profile, languages, disciplines, platforms, and frameworks.
+3. Re-select the profile, languages, disciplines, frameworks, platforms, virtualization systems, operating systems, and networking systems.
 4. Replace architecture and trust-boundary assumptions with reviewed facts.
 5. Define actual owners and approval paths.
 6. Replace example commands with repository commands.
@@ -195,7 +207,7 @@ Do not copy:
 - example risk classifications without reassessment
 - placeholder ownership or reviewer values
 - example evidence as proof
-- platform or framework selections that do not apply
+- framework, platform, virtualization, operating-system, or networking selections that do not apply
 - operational claims that were not tested
 - any statement implying certification, compliance, or production approval
 

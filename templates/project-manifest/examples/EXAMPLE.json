@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "1.0.0",
+  "schemaVersion": "1.1.0",
   "name": "example-report-service",
   "profile": "INTERNAL_AUTOMATION",
   "secondaryProfiles": [],
@@ -16,6 +16,11 @@
     "containers"
   ],
   "frameworks": [],
+  "virtualization": [],
+  "operatingSystems": [
+    "ubuntu"
+  ],
+  "networking": [],
   "risk": "moderate",
   "exceptions": [],
   "owners": [

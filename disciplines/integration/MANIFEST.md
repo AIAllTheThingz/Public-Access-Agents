@@ -51,7 +51,7 @@ The adopting repository must also verify:
 
 - applicable requirements were selected and omissions were documented
 - project owners and reviewers are named
-- language, platform, framework, profile, and companion-discipline packages are composed correctly
+- language, framework, platform, virtualization, operating-system, networking, profile, and companion-discipline packages are composed correctly
 - project validation and evidence requirements are executable
 - exceptions are reviewed, time-bounded, and traceable
 - remaining risks and unsupported claims are visible

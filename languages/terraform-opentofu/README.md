@@ -69,7 +69,7 @@ The package is structurally complete and suitable for adoption. Projects must ta
 5. Define account, subscription, project, tenant, region, environment, and workspace boundaries.
 6. Define plan creation, review, approval, saved-plan, apply authorization, and post-apply verification.
 7. Define imports, moves, replacements, taints, drift, and exceptional state operations.
-8. Add cloud, security, privacy, SRE, CI/CD, and project-profile overlays.
+8. Add applicable discipline, platform, virtualization, operating-system, networking, and project-profile overlays.
 9. Run repository and package validation.
 10. Review the composed standard with accountable infrastructure and platform maintainers.
 

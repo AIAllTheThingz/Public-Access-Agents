@@ -1,7 +1,7 @@
 ---
 id: TEMPLATE-REVIEW-PROJECT-MANIFEST-001
 title: Project Standards Manifest Review Checklist
-version: 0.2.0
+version: 0.3.0
 status: baseline
 ---
 
@@ -31,6 +31,7 @@ status: baseline
 
 - [ ] Profile and package slugs exist.
 - [ ] Selected packages match actual project shape.
+- [ ] Applicable virtualization, operating-system, and networking boundaries are selected or their omission is justified.
 - [ ] Risk is backed by an assessment.
 - [ ] Exception identifiers resolve.
 - [ ] Owners and evidence locations are real.

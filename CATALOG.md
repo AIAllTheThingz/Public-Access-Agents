@@ -135,7 +135,7 @@ See the [frameworks index](frameworks/README.md) for selection, composition, tai
 
 ## Project profiles
 
-Project profiles are complete composition packages that select and organize governance, language, discipline, framework, platform, project-decision, evidence, and operational expectations for a project shape. Canonical uppercase files remain stable compatibility entry points; lowercase directories contain the complete packages.
+Project profiles are complete composition packages that select and organize governance, language, discipline, framework, platform, virtualization, operating-system, networking, project-decision, evidence, and operational expectations for a project shape. Canonical uppercase files remain stable compatibility entry points; lowercase directories contain the complete packages.
 
 - [Web API](profiles/WEB_API.md) ([complete package](profiles/web-api/))
 - [Web application](profiles/WEB_APPLICATION.md) ([complete package](profiles/web-application/))
@@ -164,7 +164,7 @@ The schema system defines versioned Draft 2020-12 contracts for project manifest
 - [Validation guide](schemas/VALIDATION_GUIDE.md)
 - [Executable examples](schemas/examples/)
 
-Long-lived consumers should pin `schemas/v1/` contracts. Rolling top-level paths remain convenience entry points.
+Long-lived consumers should use `schemas/v1/` major-version contracts and also pin a repository tag or commit when exact immutability is required. Rolling top-level paths remain convenience entry points.
 
 ## Reusable templates
 

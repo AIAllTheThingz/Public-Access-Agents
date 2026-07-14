@@ -8,7 +8,7 @@ title: Go Agent Standard
 
 ## Purpose
 
-Mandatory rules for agents creating, modifying, reviewing, testing, securing, or documenting Go code. This package supplements repository governance and applicable discipline, platform, framework, and project-profile standards.
+Mandatory rules for agents creating, modifying, reviewing, testing, securing, or documenting Go code. This package supplements repository governance and applicable discipline, framework, platform, virtualization, operating-system, networking, and project-profile standards.
 
 > Make the smallest safe, idiomatic, testable, observable, and well-documented change that satisfies the requirement.
 

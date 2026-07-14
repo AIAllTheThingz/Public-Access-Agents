@@ -41,7 +41,7 @@ This package does not replace:
 - accountable human review
 - organization policy, law, regulation, contractual obligations, or professional judgment
 - project-specific architecture, risk, data classification, support, or deployment decisions
-- language, framework, platform, and project-profile standards
+- language, framework, platform, virtualization, operating-system, networking, and project-profile standards
 - product, security, privacy, accessibility, legal, or operational specialists where their review is required
 
 ## Package structure
@@ -94,7 +94,7 @@ Start with [`AGENTS.md`](AGENTS.md). It contains the mandatory agent rules, pres
 3. Copy or compose the complete package, not just the README.
 4. Preserve the package `AGENTS.md` and stable rule identifiers.
 5. Declare project-specific scope, owners, environments, constraints, and required evidence.
-6. Select companion language, platform, framework, profile, and discipline packages.
+6. Select companion language, framework, platform, virtualization, operating-system, networking, profile, and discipline packages.
 7. Add stricter nested `AGENTS.md` files where directories require more specific controls.
 8. Complete the adoption checklist and review checklist.
 9. Run the repository validator and relative-link checker.

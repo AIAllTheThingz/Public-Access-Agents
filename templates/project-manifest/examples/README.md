@@ -1,7 +1,7 @@
 ---
 id: TEMPLATE-EX-PROJECT-MANIFEST-INDEX-001
 title: Project Standards Manifest Example
-version: 0.2.0
+version: 0.3.0
 status: baseline
 ---
 
@@ -17,7 +17,7 @@ This directory contains a completed fictitious example of the [Project Standards
 
 ## Validation
 
-The example contains no template placeholders and is intended to validate against the matching version 1 schema.
+The example contains no template placeholders and is intended to validate against project-manifest schema version `1.1.0`. Empty optional arrays make intentional non-selection explicit; the selected Ubuntu package demonstrates the operating-system field.
 
 ## Boundary
 

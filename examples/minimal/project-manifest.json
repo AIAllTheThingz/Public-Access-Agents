@@ -1,4 +1,5 @@
 {
+  "schemaVersion": "1.1.0",
   "name": "example-minimal",
   "profile": "CLI_TOOL",
   "languages": [
@@ -11,6 +12,9 @@
   ],
   "platforms": [],
   "frameworks": [],
+  "virtualization": [],
+  "operatingSystems": [],
+  "networking": [],
   "risk": "low",
   "exceptions": []
 }

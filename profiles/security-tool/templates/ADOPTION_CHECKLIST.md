@@ -10,7 +10,7 @@ status: baseline
 - [ ] Record whether it is primary or secondary.
 - [ ] Classify risk.
 - [ ] Identify users, operators, interfaces, data, identities, and environments.
-- [ ] Select language, discipline, framework, and platform packages.
+- [ ] Select applicable language, discipline, framework, platform, virtualization, operating-system, and networking packages.
 - [ ] Review all required disciplines.
 - [ ] Promote conditional disciplines when their concern exists.
 - [ ] Record omitted packages and justification.

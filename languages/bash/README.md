@@ -66,7 +66,7 @@ The package is structurally complete and suitable for adoption. Projects must ta
 5. Define privilege, elevation, remote execution, and credential handling.
 6. Define dry-run, confirmation, idempotence, lock, retry, rollback, and cleanup behavior.
 7. Define syntax, ShellCheck, formatting, Bats, integration, and platform validation.
-8. Add platform, security, CI/CD, and project-profile overlays where applicable.
+8. Add applicable discipline, framework, platform, virtualization, operating-system, networking, and project-profile overlays.
 9. Review templates and examples before adoption.
 10. Review the composed standard with an accountable shell maintainer.
 

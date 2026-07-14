@@ -30,6 +30,81 @@ class ComposeAgentsTests(unittest.TestCase):
             self.assertGreater(payload["summary"]["sources"], 5)
             self.assertFalse(payload["summary"]["written"])
 
+    def test_dry_run_includes_infrastructure_packages(self):
+        with tempfile.TemporaryDirectory(dir=REPO_ROOT) as temp:
+            manifest = Path(temp) / "project-manifest.json"
+            manifest.write_text(json.dumps({
+                "schemaVersion": "1.1.0",
+                "name": "infrastructure-service",
+                "profile": "INTERNAL_AUTOMATION",
+                "languages": ["python"],
+                "disciplines": ["testing"],
+                "virtualization": ["kvm-libvirt"],
+                "operatingSystems": ["ubuntu"],
+                "networking": ["cisco-networking"],
+            }), encoding="utf-8")
+            completed = run_tool(
+                "tools/compose-agents/compose_agents.py",
+                "--manifest", str(manifest),
+                "--dry-run",
+                "--format", "json",
+            )
+            self.assertEqual(completed.returncode, 0, completed.stdout + completed.stderr)
+            payload = json_result(completed)
+            source_paths = {
+                item["path"] for item in payload["metadata"]["composition"]["sources"]
+            }
+            self.assertIn("virtualization/kvm-libvirt/AGENTS.md", source_paths)
+            self.assertIn("operating-systems/ubuntu/AGENTS.md", source_paths)
+            self.assertIn("networking/cisco-networking/AGENTS.md", source_paths)
+
+    def test_written_index_reports_infrastructure_selections(self):
+        with tempfile.TemporaryDirectory(dir=REPO_ROOT) as temp:
+            temp_path = Path(temp)
+            manifest = temp_path / "project-manifest.json"
+            output = temp_path / "bundle"
+            manifest.write_text(json.dumps({
+                "schemaVersion": "1.1.0",
+                "name": "infrastructure-service",
+                "profile": "INTERNAL_AUTOMATION",
+                "languages": ["python"],
+                "disciplines": ["testing"],
+                "virtualization": ["kvm-libvirt"],
+                "operatingSystems": ["ubuntu"],
+                "networking": ["cisco-networking"],
+            }), encoding="utf-8")
+            completed = run_tool(
+                "tools/compose-agents/compose_agents.py",
+                "--manifest", str(manifest),
+                "--output-dir", str(output),
+                "--no-copy-sources",
+                "--format", "json",
+            )
+            self.assertEqual(completed.returncode, 0, completed.stdout + completed.stderr)
+            index = (output / "AGENTS.md").read_text(encoding="utf-8")
+            self.assertIn("- Virtualization: `kvm-libvirt`", index)
+            self.assertIn("- Operating systems: `ubuntu`", index)
+            self.assertIn("- Networking: `cisco-networking`", index)
+
+    def test_rejects_infrastructure_arrays_in_version_1_0_manifest(self):
+        with tempfile.TemporaryDirectory(dir=REPO_ROOT) as temp:
+            manifest = Path(temp) / "project-manifest.json"
+            manifest.write_text(json.dumps({
+                "schemaVersion": "1.0.0",
+                "name": "invalid-infrastructure-service",
+                "profile": "INTERNAL_AUTOMATION",
+                "languages": ["python"],
+                "disciplines": ["testing"],
+                "operatingSystems": ["ubuntu"],
+            }), encoding="utf-8")
+            completed = run_tool(
+                "tools/compose-agents/compose_agents.py",
+                "--manifest", str(manifest),
+                "--dry-run",
+                "--format", "json",
+            )
+            self.assertEqual(completed.returncode, 2)
+
 
 if __name__ == "__main__":
     unittest.main()

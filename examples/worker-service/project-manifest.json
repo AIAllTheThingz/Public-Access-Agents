@@ -1,4 +1,5 @@
 {
+  "schemaVersion": "1.1.0",
   "name": "example-worker-service",
   "profile": "WORKER_SERVICE",
   "languages": [
@@ -21,6 +22,9 @@
     "kubernetes"
   ],
   "frameworks": [],
+  "virtualization": [],
+  "operatingSystems": [],
+  "networking": [],
   "risk": "moderate",
   "exceptions": []
 }

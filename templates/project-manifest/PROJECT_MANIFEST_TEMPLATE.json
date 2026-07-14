@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "1.0.0",
+  "schemaVersion": "1.1.0",
   "name": "{{PROJECT_NAME}}",
   "profile": "{{PRIMARY_PROFILE}}",
   "secondaryProfiles": [
@@ -16,6 +16,15 @@
   ],
   "frameworks": [
     "{{FRAMEWORK_PACKAGE}}"
+  ],
+  "virtualization": [
+    "{{VIRTUALIZATION_PACKAGE}}"
+  ],
+  "operatingSystems": [
+    "{{OPERATING_SYSTEM_PACKAGE}}"
+  ],
+  "networking": [
+    "{{NETWORKING_PACKAGE}}"
   ],
   "risk": "{{RISK_LEVEL}}",
   "exceptions": [

@@ -10,7 +10,7 @@ Use the strongest language capabilities justified by the repository's declared r
 ## Establish authority and scope
 
 1. Read the adopting repository's root and nearest scoped `AGENTS.md` files before editing.
-2. Read applicable governance, project-profile, discipline, framework, platform, and project-specific instructions.
+2. Read applicable governance, project-profile, discipline, framework, platform, virtualization, operating-system, networking, and project-specific instructions.
 3. Inspect source layout, manifests, lockfiles, build configuration, tests, CI, supported runtimes, and existing conventions.
 4. Classify the change and its risk before implementation. Identify public APIs, data, privilege, compatibility, deployment, and destructive-action effects.
 5. Resolve material uncertainty before making high-risk, privileged, destructive, or production-affecting changes.

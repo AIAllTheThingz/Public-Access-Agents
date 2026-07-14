@@ -17,7 +17,7 @@ Defines mandatory behavior for agents working in a repository or scope governed 
 - [`MANIFEST.md`](MANIFEST.md)
 - every applicable file in `standards/`
 - root governance
-- selected language, discipline, framework, and platform packages
+- selected language, discipline, framework, platform, virtualization, operating-system, and networking packages
 - nearest more-specific `AGENTS.md`
 
 ## Instruction precedence
@@ -25,7 +25,7 @@ Defines mandatory behavior for agents working in a repository or scope governed 
 1. External obligations and authorized user requirements
 2. Root governance and repository instructions
 3. This profile package
-4. Selected language, discipline, framework, and platform packages
+4. Selected language, discipline, framework, platform, virtualization, operating-system, and networking packages
 5. Nearest scoped instructions, where they are compatible and no weaker
 6. Repository conventions
 7. General preferences

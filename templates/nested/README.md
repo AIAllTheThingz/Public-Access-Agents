@@ -17,7 +17,7 @@ This package provides a reusable starting structure. It does not supply project 
 
 ## Use this template when
 
-- a directory has a distinct language, framework, platform, or responsibility
+- a directory has a distinct language, framework, platform, virtualization, operating-system, networking, or responsibility boundary
 - local work requires stricter validation or review
 - generated, migration, infrastructure, security, data, or deployment files need specialized controls
 - local owners and evidence differ from the repository root

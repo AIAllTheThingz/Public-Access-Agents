@@ -14,6 +14,9 @@ class GenerateManifestTests(unittest.TestCase):
             "--name", "example-service",
             "--profile", "WEB_API",
             "--language", "python",
+            "--virtualization", "kvm-libvirt",
+            "--operating-system", "ubuntu",
+            "--networking", "cisco-networking",
             "--include-profile-required",
             "--dry-run",
             "--format", "json",
@@ -22,6 +25,38 @@ class GenerateManifestTests(unittest.TestCase):
         payload = json_result(completed)
         self.assertEqual(payload["metadata"]["manifest"]["profile"], "WEB_API")
         self.assertIn("testing", payload["metadata"]["manifest"]["disciplines"])
+        self.assertEqual(payload["metadata"]["manifest"]["schemaVersion"], "1.1.0")
+        self.assertEqual(payload["metadata"]["manifest"]["virtualization"], ["kvm-libvirt"])
+        self.assertEqual(payload["metadata"]["manifest"]["operatingSystems"], ["ubuntu"])
+        self.assertEqual(payload["metadata"]["manifest"]["networking"], ["cisco-networking"])
+
+    def test_legacy_selections_preserve_schema_version(self):
+        completed = run_tool(
+            "tools/generate-manifest/generate_manifest.py",
+            "--name", "legacy-service",
+            "--profile", "WEB_API",
+            "--language", "python",
+            "--dry-run",
+            "--format", "json",
+        )
+        self.assertEqual(completed.returncode, 0, completed.stdout + completed.stderr)
+        payload = json_result(completed)
+        self.assertEqual(payload["metadata"]["manifest"]["schemaVersion"], "1.0.0")
+        self.assertNotIn("virtualization", payload["metadata"]["manifest"])
+        self.assertNotIn("operatingSystems", payload["metadata"]["manifest"])
+        self.assertNotIn("networking", payload["metadata"]["manifest"])
+
+    def test_rejects_unknown_infrastructure_package(self):
+        completed = run_tool(
+            "tools/generate-manifest/generate_manifest.py",
+            "--name", "invalid-service",
+            "--profile", "WEB_API",
+            "--language", "python",
+            "--operating-system", "not-a-package",
+            "--dry-run",
+            "--format", "json",
+        )
+        self.assertEqual(completed.returncode, 2)
 
     def test_refuses_overwrite_without_force(self):
         with tempfile.TemporaryDirectory(dir=REPO_ROOT) as temp:

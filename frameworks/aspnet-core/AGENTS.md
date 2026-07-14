@@ -17,7 +17,7 @@ depends_on:
 
 This file defines mandatory rules for agents creating, modifying, reviewing, testing, securing, or documenting ASP.NET Core work.
 
-The framework package supplements the [.NET language package](../../languages/dotnet/) and applicable governance, discipline, platform, profile, and project-specific standards.
+The framework package supplements the [.NET language package](../../languages/dotnet/) and applicable governance, discipline, platform, virtualization, operating-system, networking, profile, and project-specific standards.
 
 > Make the smallest safe, maintainable, testable, observable, and well-documented framework change that satisfies the requirement.
 
@@ -30,7 +30,7 @@ This standard applies to framework configuration, architecture, application life
 1. Explicit user requirements
 2. The nearest more-specific `AGENTS.md`
 3. This framework `AGENTS.md`
-4. Referenced language, discipline, platform, profile, and governance standards
+4. Referenced language, discipline, platform, virtualization, operating-system, networking, profile, and governance standards
 5. Repository conventions
 6. General agent preferences
 

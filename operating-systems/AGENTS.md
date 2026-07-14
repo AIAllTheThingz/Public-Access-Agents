@@ -36,7 +36,7 @@ These instructions apply to:
 3. The nearest more-specific `AGENTS.md`
 4. This collection `AGENTS.md`
 5. The selected operating-system package `AGENTS.md`
-6. Applicable platform, virtualization, language, discipline, framework, and profile standards
+6. Applicable platform, virtualization, networking, language, discipline, framework, and profile standards
 7. Repository conventions
 8. General agent preferences
 

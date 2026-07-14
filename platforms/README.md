@@ -240,7 +240,7 @@ Cost is an operational property. Ignoring it does not make it nonfunctional; it 
 2. Select the project profile.
 3. Identify every authoritative platform boundary.
 4. Select complete platform packages.
-5. Select relevant language, framework, and discipline packages.
+5. Select relevant language, framework, discipline, virtualization, operating-system, and networking packages.
 6. Assign platform, application, security, data, operations, and cost owners.
 7. Declare exact supported tools, providers, environments, and constraints.
 8. Complete package adoption checklists.

@@ -1,7 +1,7 @@
 ---
 id: SCHEMA-VERSION-001
 title: Schema Versioning Policy
-version: 0.2.0
+version: 0.3.0
 status: baseline
 ---
 
@@ -18,18 +18,20 @@ Schema contracts use semantic versioning principles:
 ## Paths
 
 - Rolling paths may advance within the compatibility policy.
-- Versioned paths remain immutable within a major version except for non-semantic annotation corrections.
+- Versioned major paths preserve backward compatibility within that major. They may receive compatible patch or minor additions, but must not receive a breaking change.
 - A new major version receives a new directory such as `v2/`.
+
+Consumers that require byte-for-byte immutability must pin a repository tag or commit in addition to the major schema path and record the instance `schemaVersion`.
 
 ## Instance version
 
 Instances may include:
 
 ```json
-"schemaVersion": "1.0.0"
+"schemaVersion": "1.1.0"
 ```
 
-Version 1 instances may omit the property for backward compatibility.
+Version 1 instances may omit the property for backward compatibility and are then interpreted as `1.0.0`. The project-manifest contract requires `1.1.0` when standard virtualization, operating-system, or networking selections are used.
 
 ## Release requirements
 
