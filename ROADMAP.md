@@ -38,6 +38,17 @@
   - Amazon Web Services
   - Google Cloud Platform
 - Platform selection, shared-responsibility, change-lifecycle, and decision-matrix guidance
+- Complete virtualization packages for:
+  - VMware vSphere and ESXi
+  - XenServer and Citrix Hypervisor
+  - Proxmox VE
+  - XCP-ng
+  - KVM and libvirt
+  - Nutanix AHV
+  - Microsoft Hyper-V
+  - Red Hat Virtualization
+  - Oracle Linux KVM and Oracle Linux Virtualization Manager
+- Virtualization selection, shared-responsibility, change-lifecycle, automation, recovery, and migration guidance
 - Complete project profile packages for:
   - Web API
   - Web application

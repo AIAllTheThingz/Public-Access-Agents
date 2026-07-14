@@ -30,9 +30,9 @@ class ValidateSkillsTests(unittest.TestCase):
         self.assertEqual(completed.returncode, 0, completed.stdout + completed.stderr)
         payload = json_result(completed)
         self.assertEqual(payload["status"], "passed")
-        self.assertEqual(payload["summary"]["skillFiles"], 3)
-        self.assertEqual(payload["summary"]["registeredSkills"], 3)
-        self.assertEqual(payload["summary"]["packageRoutes"], 21)
+        self.assertEqual(payload["summary"]["skillFiles"], 4)
+        self.assertEqual(payload["summary"]["registeredSkills"], 4)
+        self.assertEqual(payload["summary"]["packageRoutes"], 30)
 
     def test_text_output_passes(self):
         with tempfile.TemporaryDirectory() as directory:

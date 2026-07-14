@@ -26,6 +26,19 @@ These sources inform the repository. The repository summarizes and operationaliz
 - Kubernetes Security Checklist: https://kubernetes.io/docs/concepts/security/security-checklist/
 - Kubernetes Pod Security Standards: https://kubernetes.io/docs/concepts/security/pod-security-standards/
 
+## Virtualization
+
+- Broadcom VMware vSphere documentation: https://techdocs.broadcom.com/us/en/vmware-cis/vsphere.html
+- XenServer product documentation: https://docs.xenserver.com/en-us/xenserver/8/
+- Proxmox VE administration guide: https://pve.proxmox.com/pve-docs/pve-admin-guide.html
+- XCP-ng documentation: https://docs.xcp-ng.org/
+- Linux kernel KVM documentation: https://docs.kernel.org/virt/kvm/index.html
+- Nutanix product documentation portal: https://portal.nutanix.com/page/documents/list?type=software
+- Microsoft Hyper-V documentation: https://learn.microsoft.com/en-us/windows-server/virtualization/hyper-v/overview
+- Red Hat Virtualization 4.4 documentation and lifecycle notice: https://docs.redhat.com/en/documentation/red_hat_virtualization/4.4
+- Oracle Linux KVM User's Guide: https://docs.oracle.com/en/operating-systems/oracle-linux/kvm-user/
+- Oracle Linux Virtualization Manager documentation: https://docs.oracle.com/en/virtualization/oracle-linux-virtualization-manager/
+
 ## Observability
 
 - OpenTelemetry documentation: https://opentelemetry.io/docs/

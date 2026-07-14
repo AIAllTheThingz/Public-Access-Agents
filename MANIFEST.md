@@ -24,6 +24,7 @@
 - `languages/SKILL.md`
 - `frameworks/SKILL.md`
 - `platforms/SKILL.md`
+- `virtualization/SKILL.md`
 
 These progressive-disclosure routers select and compose existing standards packages. They do not replace root governance or scoped `AGENTS.md` instructions.
 
@@ -135,6 +136,22 @@ Each complete framework package includes scoped agent instructions, a useful REA
 Each complete platform package includes scoped agent instructions, a useful README, a manifest, platform-specific standards, adoption and review templates, an evidence template, and an adoption example.
 
 The platform collection also includes selection, shared-responsibility, change-lifecycle, and decision-matrix guidance.
+
+## Complete virtualization packages
+
+- `virtualization/vsphere-esxi`
+- `virtualization/xenserver-citrix-hypervisor`
+- `virtualization/proxmox-ve`
+- `virtualization/xcp-ng`
+- `virtualization/kvm-libvirt`
+- `virtualization/nutanix-ahv`
+- `virtualization/microsoft-hyper-v`
+- `virtualization/red-hat-virtualization`
+- `virtualization/oracle-linux-kvm`
+
+Each complete virtualization package includes scoped agent instructions, an operations-and-automation standard, adoption and review templates, an evidence template, a fictitious adoption example, and a manifest.
+
+The virtualization collection also includes selection, shared-responsibility, change-lifecycle, and cross-platform migration guidance.
 
 ## Complete project profile packages
 
