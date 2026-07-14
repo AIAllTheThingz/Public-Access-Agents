@@ -39,6 +39,36 @@ These sources inform the repository. The repository summarizes and operationaliz
 - Oracle Linux KVM User's Guide: https://docs.oracle.com/en/operating-systems/oracle-linux/kvm-user/
 - Oracle Linux Virtualization Manager documentation: https://docs.oracle.com/en/virtualization/oracle-linux-virtualization-manager/
 
+## Operating systems
+
+- Microsoft Windows Server documentation: https://learn.microsoft.com/en-us/windows-server/
+- Microsoft Windows Server 2016 lifecycle: https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2016
+- Microsoft Windows Server 2019 lifecycle: https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2019
+- Microsoft Windows Server 2022 lifecycle: https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2022
+- Microsoft Windows Server 2025 lifecycle: https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2025
+- Microsoft Windows 10 Home and Pro lifecycle: https://learn.microsoft.com/en-us/lifecycle/products/windows-10-home-and-pro
+- Microsoft Windows 11 release information: https://learn.microsoft.com/en-us/windows/release-health/windows11-release-information
+- Red Hat Enterprise Linux lifecycle: https://access.redhat.com/support/policy/updates/errata
+- Red Hat Enterprise Linux documentation: https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/
+- Rocky Linux release and version guide: https://wiki.rockylinux.org/rocky/version/
+- AlmaLinux release notes: https://wiki.almalinux.org/release-notes/
+- CentOS Stream: https://www.centos.org/centos-stream/
+- Ubuntu release cycle: https://ubuntu.com/about/release-cycle
+- Ubuntu Server documentation: https://ubuntu.com/server/docs/
+- Ubuntu Desktop documentation: https://documentation.ubuntu.com/desktop/
+- Debian releases: https://www.debian.org/releases/
+- Debian security information: https://www.debian.org/security/
+- SUSE product support lifecycle: https://www.suse.com/lifecycle/
+- SUSE Linux Enterprise Server documentation: https://documentation.suse.com/sles/
+- Oracle Linux documentation: https://docs.oracle.com/en/operating-systems/oracle-linux/
+- Oracle Open Source Lifetime Support Policy: https://www.oracle.com/a/ocom/docs/elsp-lifetime-069338.pdf
+- Apple Platform Deployment: https://support.apple.com/guide/deployment/welcome/web
+- Apple Platform Security: https://support.apple.com/guide/security/welcome/web
+- Apple security releases: https://support.apple.com/en-us/100100
+- FreeBSD release information: https://www.freebsd.org/releases/
+- FreeBSD security information: https://www.freebsd.org/security/
+- FreeBSD Handbook: https://docs.freebsd.org/en/books/handbook/
+
 ## Observability
 
 - OpenTelemetry documentation: https://opentelemetry.io/docs/

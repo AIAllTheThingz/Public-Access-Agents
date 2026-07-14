@@ -29,7 +29,7 @@ See:
 2. Select one or more standards from the [`CATALOG.md`](CATALOG.md).
 3. Select a project profile from [`profiles/`](profiles/README.md).
 4. Copy the relevant language package from [`languages/`](languages/README.md).
-5. Add scoped standards for applicable disciplines, platforms, virtualization systems, and frameworks.
+5. Add scoped standards for applicable disciplines, platforms, virtualization systems, operating systems, and frameworks.
 6. Tailor the result without weakening security, validation, testing, or completion-evidence requirements.
 7. Record the repository version or tag used by the adopting project.
 8. Validate the repository with the tools under [`tools/`](tools/README.md).
@@ -42,6 +42,7 @@ Use the collection-level skills when an agent must select and apply the reposito
 - [`frameworks/SKILL.md`](frameworks/SKILL.md) composes framework and underlying language packages for application work.
 - [`platforms/SKILL.md`](platforms/SKILL.md) composes platform packages for infrastructure and deployment work while preserving authorization boundaries.
 - [`virtualization/SKILL.md`](virtualization/SKILL.md) composes hypervisor and virtualization-management packages for safe automation, operations, recovery, and migration work.
+- [`operating-systems/SKILL.md`](operating-systems/SKILL.md) composes OS packages for safe provisioning, administration, hardening, patching, recovery, upgrade, and fleet automation.
 
 The skills are progressive-disclosure routers. They load only the packages relevant to the repository and request; they do not replace root governance, scoped `AGENTS.md` files, or accountable human review.
 
@@ -54,6 +55,7 @@ The skills are progressive-disclosure routers. They load only the packages relev
 | [`languages/`](languages/README.md) | Copyable language-specific standards packages |
 | [`platforms/`](platforms/README.md) | Containers, Kubernetes, infrastructure as code, and cloud platforms |
 | [`virtualization/`](virtualization/README.md) | Hypervisors, virtualization managers, clusters, hosts, guests, virtual networking and storage, recovery, and migration |
+| [`operating-systems/`](operating-systems/README.md) | Windows, Enterprise Linux, Ubuntu, Debian, SUSE, Oracle Linux, macOS, and FreeBSD lifecycle, administration, security, recovery, and automation |
 | [`frameworks/`](frameworks/README.md) | Framework-specific scoped agent instructions |
 | [`profiles/`](profiles/README.md) | Project-type overlays such as web API, worker service, and AI agent application |
 | [`templates/`](templates/README.md) | Root and nested agent files, completion evidence, threat models, ADRs, and exceptions |
@@ -91,6 +93,20 @@ Each language directory is independently adoptable and includes mandatory agent 
 - Oracle Linux KVM and Oracle Linux Virtualization Manager
 
 Each virtualization directory is independently adoptable and includes mandatory agent instructions, an operations-and-automation standard, adoption and review templates, an evidence record, a fictitious example, and a package manifest.
+
+## Current operating-system packages
+
+- Windows Server 2016, 2019, 2022, and 2025
+- Windows client: Windows 10 and Windows 11
+- Red Hat Enterprise Linux family
+- Ubuntu Server and Desktop
+- Debian
+- SUSE Linux Enterprise
+- Oracle Linux
+- macOS
+- FreeBSD
+
+Each operating-system directory is independently adoptable and includes mandatory agent instructions, an operations-and-automation standard, adoption and review templates, an evidence record, a fictitious example, and a package manifest. “Current” release claims require revalidation against authoritative lifecycle and security-update sources.
 
 ## Adoption model
 

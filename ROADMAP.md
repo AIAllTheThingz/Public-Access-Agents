@@ -49,6 +49,17 @@
   - Red Hat Virtualization
   - Oracle Linux KVM and Oracle Linux Virtualization Manager
 - Virtualization selection, shared-responsibility, change-lifecycle, automation, recovery, and migration guidance
+- Complete operating-system packages for:
+  - Windows Server 2016, 2019, 2022, and 2025
+  - Windows 10 and Windows 11 clients
+  - Red Hat Enterprise Linux family
+  - Ubuntu Server and Desktop
+  - Debian
+  - SUSE Linux Enterprise
+  - Oracle Linux
+  - macOS
+  - FreeBSD
+- Operating-system selection, current-release, shared-responsibility, change-lifecycle, security, recovery, upgrade, migration, and decommission guidance
 - Complete project profile packages for:
   - Web API
   - Web application

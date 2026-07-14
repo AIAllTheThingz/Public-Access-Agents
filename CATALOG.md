@@ -8,6 +8,7 @@ This catalog lists the standards available for composition into a project.
 - [Framework engineering skill](frameworks/SKILL.md)
 - [Platform engineering skill](platforms/SKILL.md)
 - [Virtualization engineering skill](virtualization/SKILL.md)
+- [Operating-system engineering skill](operating-systems/SKILL.md)
 
 These collection-level skills select and compose the detailed packages below. They supplement rather than replace repository governance and scoped `AGENTS.md` instructions.
 
@@ -91,6 +92,22 @@ Virtualization packages are complete, independently adoptable overlays for hyper
 - [Oracle Linux KVM](virtualization/oracle-linux-kvm/)
 
 See the [virtualization index](virtualization/README.md) for selection, shared responsibility, safe change phases, automation, lifecycle, recovery, and migration guidance.
+
+## Operating systems
+
+Operating-system packages are complete, independently adoptable overlays for provisioning, configuration, package and update management, identity, services, networking, storage, host security, observability, backup, recovery, lifecycle, upgrade, migration, and fleet automation.
+
+- [Windows Server 2016, 2019, 2022, and 2025](operating-systems/windows-server/)
+- [Windows 10 and Windows 11 clients](operating-systems/windows-client/)
+- [Red Hat Enterprise Linux family](operating-systems/rhel-family/)
+- [Ubuntu Server and Desktop](operating-systems/ubuntu/)
+- [Debian](operating-systems/debian/)
+- [SUSE Linux Enterprise](operating-systems/suse-linux-enterprise/)
+- [Oracle Linux](operating-systems/oracle-linux/)
+- [macOS](operating-systems/macos/)
+- [FreeBSD](operating-systems/freebsd/)
+
+See the [operating-systems index](operating-systems/README.md) for current-release semantics, selection, shared responsibility, safe change phases, automation, security, recovery, upgrade, and migration guidance.
 
 ## Frameworks
 
