@@ -17,7 +17,7 @@ Select the smallest complete set of OS packages for the actual systems, images, 
 2. Select both source and destination packages for upgrades that cross OS families or management models.
 3. Treat image construction and live fleet mutation as separate scopes with separate evidence.
 4. Verify edition, release, servicing channel, architecture, repository, subscription, hardware, and management compatibility from current authoritative sources.
-5. Select language, platform, virtualization, and discipline packages for the actual automation and operational risks.
+5. Select language, framework, platform, virtualization, networking, profile, and discipline packages for the actual automation and operational risks.
 
 ## Evidence-to-package map
 

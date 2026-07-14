@@ -1,7 +1,7 @@
 ---
 id: TOOL-PKG-GENERATE-MANIFEST-001-EXAMPLE
 title: Generate Manifest Tool Examples
-version: 1.0.0
+version: 1.1.0
 status: baseline
 ---
 
@@ -10,7 +10,7 @@ status: baseline
 ## Commands
 
 ```bash
-python tools/generate-manifest/generate_manifest.py --name example --profile WEB_API --language python --include-profile-required --dry-run
+python tools/generate-manifest/generate_manifest.py --name example --profile INTERNAL_AUTOMATION --language python --virtualization kvm-libvirt --operating-system ubuntu --networking cisco-networking --include-profile-required --dry-run
 ```
 
 ```bash
@@ -19,7 +19,7 @@ python tools/generate-manifest/generate_manifest.py --config manifest-input.json
 
 ## Expected behavior
 
-Examples use fictitious or repository-local inputs. Review the command before execution and use dry-run for writing tools.
+Examples use fictitious or repository-local inputs. The infrastructure flags are repeatable and map to the three optional schema 1.1 package arrays. Review the command before execution and use dry-run for writing tools.
 
 ## Boundary
 

@@ -6,4 +6,4 @@ title: Rust Adoption Example
 
 # Rust Adoption Example
 
-Compose root governance, this Rust package, an applicable project profile, and relevant platform or discipline overlays. Declare toolchain, MSRV, targets, features, unsafe policy, commands, and required evidence in the project `AGENTS.md`.
+Compose root governance, this Rust package, an applicable project profile, and relevant discipline, framework, platform, virtualization, operating-system, and networking overlays. Declare toolchain, MSRV, targets, features, unsafe policy, commands, and required evidence in the project `AGENTS.md`.

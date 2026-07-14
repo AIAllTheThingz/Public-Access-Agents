@@ -1,7 +1,7 @@
 ---
 id: TOOL-PKG-COMPOSE-AGENTS-001
 title: Compose Agents Tool
-version: 1.0.0
+version: 1.1.0
 status: baseline
 ---
 
@@ -9,7 +9,7 @@ status: baseline
 
 ## Purpose
 
-Create a traceable standards bundle from a reviewed project manifest without concatenating or rewriting source standards.
+Create a traceable standards bundle from a reviewed project manifest, including selected virtualization, operating-system, and networking standards, without concatenating or rewriting source standards.
 
 Status: **baseline**
 
@@ -46,6 +46,7 @@ python tools/compose-agents/compose_agents.py --help
 
 - manifest schema validity
 - selected package existence
+- selected virtualization, operating-system, and networking package entry points
 - required governance sources
 - root-contained source paths
 - source SHA-256 records
@@ -107,6 +108,8 @@ python tools/validate-all/run_all.py --include-tests
 ## Compatibility
 
 Backward-compatible changes may add optional flags, summary fields, metadata, or new finding codes.
+
+Version 1.1 recognizes the optional `virtualization`, `operatingSystems`, and `networking` manifest arrays, includes each selected package's `AGENTS.md`, `README.md`, and `MANIFEST.md`, and reports those selections in the generated composition index. Version 1.0 manifests remain valid.
 
 Breaking changes include:
 

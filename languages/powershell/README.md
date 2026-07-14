@@ -64,9 +64,10 @@ Opening only `AGENTS.md` and ignoring its referenced standards is not compliant 
 4. Define credential sources, remoting transport, and authentication requirements.
 5. Define whether code signing is required and how signatures are validated.
 6. Define reporting, logging, scheduling, and unattended-execution behavior.
-7. Add project-specific rules without weakening this package.
-8. Record the real validation commands in project documentation.
-9. Review the composed standard with an accountable PowerShell maintainer.
+7. Select applicable discipline, framework, platform, virtualization, operating-system, networking, and project-profile overlays.
+8. Add project-specific rules without weakening this package.
+9. Record the real validation commands in project documentation.
+10. Review the composed standard with an accountable PowerShell maintainer.
 
 ## Project tailoring checklist
 

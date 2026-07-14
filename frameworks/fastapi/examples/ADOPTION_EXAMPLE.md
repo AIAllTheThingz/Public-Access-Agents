@@ -40,7 +40,7 @@ The adopting project would declare:
 
 ## Example root instruction excerpt
 
-> Use the FastAPI package as a framework overlay. Preserve parent governance, language, discipline, and platform requirements. Do not invent environment values. Validate configuration and trust-boundary input. Add tests and documentation with behavior changes. Record exact evidence and limitations.
+> Use the FastAPI package as a framework overlay. Preserve parent governance, language, discipline, platform, virtualization, operating-system, and networking requirements. Do not invent environment values. Validate configuration and trust-boundary input. Add tests and documentation with behavior changes. Record exact evidence and limitations.
 
 ## Validation
 

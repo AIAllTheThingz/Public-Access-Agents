@@ -62,7 +62,7 @@ Projects may use different supported tooling, but must declare it explicitly and
 4. Define lint, formatting, type-check, test, and build scripts.
 5. Define dependency provenance, lifecycle-script, audit, and lockfile policies.
 6. Define browser and server trust boundaries, authentication, authorization, and secret storage.
-7. Add applicable framework, accessibility, security, API, platform, and project-profile overlays.
+7. Add applicable framework, discipline, platform, virtualization, operating-system, networking, and project-profile overlays.
 8. Review templates before copying them into the application.
 9. Record the real validation and release commands.
 10. Review the composed standard with an accountable maintainer.

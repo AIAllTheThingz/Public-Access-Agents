@@ -1,7 +1,7 @@
 ---
 id: TEMPLATE-PKG-ROOT-001
 title: Root Agent Instructions Template Package
-version: 0.2.0
+version: 0.3.0
 status: baseline
 ---
 
@@ -19,7 +19,7 @@ This package provides a reusable starting structure. It does not supply project 
 
 - creating or replacing the root `AGENTS.md` in an adopting repository
 - establishing project-wide facts and non-negotiable controls
-- declaring selected profiles, languages, disciplines, frameworks, and platforms
+- declaring selected profiles, languages, disciplines, frameworks, platforms, virtualization systems, operating systems, and networking systems
 - defining the project's completion and evidence model
 
 ## This template does not replace
@@ -75,6 +75,9 @@ Only the following placeholders are valid in this template:
 | `{{DISCIPLINE_PACKAGES}}` | Selected discipline package paths. |
 | `{{FRAMEWORK_PACKAGES}}` | Selected framework package paths or `none`. |
 | `{{PLATFORM_PACKAGES}}` | Selected platform package paths or `none`. |
+| `{{VIRTUALIZATION_PACKAGES}}` | Selected virtualization package paths or `none`. |
+| `{{OPERATING_SYSTEM_PACKAGES}}` | Selected operating-system package paths or `none`. |
+| `{{NETWORKING_PACKAGES}}` | Selected networking package paths or `none`. |
 | `{{SUPPORTED_RUNTIMES}}` | Supported runtime, SDK, or interpreter versions. |
 | `{{DEPLOYMENT_ENVIRONMENTS}}` | Named environment classes without secrets or internal credentials. |
 | `{{SENSITIVE_DATA}}` | Data classifications and handling boundaries. |

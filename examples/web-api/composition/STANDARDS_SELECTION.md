@@ -43,6 +43,9 @@ This document explains why the example selects each standards package. It preven
 - **Database Engineering:** The composition describes a persistence adapter but does not define a concrete schema or migration surface. Add the discipline when a real database is selected.
 - **SRE:** Moderate risk and illustrative operations do not establish an on-call service objective. Add SRE when availability and recovery targets exist.
 - **Accessibility:** The example exposes an API only and has no user interface.
+- **Virtualization:** The example owns a container boundary, not the underlying hypervisor or hosts.
+- **Operating systems:** Host and endpoint administration are outside the fictitious API scope.
+- **Networking:** Application connectivity is modeled, but network-device and fabric control planes are not.
 
 An omission is valid only for the current fictitious scope. It is not a permanent exemption.
 
@@ -55,13 +58,13 @@ An omission is valid only for the current fictitious scope. It is not a permanen
 - Are build, dependency, artifact, deployment, and release concerns represented?
 - Are availability, recovery, incident, or on-call expectations represented?
 - Are documentation and accountable review represented?
-- Would adding a real database, identity provider, cloud platform, external API, or regulated data change the selection?
+- Would adding a real database, identity provider, cloud platform, hypervisor, managed operating system, network control plane, external API, or regulated data change the selection?
 
 ## Change triggers
 
 Reassess the composition when:
 
-- a new component, language, framework, platform, data store, or external system is added
+- a new component, language, framework, platform, virtualization system, operating system, networking system, data store, or external system is added
 - public contracts or compatibility obligations change
 - personal, sensitive, confidential, or regulated data enters scope
 - production deployment, on-call, availability, or recovery expectations are introduced

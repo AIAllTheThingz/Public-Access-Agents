@@ -104,7 +104,7 @@ Internal use does not make unsafe automation harmless. It merely reduces the num
 
 ## Adoption model
 
-Discipline standards are layered with governance, language, platform, framework, and project-profile standards:
+Discipline standards are layered with governance, language, framework, platform, virtualization, operating-system, networking, and project-profile standards:
 
 ```text
 project/
@@ -130,7 +130,7 @@ The nearest scoped `AGENTS.md` may add stricter requirements for its directory. 
 
 1. Read the repository root `AGENTS.md` and governance standards.
 2. Select the applicable project profile.
-3. Select language, platform, and framework packages.
+3. Select applicable language, framework, platform, virtualization, operating-system, and networking packages.
 4. Select every relevant discipline package.
 5. Copy or compose each complete package.
 6. Preserve stable identifiers and package manifests.

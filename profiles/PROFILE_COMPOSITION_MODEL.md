@@ -8,7 +8,7 @@ status: baseline
 
 ## Purpose
 
-Defines how project profiles compose with governance, languages, disciplines, frameworks, platforms, and scoped instructions.
+Defines how project profiles compose with governance, languages, disciplines, frameworks, platforms, virtualization systems, operating systems, networking systems, and scoped instructions.
 
 ## Layer model
 
@@ -21,6 +21,9 @@ external obligations
 + disciplines
 + frameworks
 + platforms
++ virtualization
++ operating systems
++ networking
 + project facts
 + root and nested AGENTS.md
 + evidence
@@ -34,6 +37,9 @@ external obligations
 - Disciplines control cross-cutting engineering work.
 - Frameworks specialize application behavior.
 - Platforms control execution and deployment boundaries.
+- Virtualization packages control hypervisor, manager, cluster, host, guest, virtual-network, and virtual-storage boundaries.
+- Operating-system packages control privileged host, endpoint, lifecycle, update, identity, service, security, and recovery boundaries.
+- Networking packages control device, controller, routing, switching, policy, fabric, firmware, and network-recovery boundaries.
 - Project instructions declare actual facts, targets, owners, and commands.
 - Evidence records what was actually implemented, validated, reviewed, and approved.
 

@@ -10,7 +10,7 @@ status: baseline
 
 - [ ] This platform controls a material project boundary.
 - [ ] The project profile is selected.
-- [ ] Applicable language, framework, discipline, and companion platform packages are selected.
+- [ ] Applicable language, framework, discipline, companion platform, virtualization, operating-system, and networking packages are selected or explicitly omitted.
 - [ ] Shared responsibility is documented.
 
 ## Target and authority

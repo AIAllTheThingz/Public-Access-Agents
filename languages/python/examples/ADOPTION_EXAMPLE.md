@@ -22,7 +22,7 @@ The project `AGENTS.md` should:
 
 1. Reference this language package.
 2. Declare exact runtime and toolchain support.
-3. Add the applicable project profile, discipline, platform, and framework overlays.
+3. Add the applicable project profile, discipline, framework, platform, virtualization, operating-system, and networking overlays.
 4. Define project-specific commands and evidence.
 5. Preserve the security, testing, documentation, dependency, observability, and completion-evidence requirements.
 

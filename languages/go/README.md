@@ -66,7 +66,7 @@ The package is structurally complete and suitable for adoption. Projects must ta
 4. Define formatting, vetting, static-analysis, test, race, fuzz, build, and release commands.
 5. Define context propagation, cancellation, timeout, retry, and shutdown behavior.
 6. Define network, file, database, message, authentication, authorization, and secret boundaries.
-7. Add platform, API, security, database, and project-profile overlays where applicable.
+7. Add applicable discipline, framework, platform, virtualization, operating-system, networking, and project-profile overlays.
 8. Review code generators and executable tooling dependencies.
 9. Run repository and package validation.
 10. Review the composed standard with an accountable Go maintainer.

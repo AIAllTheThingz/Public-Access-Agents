@@ -10,7 +10,7 @@ status: baseline
 
 Define the minimum standards composition for installed desktop applications that execute on user-managed endpoints and may store data, integrate with the operating system, or update independently.
 
-This package is a project-shape overlay. It composes governance, language, discipline, framework, platform, and project-specific standards into a coherent starting point.
+This package is a project-shape overlay. It composes governance, language, discipline, framework, platform, virtualization, operating-system, networking, and project-specific standards into a coherent starting point.
 
 Status: **baseline**
 
@@ -204,7 +204,7 @@ Other recurring failures include copying example facts, treating a profile as ar
 2. Confirm this is the primary or a scoped secondary profile.
 3. Record profile-selection rationale.
 4. Classify risk.
-5. Select language, discipline, framework, and platform packages.
+5. Select applicable language, discipline, framework, platform, virtualization, operating-system, and networking packages.
 6. Complete the adoption checklist.
 7. Document architecture, security, tests, operations, and release decisions.
 8. Add nested instructions for distinct scopes.

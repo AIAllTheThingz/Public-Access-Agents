@@ -1,7 +1,7 @@
 ---
 id: TOOL-PKG-GENERATE-MANIFEST-001
 title: Generate Manifest Tool
-version: 1.0.0
+version: 1.1.0
 status: baseline
 ---
 
@@ -9,7 +9,7 @@ status: baseline
 
 ## Purpose
 
-Generate a deterministic, schema-valid project manifest from explicit profile and package selections.
+Generate a deterministic, schema-valid project manifest from explicit profile, language, discipline, framework, platform, virtualization, operating-system, and networking selections.
 
 Status: **baseline**
 
@@ -46,6 +46,7 @@ python tools/generate-manifest/generate_manifest.py --help
 
 - known profile
 - known package slugs
+- explicit virtualization, operating-system, and networking package selection
 - at least one language
 - optional required-discipline expansion
 - schema validation
@@ -54,12 +55,14 @@ python tools/generate-manifest/generate_manifest.py --help
 ## Examples
 
 ```bash
-python tools/generate-manifest/generate_manifest.py --name example --profile WEB_API --language python --include-profile-required --dry-run
+python tools/generate-manifest/generate_manifest.py --name example --profile INTERNAL_AUTOMATION --language python --virtualization kvm-libvirt --operating-system ubuntu --networking cisco-networking --include-profile-required --dry-run
 ```
 
 ```bash
 python tools/generate-manifest/generate_manifest.py --config manifest-input.json --manifest-output project-manifest.json
 ```
+
+JSON configuration uses the manifest-style array keys `languages`, `disciplines`, `frameworks`, `platforms`, `virtualization`, `operatingSystems`, and `networking`. CLI selections are appended and then de-duplicated in first-seen order.
 
 ## Text and JSON results
 
@@ -107,6 +110,8 @@ python tools/validate-all/run_all.py --include-tests
 ## Compatibility
 
 Backward-compatible changes may add optional flags, summary fields, metadata, or new finding codes.
+
+Version 1.1 adds repeatable `--virtualization`, `--operating-system`, and `--networking` flags and matching `virtualization`, `operatingSystems`, and `networking` configuration keys. Manifests without those selections retain schema version `1.0.0`; manifests using them emit `1.1.0`.
 
 Breaking changes include:
 

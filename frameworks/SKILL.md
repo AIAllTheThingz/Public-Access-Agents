@@ -12,7 +12,7 @@ Use framework capabilities to improve architecture, correctness, security, acces
 1. Read the adopting repository's root and nearest scoped `AGENTS.md` files.
 2. Inspect framework, language, runtime, package, lock, build, test, deployment, and CI configuration.
 3. Identify application boundaries, request or rendering flow, dependency injection or state ownership, data access, background work, authentication, authorization, and external integrations.
-4. Identify applicable governance, project-profile, language, discipline, platform, and project-specific standards.
+4. Identify applicable governance, project-profile, language, discipline, platform, virtualization, operating-system, networking, and project-specific standards.
 5. Classify risk and compatibility impact before implementation.
 
 Do not infer that a framework default satisfies security, accessibility, privacy, testing, observability, resilience, or production-readiness obligations.

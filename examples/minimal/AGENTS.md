@@ -19,7 +19,7 @@ When instructions conflict, apply them in this order:
 1. Explicit user requirements
 2. The nearest more-specific `AGENTS.md`
 3. This root example `AGENTS.md`
-4. Referenced governance, profile, language, discipline, platform, and framework standards
+4. Referenced governance, profile, language, discipline, framework, platform, virtualization, operating-system, and networking standards
 5. Repository conventions
 6. General agent preferences
 

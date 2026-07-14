@@ -1,7 +1,7 @@
 ---
 id: TEMPLATE-PKG-PROJECT-MANIFEST-001
 title: Project Standards Manifest Template Package
-version: 0.2.0
+version: 0.3.0
 status: baseline
 ---
 
@@ -9,7 +9,7 @@ status: baseline
 
 ## Purpose
 
-Declare the project's selected profile, languages, disciplines, frameworks, platforms, risk, exceptions, ownership, and evidence location in machine-readable form.
+Declare the project's selected profile, languages, disciplines, frameworks, platforms, virtualization systems, operating systems, networking systems, risk, exceptions, ownership, and evidence location in machine-readable form.
 
 Status: **baseline**
 
@@ -72,6 +72,9 @@ Only the following placeholders are valid in this template:
 | `{{DISCIPLINE_PACKAGE}}` | Discipline package slug. |
 | `{{PLATFORM_PACKAGE}}` | Platform package slug or remove the array item. |
 | `{{FRAMEWORK_PACKAGE}}` | Framework package slug or remove the array item. |
+| `{{VIRTUALIZATION_PACKAGE}}` | Virtualization package slug or remove the array item. |
+| `{{OPERATING_SYSTEM_PACKAGE}}` | Operating-system package slug or remove the array item. |
+| `{{NETWORKING_PACKAGE}}` | Networking package slug or remove the array item. |
 | `{{RISK_LEVEL}}` | Low, moderate, high, or critical. |
 | `{{EXCEPTION_ID}}` | Exception record identifier or remove the array item. |
 | `{{OWNER_ROLE}}` | Accountable owner role. |
@@ -112,7 +115,7 @@ The adopted record is complete only when:
 
 ## Review focus
 
-- profile and package slugs exist
+- profile and language, discipline, framework, platform, virtualization, operating-system, and networking package slugs exist
 - selected packages match actual project shape
 - risk is backed by an assessment
 - exception identifiers resolve
@@ -123,6 +126,7 @@ The adopted record is complete only when:
 
 - treating the manifest as a package installer
 - listing aspirational packages that are not actually adopted
+- omitting a material hypervisor, operating-system, or network control boundary from the composition record
 - omitting secondary profiles for distinct project shapes
 - using the rolling schema in long-lived automation
 - leaving template placeholders in committed JSON

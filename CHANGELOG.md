@@ -20,6 +20,8 @@ Release notes distinguish:
 
 ### Normative changes
 
+- Extended the project-manifest version 1 contract with version `1.1.0` and optional `virtualization`, `operatingSystems`, and `networking` package arrays while retaining validation of existing version `1.0.0` manifests.
+- Synchronized profile, language, discipline, framework, platform, governance, template, and example composition guidance so adopters must explicitly select or justify omission of virtualization, operating-system, and networking standards.
 - Added collection-level language, framework, and platform skills that route agent work to the applicable standards packages and require advanced, version-compatible implementation, layered validation, and explicit completion evidence.
 - Added a virtualization engineering skill and complete baseline packages for VMware vSphere/ESXi, XenServer/Citrix Hypervisor, Proxmox VE, XCP-ng, KVM/libvirt, Nutanix AHV, Microsoft Hyper-V, Red Hat Virtualization, and Oracle Linux KVM/OLVM.
 - Added shared virtualization requirements for target identity, supported automation interfaces, discovery, validation, dry-run or planning, authorization, bounded execution, actual-state verification, backup, recovery, lifecycle, and migration.
@@ -34,6 +36,7 @@ Release notes distinguish:
 
 ### Tooling changes
 
+- Updated `generate-manifest` and `compose-agents` to version `1.1.0` so they validate, emit, compose, and report selected virtualization, operating-system, and networking packages; added backward-compatibility, positive, and negative tests.
 - Added a permanent read-only skill validator for metadata, progressive disclosure, package-routing coverage, root-manifest registration, safe local links, and optional agent UI metadata.
 - Integrated skill validation and its positive, boundary, negative, and deterministic tests into the complete validation pipeline.
 - Extended the repository skill-collection regression test to cover the virtualization router and its nine package routes.
@@ -42,6 +45,7 @@ Release notes distinguish:
 
 ### Security
 
+- Made infrastructure-control boundaries explicit in manifests and generated composition indexes so material hypervisor, host operating-system, and network standards are less likely to be silently omitted from review.
 - Added virtualization safeguards for privileged control planes, ambiguous object selection, bulk or destructive actions, management-plane exposure, network and storage changes, snapshots and checkpoints, backup and restore, device passthrough, unsupported lifecycle states, and cross-platform migration.
 - Added OS safeguards for privileged fleet actions, ambiguous target selection, repository and package trust, security-control bypass, identity and remote-access loss, restart and partial-fleet failure, encryption and recovery material, destructive endpoint actions, unsupported lifecycle states, and user-data privacy.
 - Added networking safeguards for high-blast-radius control planes, ambiguous device/controller/fabric scope, conflicting configuration owners, management loss, loops and convergence failure, redundancy sequencing, policy exposure, unsupported firmware/hardware, Fibre Channel zoning and multipath changes, and sensitive topology or support data.
@@ -52,7 +56,12 @@ Release notes distinguish:
 
 ### Migration notes
 
+- Existing project-manifest version `1.0.0` instances remain valid. Producers using the new package arrays must emit `schemaVersion: "1.1.0"`; consumers that depend on those arrays must use schema and composition tooling version `1.1.0` or later.
 - Existing adopters may continue using `AGENTS.md` and package entry points directly. Agents that support skills may additionally use `languages/SKILL.md`, `frameworks/SKILL.md`, `platforms/SKILL.md`, `virtualization/SKILL.md`, `operating-systems/SKILL.md`, and `networking/SKILL.md` without changing existing package paths.
+
+### Known limitations
+
+- Project-manifest package arrays record reviewed selection intent only. Schema validity and generated composition bundles do not prove that every applicable infrastructure boundary was identified, tailored, authorized, or operationally validated.
 
 ## [0.9.0] - 2026-07-13
 

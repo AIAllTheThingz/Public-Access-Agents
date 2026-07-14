@@ -203,7 +203,7 @@ Each complete profile package includes scoped agent instructions, a useful READM
 ## Complete schema system
 
 - six rolling Draft 2020-12 schemas under `schemas/`
-- six version-pinned schemas under `schemas/v1/`
+- six backward-compatible major-version schemas under `schemas/v1/`
 - schema agent instructions and manifest
 - schema catalog
 - versioning, compatibility, extension, migration, validation, and design guidance

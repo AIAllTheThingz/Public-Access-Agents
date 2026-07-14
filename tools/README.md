@@ -39,8 +39,8 @@ The tools are deliberately conservative. They validate implemented contracts and
 | [Validate Tools](validate-tools/) | `validate_tools.py` | read-only | Validate tool package structure, executable entry points, contracts, documentation, and tests. |
 | [Validate Release](release/) | `validate_release.py` | read-only | Validate VERSION, changelog, release notes, migration notes, release policy, maturity policy, workflow, and tag matching. |
 | [Build Release](release/) | `build_release.py` | writes output | Build deterministic archives, SHA-256 checksums, release notes, migration notes, and a release manifest. |
-| [Generate Manifest](generate-manifest/) | `generate_manifest.py` | writes output | Produce a schema-valid project manifest from explicit selections. |
-| [Compose Agents](compose-agents/) | `compose_agents.py` | writes output | Create a traceable standards bundle without flattening or rewriting source standards. |
+| [Generate Manifest](generate-manifest/) | `generate_manifest.py` | writes output | Produce a schema-valid project manifest from explicit profile, language, discipline, framework, platform, virtualization, operating-system, and networking selections. |
+| [Compose Agents](compose-agents/) | `compose_agents.py` | writes output | Create a traceable standards bundle, including selected virtualization, operating-system, and networking packages, without flattening or rewriting source standards. |
 | [Validate All](validate-all/) | `run_all.py` | read-only | Run and aggregate the complete validation pipeline. |
 
 See [`TOOL_CATALOG.md`](TOOL_CATALOG.md) for inputs, outputs, dependencies, and ownership.
@@ -86,6 +86,7 @@ python tools/generate-manifest/generate_manifest.py \
   --name example-service \
   --profile WEB_API \
   --language python \
+  --operating-system ubuntu \
   --include-profile-required \
   --risk moderate \
   --dry-run

@@ -1,7 +1,7 @@
 ---
 id: TEMPLATE-REVIEW-ROOT-001
 title: Root Agent Instructions Review Checklist
-version: 0.2.0
+version: 0.3.0
 status: baseline
 ---
 
@@ -31,6 +31,7 @@ status: baseline
 
 - [ ] Project facts are specific and not invented.
 - [ ] Selected package paths match the repository manifest.
+- [ ] Material virtualization, operating-system, and networking boundaries are selected or their omission is justified.
 - [ ] Authority and prohibited actions are explicit.
 - [ ] Validation commands are executable.
 - [ ] Completion requires evidence rather than assertion.

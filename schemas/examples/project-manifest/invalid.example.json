@@ -1,6 +1,20 @@
 {
+  "schemaVersion": "1.0.0",
   "name": "example-service",
-  "profile": "",
-  "languages": [],
-  "disciplines": "testing"
+  "profile": "WEB_API",
+  "languages": [
+    "python"
+  ],
+  "disciplines": [
+    "testing"
+  ],
+  "virtualization": [
+    "kvm-libvirt"
+  ],
+  "operatingSystems": [
+    "ubuntu"
+  ],
+  "networking": [
+    "cisco-networking"
+  ]
 }

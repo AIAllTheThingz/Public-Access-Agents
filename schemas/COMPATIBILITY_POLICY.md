@@ -1,7 +1,7 @@
 ---
 id: SCHEMA-COMPAT-001
 title: Schema Compatibility Policy
-version: 0.2.0
+version: 0.3.0
 status: baseline
 ---
 
@@ -56,9 +56,9 @@ For each change, identify:
 
 ## Compatibility promise
 
-The version 1 contracts preserve the repository's existing required fields and current valid instances.
+The version 1 contracts preserve the repository's existing required fields and current valid instances. Compatible optional properties may be added within the `v1/` major path; consumers requiring an immutable artifact must also pin a repository tag or commit.
 
-The optional `schemaVersion` and `extensions` properties are backward-compatible additions.
+The optional `schemaVersion` and `extensions` properties are backward-compatible additions. Project-manifest version `1.1.0` adds optional `virtualization`, `operatingSystems`, and `networking` arrays without invalidating version `1.0.0` instances. Any instance containing one of those arrays must declare version `1.1.0`.
 
 ## Validation versus compatibility
 

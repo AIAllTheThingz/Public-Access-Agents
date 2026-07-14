@@ -100,7 +100,7 @@ A browser application normally adds accessibility, privacy, API engineering, tes
 2. Select the project profile.
 3. Select the underlying language package.
 4. Confirm the framework package applies.
-5. Select relevant discipline and platform packages.
+5. Select relevant discipline, platform, virtualization, operating-system, and networking packages.
 6. Copy or compose the complete framework package.
 7. Preserve stable identifiers and the package manifest.
 8. Declare the exact supported framework, language, runtime, build, and deployment constraints.

@@ -1,7 +1,7 @@
 ---
 id: SCHEMA-MANIFEST-001
 title: Schema Package Manifest
-version: 0.2.0
+version: 0.3.0
 status: baseline
 ---
 

@@ -25,7 +25,7 @@ except ImportError as exc:
     ) from exc
 
 TOOL = "compose-agents"
-VERSION = "1.0.0"
+VERSION = "1.1.0"
 DEFAULT_ROOT = Path(__file__).resolve().parents[2]
 GOVERNANCE_SOURCES = [
     "governance/ORGANIZATION_CONTRACT.md",
@@ -100,6 +100,9 @@ def build_source_list(root: Path, manifest: dict[str, Any]) -> list[Path]:
         ("disciplines", "disciplines"),
         ("frameworks", "frameworks"),
         ("platforms", "platforms"),
+        ("virtualization", "virtualization"),
+        ("operating-systems", "operatingSystems"),
+        ("networking", "networking"),
     ):
         for slug in manifest.get(key, []):
             sources.extend(package_files(root, collection, str(slug)))
@@ -126,6 +129,9 @@ def generated_agents(manifest: dict[str, Any], source_records: list[dict[str, st
         f"- Disciplines: {', '.join(f'`{item}`' for item in manifest.get('disciplines', [])) or 'none declared'}",
         f"- Frameworks: {', '.join(f'`{item}`' for item in manifest.get('frameworks', [])) or 'none declared'}",
         f"- Platforms: {', '.join(f'`{item}`' for item in manifest.get('platforms', [])) or 'none declared'}",
+        f"- Virtualization: {', '.join(f'`{item}`' for item in manifest.get('virtualization', [])) or 'none declared'}",
+        f"- Operating systems: {', '.join(f'`{item}`' for item in manifest.get('operatingSystems', [])) or 'none declared'}",
+        f"- Networking: {', '.join(f'`{item}`' for item in manifest.get('networking', [])) or 'none declared'}",
         "",
         "## Source standards",
         "",

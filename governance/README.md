@@ -9,7 +9,7 @@ status: baseline
 
 ## Purpose
 
-The governance layer defines the control plane for agent-assisted engineering. It establishes authority, precedence, risk, review, evidence, exceptions, security, production readiness, and vulnerability handling across every language, framework, platform, discipline, profile, and example in this repository.
+The governance layer defines the control plane for agent-assisted engineering. It establishes authority, precedence, risk, review, evidence, exceptions, security, production readiness, and vulnerability handling across every language, framework, platform, virtualization, operating-system, networking, discipline, profile, and example in this repository.
 
 Governance answers questions that implementation standards cannot answer safely:
 
@@ -36,7 +36,7 @@ Authority precedence:
 2. Explicit authorized user or organizational direction within delegated authority
 3. Root repository `AGENTS.md`
 4. Governance policies
-5. Selected project-profile, language, discipline, platform, and framework standards
+5. Selected project-profile, language, discipline, framework, platform, virtualization, operating-system, and networking standards
 6. Repository conventions and general agent preferences
 
 Scope specificity:

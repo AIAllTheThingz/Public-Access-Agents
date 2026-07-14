@@ -8,7 +8,7 @@ status: baseline
 
 ## Purpose
 
-Project profiles are composition blueprints. They identify the minimum governance, discipline, language, framework, platform, decision, evidence, and operational concerns normally expected for a project shape.
+Project profiles are composition blueprints. They identify the minimum governance, discipline, language, framework, platform, virtualization, operating-system, networking, decision, evidence, and operational concerns normally expected for a project shape.
 
 A profile answers:
 
@@ -102,6 +102,9 @@ governance
 + discipline packages
 + framework packages
 + platform packages
++ virtualization packages
++ operating-system packages
++ networking packages
 + root project instructions
 + nested scoped instructions
 + project-specific evidence
@@ -137,7 +140,7 @@ A “small” script can be high risk if it modifies production. A large documen
 3. Select a primary profile.
 4. Select secondary profiles only for distinct additional shapes.
 5. Read the canonical profile file and complete package README.
-6. Select applicable language, discipline, framework, and platform packages.
+6. Select applicable language, discipline, framework, platform, virtualization, operating-system, and networking packages.
 7. Record required and conditional package decisions.
 8. Tailor scope, owners, environments, versions, commands, evidence, and exceptions.
 9. Add nested `AGENTS.md` files where responsibility or risk changes.
@@ -177,7 +180,7 @@ Profiles should be reviewed when:
 
 - project shape changes
 - a new interface or user type appears
-- deployment or platform changes
+- deployment, platform, virtualization, operating-system, or networking changes
 - data sensitivity changes
 - tenant or trust boundaries change
 - automation becomes state-changing
@@ -215,7 +218,7 @@ python tools/validate-standards/validate_repository.py
 python tools/check-links/check_links.py
 ```
 
-An adopting repository must add executable project validation for its languages, frameworks, platforms, tests, security, data, accessibility, release, and operations.
+An adopting repository must add executable project validation for its languages, frameworks, platforms, virtualization systems, operating systems, networking systems, tests, security, data, accessibility, release, and operations.
 
 ## Maturity
 

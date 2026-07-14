@@ -10,7 +10,7 @@ status: baseline
 
 This file governs maintenance of the example compositions under `examples/`.
 
-The examples exist to demonstrate how governance, language, discipline, platform, framework, profile, schema, evidence, and nested agent instructions can be composed into a project. They are deliberately fictitious and are not production-ready applications.
+The examples exist to demonstrate how governance, language, discipline, framework, platform, virtualization, operating-system, networking, profile, schema, evidence, and nested agent instructions can be composed into a project. They are deliberately fictitious and are not production-ready applications.
 
 ## Scope
 
@@ -30,7 +30,7 @@ These instructions apply to:
 - Use fictitious names, identifiers, endpoints, users, organizations, and data.
 - Do not include credentials, tokens, keys, internal host names, or sensitive identifiers.
 - Do not represent an example as a deployable or complete application.
-- Explain why each profile, language, discipline, platform, and framework was selected.
+- Explain why each profile, language, discipline, framework, platform, virtualization, operating-system, and networking package was selected or omitted.
 - Include explicit tailoring decisions, limitations, checks not run, and residual risk.
 - Keep root and nested `AGENTS.md` files consistent with the selected packages.
 - Validate every JSON document against its intended schema shape.
@@ -40,7 +40,7 @@ These instructions apply to:
 
 ## Required working method
 
-1. Inspect the relevant governance, profile, language, discipline, platform, framework, template, and schema files.
+1. Inspect the relevant governance, profile, language, discipline, framework, platform, virtualization, operating-system, networking, template, and schema files.
 2. Identify the educational goal of the example.
 3. Define the fictitious project facts and risk classification.
 4. Select only relevant standards and explain the selection.

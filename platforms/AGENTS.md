@@ -32,7 +32,7 @@ Authority and obligations are controlled by root governance. Within that boundar
 2. The nearest applicable `AGENTS.md`
 3. This platform `AGENTS.md`
 4. The selected platform package `AGENTS.md`
-5. Referenced governance, profile, language, discipline, and framework standards
+5. Referenced governance, profile, language, discipline, framework, virtualization, operating-system, and networking standards
 6. Repository conventions
 7. General agent preferences
 

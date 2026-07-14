@@ -60,7 +60,7 @@ Existing repositories must preserve their declared target frameworks unless migr
 5. Define test frameworks, integration dependencies, and coverage expectations.
 6. Define database providers, migration ownership, and transaction requirements.
 7. Define authentication, authorization, secret storage, and configuration sources.
-8. Add applicable framework, platform, security, database, and project-profile overlays.
+8. Add applicable framework, platform, virtualization, operating-system, networking, security, database, and project-profile overlays.
 9. Record the real validation and packaging commands.
 10. Review the composed standard with an accountable .NET maintainer.
 

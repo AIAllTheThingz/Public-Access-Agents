@@ -144,6 +144,6 @@ Record:
 
 ## Completion gate
 
-The project must satisfy applicable governance, language, platform, framework, discipline, and profile standards. Document exclusions, exceptions, and unvalidated behavior.
+The project must satisfy applicable governance, language, discipline, framework, platform, virtualization, operating-system, networking, and profile standards. Document exclusions, exceptions, and unvalidated behavior.
 
 Selecting this profile does not prove the project is secure, tested, accessible, private, reliable, compatible, supportable, or production-ready.

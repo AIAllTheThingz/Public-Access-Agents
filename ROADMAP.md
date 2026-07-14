@@ -83,7 +83,7 @@
 - Profile selection, composition, risk-and-evidence, lifecycle, and decision-matrix guidance
 - Complete schema system:
   - six rolling Draft 2020-12 contracts
-  - six version-pinned version 1 contracts
+  - six backward-compatible major-version 1 contract paths
   - versioning and compatibility policy
   - extension and migration guidance
   - positive and negative contract examples
@@ -99,7 +99,7 @@
 - Complete repository toolchain:
   - repository structure, link, skill, schema, template, tool, and release validation
   - deterministic project-manifest generation
-  - traceable standards-bundle composition
+  - traceable standards-bundle composition across profile, language, discipline, framework, platform, virtualization, operating-system, and networking packages
   - deterministic release artifact generation
   - shared JSON result and exit-code contract
   - unified validation runner

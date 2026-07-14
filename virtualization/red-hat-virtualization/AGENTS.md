@@ -50,7 +50,7 @@ Do not mutate objects until that authority, environment, stable object scope, an
 - [Collection selection guide](../VIRTUALIZATION_SELECTION_GUIDE.md)
 - [Collection change lifecycle](../VIRTUALIZATION_CHANGE_LIFECYCLE.md)
 - [Collection migration matrix](../MIGRATION_DECISION_MATRIX.md)
-- applicable governance, language, discipline, platform, framework, and profile packages
+- applicable governance, language, discipline, platform, virtualization, operating-system, networking, framework, and profile packages
 
 ## Supported interfaces
 

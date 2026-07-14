@@ -68,7 +68,7 @@ The nearest scoped `AGENTS.md` may add stricter requirements. It must not silent
 2. Select the applicable language package.
 3. Read the package `README.md`, `AGENTS.md`, and supporting standards.
 4. Declare exact runtime, platform, dependency, and compatibility requirements.
-5. Add applicable discipline, framework, platform, database, and project-profile overlays.
+5. Add applicable discipline, framework, platform, virtualization, operating-system, networking, database, and project-profile overlays.
 6. Tailor templates and examples without introducing secrets or production identifiers.
 7. Define the project's real formatting, static-analysis, test, build, package, and security commands.
 8. Run repository validation and relative-link checking.

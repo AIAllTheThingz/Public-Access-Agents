@@ -23,7 +23,7 @@ status: baseline
 
 - [ ] `AGENTS.md`, `README.md`, `MANIFEST.md`, supporting standards, templates, and example were included.
 - [ ] Required governance standards were included.
-- [ ] Applicable language, platform, framework, project-profile, and companion-discipline packages were selected.
+- [ ] Applicable language, framework, platform, virtualization, operating-system, networking, project-profile, and companion-discipline packages were selected.
 - [ ] Nested instructions add specificity without weakening parent requirements.
 
 ## Tailoring

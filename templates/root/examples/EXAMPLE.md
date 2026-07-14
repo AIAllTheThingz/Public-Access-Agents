@@ -1,7 +1,7 @@
 ---
 id: TEMPLATE-EX-ROOT-001
 title: Root Agent Instructions Example
-version: 0.2.0
+version: 0.3.0
 status: baseline
 ---
 
@@ -25,6 +25,9 @@ This fictitious example shows a repository-wide `AGENTS.md` for a small internal
 - Discipline packages: `disciplines/application-security/`, `disciplines/testing/`, `disciplines/documentation/`, `disciplines/observability/`
 - Framework packages: `none`
 - Platform packages: `platforms/containers/`
+- Virtualization packages: `none`
+- Operating-system packages: `operating-systems/ubuntu/`
+- Networking packages: `none`
 
 ## Project facts
 

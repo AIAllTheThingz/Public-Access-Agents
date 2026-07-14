@@ -1,7 +1,7 @@
 ---
 id: SCHEMA-INDEX-001
 title: Schema Contracts
-version: 0.2.0
+version: 0.3.0
 status: baseline
 ---
 
@@ -43,9 +43,9 @@ See [`SCHEMA_CATALOG.md`](SCHEMA_CATALOG.md) for field-level ownership and insta
 Two paths are provided for each contract:
 
 - `schemas/<name>.schema.json` is the rolling convenience entry point.
-- `schemas/v1/<name>.schema.json` is the version-pinned version 1 contract.
+- `schemas/v1/<name>.schema.json` is the backward-compatible major-version 1 contract.
 
-Long-lived automation should pin the versioned path. The rolling path may advance according to the compatibility policy.
+Long-lived automation should use the major-version path. Consumers requiring an exact immutable contract must also pin a repository tag or commit. The rolling path may advance according to the compatibility policy.
 
 The six original filenames remain intact.
 
@@ -67,7 +67,7 @@ All six schemas remain closed by default with `additionalProperties: false`.
 
 Projects may add organization-specific data only inside the optional `extensions` object. Extension keys must be namespaced and must not redefine standard fields.
 
-The optional `schemaVersion` property may be set to `1.0.0`. Legacy instances without it are interpreted as version 1.0.0.
+The optional `schemaVersion` property may be set to `1.0.0` or `1.1.0` for project manifests and to `1.0.0` for the other version 1 contracts. Project-manifest version `1.1.0` adds optional `virtualization`, `operatingSystems`, and `networking` arrays; using any of those arrays requires the instance to declare `1.1.0`. Legacy instances without `schemaVersion` are interpreted as version `1.0.0`.
 
 See [`EXTENSION_POLICY.md`](EXTENSION_POLICY.md).
 
