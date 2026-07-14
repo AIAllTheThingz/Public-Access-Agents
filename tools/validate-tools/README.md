@@ -1,7 +1,7 @@
 ---
 id: TOOL-PKG-VALIDATE-TOOLS-001
 title: Validate Tools Tool
-version: 1.0.0
+version: 1.1.0
 status: baseline
 ---
 
@@ -17,7 +17,7 @@ Status: **baseline**
 
 [`validate_tools.py`](validate_tools.py)
 
-The stable path is part of the repository tooling contract. Moving or renaming it requires migration guidance and CI updates.
+The stable path is part of the repository tooling contract. Moving or renaming it requires migration guidance, release classification, and CI updates.
 
 ## Operating mode
 
@@ -42,16 +42,33 @@ Tool-specific options are shown by:
 python tools/validate-tools/validate_tools.py --help
 ```
 
+## Tool packages checked
+
+The validator requires these packages:
+
+- `validate-standards`
+- `check-links`
+- `validate-schemas`
+- `validate-templates`
+- `validate-tools`
+- `generate-manifest`
+- `compose-agents`
+- `validate-all`
+- `release`
+
+The release package contains both `validate_release.py` and `build_release.py`. Every Python entry point in a package is compiled, not merely the primary validator path.
+
 ## Checks and behavior
 
-- required tools documents
-- package files
-- front-matter IDs
+- required tools collection documents
+- package README, manifest, examples, and primary entry point
+- unique front-matter IDs
 - README depth
 - planned-tool remnants
-- Python compilation
+- Python compilation for package entry points
 - test-module count
-- result contract
+- JSON result contract
+- release-package presence
 
 ## Examples
 
@@ -80,6 +97,7 @@ Finding codes are intended for automation. Message wording may improve, but a fi
 
 - Repository paths are resolved from `--root`.
 - The tool does not fetch external content.
+- Compilation checks must not execute the target scripts.
 - Sensitive values must not be included in findings.
 - A passed result must not be described as proof beyond the implemented checks.
 - Wrappers must preserve nonzero exit codes.
@@ -93,6 +111,8 @@ Do not catch and discard failures merely to keep CI green. Green output created 
 ## Test coverage
 
 Central tests live under [`../tests/`](../tests/).
+
+The repository requires at least one test module per declared tool package. The release package is covered by `test_release.py`.
 
 Run focused tests:
 
@@ -108,39 +128,47 @@ python tools/validate-all/run_all.py --include-tests
 
 ## Compatibility
 
-Backward-compatible changes may add optional flags, summary fields, metadata, or new finding codes.
+Backward-compatible changes may add optional flags, summary fields, metadata, package checks, or new finding codes.
 
 Breaking changes include:
 
 - changing the stable entry path
 - changing exit-code meaning
 - removing JSON fields
+- removing a required package without migration
+- changing how executable entry points are identified
 - changing default write or overwrite behavior
 - changing generated file semantics
 - silently narrowing accepted input
+
+Changes to the required package set must be classified under [`../../RELEASE_POLICY.md`](../../RELEASE_POLICY.md).
 
 ## Limitations
 
 - compilation is not runtime correctness
 - unit tests run only when requested
+- package presence does not prove every secondary script is fully exercised
 - does not inspect third-party package vulnerabilities
+- does not verify private GitHub workflow permissions or rulesets
 
 ## Review checklist
 
 Reviewers should confirm:
 
 - documented behavior matches code
+- the declared package list is complete
+- release scripts are compiled and tested
 - positive and negative tests exist
 - output and exit codes are stable
 - filesystem and subprocess handling are safe
 - dependency changes are pinned and justified
-- compatibility impact is documented
+- compatibility and release impact are documented
 - the complete pipeline passes
 
 ## Maintenance
 
-Update the script, README, manifest, examples, tests, catalog, and CI together when behavior changes.
+Update the script, README, manifest, examples, tests, catalog, changelog, release notes, and CI together when behavior changes.
 
 ## Completion boundary
 
-A successful execution establishes only the outcome of this tool's implemented checks or generation plan against the identified input. It does not grant authority, certify compliance, or prove production readiness.
+A successful execution establishes only that the declared tool package structure and compilation checks passed. It does not prove runtime correctness, release authority, compliance, or production readiness.

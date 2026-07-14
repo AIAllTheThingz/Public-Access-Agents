@@ -1,0 +1,81 @@
+name: Publish release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out tagged commit
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install validation dependencies
+        shell: bash
+        run: |
+          python -m pip install --disable-pip-version-check --quiet \
+            -r tools/validate-schemas/requirements.txt
+
+      - name: Confirm tagged commit is on main
+        shell: bash
+        run: |
+          git fetch origin main --no-tags
+          git merge-base --is-ancestor "$GITHUB_SHA" origin/main
+
+      - name: Run complete validation pipeline
+        shell: bash
+        run: python tools/validate-all/run_all.py --include-tests
+
+      - name: Validate release tag
+        shell: bash
+        run: |
+          python tools/release/validate_release.py \
+            --tag "$GITHUB_REF_NAME" \
+            --require-head-tag
+
+      - name: Build release artifacts
+        shell: bash
+        run: |
+          python tools/release/build_release.py \
+            --tag "$GITHUB_REF_NAME" \
+            --output-dir dist \
+            --force
+
+      - name: Verify release checksums
+        shell: bash
+        working-directory: dist
+        run: sha256sum -c SHA256SUMS.txt
+
+      - name: Publish GitHub Release
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          version="${GITHUB_REF_NAME#v}"
+          prerelease_args=()
+          if [[ "$version" == *-* ]]; then
+            prerelease_args+=(--prerelease)
+          fi
+
+          gh release create "$GITHUB_REF_NAME" \
+            --verify-tag \
+            --title "Public-Access-Agents $version" \
+            --notes-file dist/RELEASE_NOTES.md \
+            "${prerelease_args[@]}" \
+            dist/Public-Access-Agents-*.zip \
+            dist/Public-Access-Agents-*.tar.gz \
+            dist/SHA256SUMS.txt \
+            dist/release-manifest.json \
+            dist/RELEASE_NOTES.md \
+            dist/MIGRATION_NOTES.md

@@ -125,9 +125,25 @@ The template library provides governed, validated starting structures for agent 
 
 The seven original template paths remain stable. Every template package now includes detailed adoption guidance, a review checklist, and a completed fictitious example.
 
+## Repository versioning, releases, and maturity
+
+The repository has a pre-1.0 versioned compatibility baseline and an evidence-based release program.
+
+- [Repository version](VERSION)
+- [Changelog](CHANGELOG.md)
+- [Release policy](RELEASE_POLICY.md)
+- [Maturity policy](MATURITY_POLICY.md)
+- [Versioned release notes](releases/README.md)
+- [Maturity review records](maturity-reviews/README.md)
+- [Release validation and artifact tooling](tools/release/)
+
+The release program defines Semantic Versioning for standards, schemas, templates, tools, governance, and stable paths; 90-day and 180-day deprecation windows; migration notes; tag and GitHub Release rules; deterministic archives; SHA-256 checksums; and the `1.0.0` compatibility gate.
+
+A repository release does not automatically promote every package to `stable`.
+
 ## Repository toolchain
 
-The executable toolchain validates repository structure, links, schemas, templates, and tool packages; generates project manifests; composes traceable standards bundles; and provides a unified validation runner.
+The executable toolchain validates repository structure, links, schemas, templates, tool packages, and the release program; generates project manifests; composes traceable standards bundles; builds deterministic release artifacts; and provides a unified validation runner.
 
 - [Toolchain index](tools/README.md)
 - [Tool catalog](tools/TOOL_CATALOG.md)
@@ -135,8 +151,9 @@ The executable toolchain validates repository structure, links, schemas, templat
 - [Development guide](tools/DEVELOPMENT_GUIDE.md)
 - [Testing guide](tools/TESTING_GUIDE.md)
 - [Security boundaries](tools/SECURITY_BOUNDARIES.md)
+- [Release tool](tools/release/README.md)
 
-Stable entry points are preserved for the existing validators. `compose-agents` and `generate-manifest` are now executable rather than planned placeholders. Permanent CI invokes the unified validation runner.
+Stable entry points are preserved. Permanent CI invokes the unified validation runner, including release validation.
 
 ## Composition examples
 
@@ -152,7 +169,7 @@ See the [examples index](examples/README.md) for selection guidance, boundaries,
 ## Status terminology
 
 - `baseline`: usable minimum standard
-- `stable`: mature and broadly reviewed
+- `stable`: mature and broadly reviewed under the maturity policy
 - `draft`: usable for review but expected to change
 - `planned`: catalog entry only; not an enforceable standard
 - `deprecated`: retained for migration only

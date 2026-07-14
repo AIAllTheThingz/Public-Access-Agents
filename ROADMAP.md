@@ -13,6 +13,18 @@
   - emergency-change and post-merge review rules
   - inactivity, appointment, removal, and succession rules
   - branch-protection and enforcement expectations
+- Repository-wide versioning and release program:
+  - canonical repository `VERSION`
+  - changelog and change classification
+  - Semantic Versioning rules for standards, schemas, templates, tools, and stable paths
+  - pre-1.0 and `1.0.0` compatibility gates
+  - 90-day and 180-day deprecation windows
+  - versioned release and migration notes
+  - package maturity policy and review records
+  - deterministic ZIP and TAR.GZ release artifacts
+  - SHA-256 checksums and release manifest
+  - tag validation and tag-driven GitHub Release workflow
+  - release validation in permanent CI
 - Root agent instructions
 - Complete governance operating system
 - Complete engineering discipline packages
@@ -57,28 +69,31 @@
   - selection, authoring, customization, placeholder, lifecycle, validation, and completion guidance
   - completed examples and executable template validation
 - Complete repository toolchain:
-  - repository structure, link, schema, template, and tool validation
+  - repository structure, link, schema, template, tool, and release validation
   - deterministic project-manifest generation
   - traceable standards-bundle composition
+  - deterministic release artifact generation
   - shared JSON result and exit-code contract
   - unified validation runner
   - central unit-test suite
   - permanent CI integration
-  - tool development, security, troubleshooting, and compatibility guidance
+  - tool development, security, troubleshooting, release, and compatibility guidance
 - Complete standards-composition examples
 - Schema-shaped completion, test, artifact, risk, and exception evidence
 - Root and nested `AGENTS.md` composition examples
 
 ## Next maturity work
 
+- Obtain independent specialist review for the release program
+- Publish and independently verify the `v0.9.0` GitHub Release
 - Add automated package-level adoption tests
-- Add additional platform packages and platform-specific composition examples
+- Run representative external or independent adoption pilots
+- Complete package maturity reviews that promote qualified baseline packages to stable
+- Add additional active maintainers and independent specialist reviewers
+- Configure and verify branch rules against the maintainer policy
 - Add current provider-service compatibility matrices and migration guidance
 - Add executable validation templates for containers, Kubernetes, infrastructure as code, and cloud platforms
 - Add additional composition examples for data pipelines, internal automation, public libraries, security tools, and AI agent applications
 - Add policy-dependency checks
-- Add changelog and semantic versioning policy
-- Add additional active maintainers and independent specialist reviewers
-- Configure and verify branch rules against the maintainer policy
-- Publish versioned releases
-- Add package maturity reviews that promote baseline packages to stable
+- Prepare and review at least one `1.0.0-rc.N` release
+- Publish `1.0.0` only after the compatibility gate is satisfied
