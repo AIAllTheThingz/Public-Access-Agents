@@ -6,6 +6,8 @@ status: baseline
 ---
 # Platform Standards
 
+Use [`SKILL.md`](SKILL.md) when an agent must select and apply these platform packages during infrastructure or deployment design, implementation, review, validation, troubleshooting, or migration work.
+
 ## Purpose
 
 Platform packages define controls for the environments that build, deploy, execute, connect, store, observe, recover, and bill software and infrastructure.

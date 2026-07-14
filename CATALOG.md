@@ -2,6 +2,14 @@
 
 This catalog lists the standards available for composition into a project.
 
+## Agent skills
+
+- [Language engineering skill](languages/SKILL.md)
+- [Framework engineering skill](frameworks/SKILL.md)
+- [Platform engineering skill](platforms/SKILL.md)
+
+These collection-level skills select and compose the detailed packages below. They supplement rather than replace repository governance and scoped `AGENTS.md` instructions.
+
 ## Governance
 
 The governance system defines authority, precedence, risk, evidence, review, exceptions, secure development, production readiness, threat modeling, vulnerability response, and policy lifecycle across every package in this repository.

@@ -18,6 +18,7 @@ status: baseline
 ## Required collection files
 
 - `frameworks/AGENTS.md`
+- `frameworks/SKILL.md`
 - `frameworks/README.md`
 - `frameworks/MANIFEST.md`
 

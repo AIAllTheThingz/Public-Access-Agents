@@ -19,6 +19,14 @@
 - `NOTICE`
 - `LICENSING.md`
 
+## Agent skill entry points
+
+- `languages/SKILL.md`
+- `frameworks/SKILL.md`
+- `platforms/SKILL.md`
+
+These progressive-disclosure routers select and compose existing standards packages. They do not replace root governance or scoped `AGENTS.md` instructions.
+
 ## Repository licensing
 
 - Apache License, Version 2.0 (`Apache-2.0`)
