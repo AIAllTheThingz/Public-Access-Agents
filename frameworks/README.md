@@ -7,6 +7,8 @@ status: baseline
 
 # Framework Standards
 
+Use [`SKILL.md`](SKILL.md) when an agent must select and apply these framework packages during implementation, review, testing, security, performance, accessibility, observability, or migration work.
+
 ## Purpose
 
 Framework packages specialize the repository's language and discipline standards for a particular application framework. They define framework-specific architecture, configuration, lifecycle, security, testing, observability, compatibility, and completion expectations without pretending that a framework replaces engineering judgment.

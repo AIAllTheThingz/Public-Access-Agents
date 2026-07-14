@@ -9,6 +9,7 @@ status: baseline
 ## Collection entry points
 
 - `AGENTS.md`
+- `SKILL.md`
 - `README.md`
 - `MANIFEST.md`
 - `PLATFORM_SELECTION_GUIDE.md`

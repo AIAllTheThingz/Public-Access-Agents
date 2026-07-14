@@ -1,5 +1,7 @@
 # Language Standards
 
+Use [`SKILL.md`](SKILL.md) when an agent must select and apply these packages during advanced coding, scripting, review, refactoring, debugging, testing, packaging, or migration work.
+
 The `languages/` directory contains copyable, project-agnostic standards packages for repositories that use AI coding agents.
 
 Each complete package defines how engineering work should be performed for a language. It does not define the adopting project's business requirements, production architecture, or organization-specific approval process.

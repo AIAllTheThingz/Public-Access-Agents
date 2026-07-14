@@ -34,6 +34,16 @@ See:
 7. Record the repository version or tag used by the adopting project.
 8. Validate the repository with the tools under [`tools/`](tools/README.md).
 
+## Agent skill entry points
+
+Use the collection-level skills when an agent must select and apply the repository's standards while performing engineering work:
+
+- [`languages/SKILL.md`](languages/SKILL.md) routes advanced coding and scripting work to the applicable language packages.
+- [`frameworks/SKILL.md`](frameworks/SKILL.md) composes framework and underlying language packages for application work.
+- [`platforms/SKILL.md`](platforms/SKILL.md) composes platform packages for infrastructure and deployment work while preserving authorization boundaries.
+
+The skills are progressive-disclosure routers. They load only the packages relevant to the repository and request; they do not replace root governance, scoped `AGENTS.md` files, or accountable human review.
+
 ## Repository structure
 
 | Area | Purpose |

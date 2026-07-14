@@ -20,7 +20,7 @@ Release notes distinguish:
 
 ### Normative changes
 
-- None.
+- Added collection-level language, framework, and platform skills that route agent work to the applicable standards packages and require advanced, version-compatible implementation, layered validation, and explicit completion evidence.
 
 ### Editorial changes
 
@@ -40,7 +40,7 @@ Release notes distinguish:
 
 ### Migration notes
 
-- None.
+- Existing adopters may continue using `AGENTS.md` and package entry points directly. Agents that support skills may additionally use `languages/SKILL.md`, `frameworks/SKILL.md`, and `platforms/SKILL.md` without changing existing package paths.
 
 ## [0.9.0] - 2026-07-13
 
