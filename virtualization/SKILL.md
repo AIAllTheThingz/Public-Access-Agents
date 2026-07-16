@@ -24,7 +24,7 @@ Select every materially affected virtualization boundary.
 
 | Evidence | Package |
 |---|---|
-| vCenter Server, ESXi, vSphere clusters, HA, DRS, vMotion, datastores, vSwitches, distributed switches, PowerCLI, or vSphere APIs | [`vsphere-esxi/`](vsphere-esxi/) |
+| vCenter Server, ESXi, vSphere clusters, HA, DRS, vMotion, datastores, vSwitches, distributed switches, VCF PowerCLI or VMware PowerCLI, or vSphere APIs | [`vsphere-esxi/`](vsphere-esxi/) |
 | XenServer, Citrix Hypervisor, XenCenter, resource pools, storage repositories, `xe`, or XAPI | [`xenserver-citrix-hypervisor/`](xenserver-citrix-hypervisor/) |
 | Proxmox VE, `pve` tooling, Corosync, Ceph-backed virtualization, QEMU guests, LXC guests, or Proxmox APIs | [`proxmox-ve/`](proxmox-ve/) |
 | XCP-ng hosts or pools, Xen Orchestra, XAPI, storage repositories, or XCP-ng backup and migration | [`xcp-ng/`](xcp-ng/) |
@@ -41,6 +41,8 @@ For each selected package:
 3. Apply architecture, security, testing, observability, SRE, CI/CD, supply-chain, documentation, and release disciplines as needed.
 4. Use the package templates when durable adoption, review, or evidence records are required.
 5. Treat the example as fictitious composition guidance only.
+
+For PowerCLI work, apply both the vSphere package's [VCF PowerCLI automation standard](vsphere-esxi/standards/POWERCLI_AUTOMATION_STANDARD.md) and the [PowerShell package](../languages/powershell/). Treat legacy `VMware.PowerCLI` dependency references as compatibility or migration decisions; do not blindly rename child `VMware.*` modules.
 
 Verify current product documentation, supported versions, hardware compatibility, guest compatibility, API compatibility, licensing, and lifecycle before relying on provider-specific behavior.
 

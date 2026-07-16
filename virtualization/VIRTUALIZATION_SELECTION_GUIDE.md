@@ -1,7 +1,7 @@
 ---
 id: VIRT-SELECT-001
 title: Virtualization Selection Guide
-version: 0.1.0
+version: 0.2.0
 status: baseline
 ---
 
@@ -24,7 +24,7 @@ Select the smallest complete set of virtualization packages for the actual contr
 
 | Evidence | Select |
 |---|---|
-| vCenter, ESXi, vSphere HA/DRS, vMotion, PowerCLI | `vsphere-esxi` |
+| vCenter, ESXi, vSphere HA/DRS, vMotion, VCF PowerCLI or VMware PowerCLI | `vsphere-esxi` plus `languages/powershell` for PowerCLI code |
 | XenServer, Citrix Hypervisor, XenCenter, XAPI, `xe` | `xenserver-citrix-hypervisor` |
 | Proxmox VE, PVE cluster, Corosync, Ceph, `pvesh` | `proxmox-ve` |
 | XCP-ng, Xen Orchestra, XAPI pool | `xcp-ng` |
@@ -36,9 +36,10 @@ Select the smallest complete set of virtualization packages for the actual contr
 
 ## Common compositions
 
-### vSphere PowerCLI automation
+### vSphere VCF PowerCLI automation
 
 - virtualization/vsphere-esxi
+- virtualization/vsphere-esxi/standards/POWERCLI_AUTOMATION_STANDARD.md
 - languages/powershell
 - disciplines/testing
 - disciplines/application-security

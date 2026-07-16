@@ -1,7 +1,7 @@
 ---
 id: VIRT-VSPH-EVIDENCE-001
 title: VMware vSphere and ESXi Evidence Record Template
-version: 0.1.0
+version: 0.2.0
 status: baseline
 ---
 
@@ -20,6 +20,20 @@ status: baseline
 | Stable object IDs | |
 | Acting identity class | |
 | Owners, approvers, and reviewers | |
+
+## PowerCLI boundary when applicable
+
+| Field | Recorded evidence |
+|---|---|
+| PowerShell runtime and operating system | |
+| PowerCLI distribution and approved source | |
+| Imported child modules and resolved versions | |
+| Dependency constraint and compatibility review | |
+| Endpoint identity and product/build | |
+| Certificate trust and identity result | |
+| Owned connections and explicit server scope | |
+| Ambient default-connection state | |
+| Temporary configuration and restoration | |
 
 ## State and risk
 
@@ -46,6 +60,9 @@ status: baseline
 | Authorization | |
 | Exact execution | |
 | Task, job, and event IDs | |
+| Per-object task deadline and terminal outcome | |
+| Retry, cancellation, timeout, and unknown-outcome handling | |
+| Connection and temporary-configuration cleanup | |
 | Actual after state | |
 | Guest and application validation | |
 | Network and storage validation | |

@@ -50,6 +50,12 @@ These files are mandatory extensions of this `AGENTS.md`.
 
 If a supporting standard conflicts with this file, this file takes precedence.
 
+### Product-specific module overlays
+
+When PowerCLI is used for vSphere or ESXi automation, also read the [`virtualization/vsphere-esxi` package](../../virtualization/vsphere-esxi/) and its [VCF PowerCLI automation standard](../../virtualization/vsphere-esxi/standards/POWERCLI_AUTOMATION_STANDARD.md).
+
+This package remains authoritative for PowerShell language behavior. The vSphere standard adds product-specific connection, certificate, inventory, task, evidence, and test requirements; it may strengthen but not weaken these rules.
+
 ## PowerShell Runtime
 
 All code must target PowerShell 7.x and execute with `pwsh`.

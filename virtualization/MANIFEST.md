@@ -1,7 +1,7 @@
 ---
 id: VIRT-MAN-001
 title: Virtualization Standards Manifest
-version: 0.1.0
+version: 0.2.0
 status: baseline
 ---
 
@@ -38,6 +38,7 @@ Every package must include:
 - useful `README.md`
 - `MANIFEST.md`
 - `standards/OPERATIONS_AND_AUTOMATION_STANDARD.md`
+- additional interface-specific standards declared by the package manifest when present
 - `templates/ADOPTION_CHECKLIST.md`
 - `templates/REVIEW_CHECKLIST.md`
 - `templates/EVIDENCE_RECORD_TEMPLATE.md`

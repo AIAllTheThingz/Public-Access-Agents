@@ -1,7 +1,7 @@
 ---
 id: VIRT-VSPH-README-001
 title: VMware vSphere and ESXi Package
-version: 0.1.0
+version: 0.2.0
 status: baseline
 ---
 
@@ -36,6 +36,7 @@ Do not select this package merely because a dependency shares an underlying hype
 |---|---|
 | [AGENTS.md](AGENTS.md) | Mandatory scoped agent behavior and product rules |
 | [Operations and automation standard](standards/OPERATIONS_AND_AUTOMATION_STANDARD.md) | Detailed design, safety, testing, execution, and evidence requirements |
+| [VCF PowerCLI automation standard](standards/POWERCLI_AUTOMATION_STANDARD.md) | Product-specific PowerShell module, connection, certificate, targeting, task, test, and evidence requirements |
 | [Adoption checklist](templates/ADOPTION_CHECKLIST.md) | Tailoring and readiness record |
 | [Review checklist](templates/REVIEW_CHECKLIST.md) | Human review prompts |
 | [Evidence record](templates/EVIDENCE_RECORD_TEMPLATE.md) | Durable completion evidence structure |
@@ -50,9 +51,17 @@ Record the endpoint class and stable object identifiers without committing produ
 
 ## Interfaces
 
-Use VMware PowerCLI, supported vSphere APIs and SDKs, ESXCLI, and Lifecycle Manager.
+Use VCF PowerCLI (formerly distributed as VMware PowerCLI), supported vSphere APIs and SDKs, ESXCLI, and Lifecycle Manager.
 
 Verify current product and client compatibility. Prefer read-only queries before changes. Preserve asynchronous task identifiers and poll bounded terminal state.
+
+### PowerCLI automation
+
+Apply both the [VCF PowerCLI automation standard](standards/POWERCLI_AUTOMATION_STANDARD.md) and the [PowerShell package](../../languages/powershell/). Use the vSphere standard for product boundaries and the PowerShell package for language engineering.
+
+For new dependency evaluations, use the current Broadcom `VCF.PowerCLI` distribution name. Treat an existing `VMware.PowerCLI` reference as a reviewed compatibility and migration decision; do not blindly rename child modules that retain `VMware.*` namespaces.
+
+Bind commands to an explicitly validated VIServer connection, reject ambiguous default connections, preserve certificate validation, select inventory by stable ID and parent scope, bound asynchronous tasks, and verify actual state after completion.
 
 ## Required safe phases
 
@@ -84,9 +93,9 @@ Verify current product and client compatibility. Prefer read-only queries before
 
 Verify vCenter/ESXi interoperability, hardware compatibility, firmware, drivers, add-ons, image profiles, guest OS support, VMware Tools, virtual hardware, backup integrations, licensing, and Broadcom support entitlements.
 
-Last repository source review: 2026-07-14.
+Last repository source review: 2026-07-15.
 
-Authoritative starting point: [Broadcom VMware vSphere documentation](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere.html).
+Authoritative starting points: [Broadcom VMware vSphere documentation](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere.html) and the [Broadcom VCF PowerCLI portal](https://developer.broadcom.com/powercli).
 
 The adopting project must revalidate current release notes, compatibility, security guidance, licensing, and support before product-specific work.
 

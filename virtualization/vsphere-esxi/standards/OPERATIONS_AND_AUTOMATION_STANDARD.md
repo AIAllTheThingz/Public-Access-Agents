@@ -1,7 +1,7 @@
 ---
 id: VIRT-VSPH-OPS-001
 title: VMware vSphere and ESXi Operations and Automation Standard
-version: 0.1.0
+version: 0.2.0
 status: baseline
 ---
 
@@ -14,6 +14,8 @@ Define the detailed operating and automation contract for VMware vSphere and ESX
 ## Applicability
 
 This standard applies to vCenter, ESXi, datacenters, clusters, resource pools, hosts, VMs, datastores, standard and distributed switching, HA, DRS, vMotion, Lifecycle Manager, and content libraries.
+
+PowerCLI implementations must also apply the [VCF PowerCLI automation standard](POWERCLI_AUTOMATION_STANDARD.md) and the repository's [PowerShell package](../../../languages/powershell/).
 
 ## Authority and identity
 
@@ -213,4 +215,4 @@ Completion requires exact evidence, owner acceptance where applicable, operation
 
 Verify vCenter/ESXi interoperability, hardware compatibility, firmware, drivers, add-ons, image profiles, guest OS support, VMware Tools, virtual hardware, backup integrations, licensing, and Broadcom support entitlements.
 
-Verify current behavior with [Broadcom VMware vSphere documentation](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere.html) and other official compatibility, security, lifecycle, and release documentation before execution.
+Verify current behavior with [Broadcom VMware vSphere documentation](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere.html), the [Broadcom VCF PowerCLI portal](https://developer.broadcom.com/powercli) when applicable, and other official compatibility, security, lifecycle, and release documentation before execution.

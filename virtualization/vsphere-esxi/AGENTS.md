@@ -1,7 +1,7 @@
 ---
 id: VIRT-VSPH-AGENT-001
 title: VMware vSphere and ESXi Agent Standard
-version: 0.1.0
+version: 0.2.0
 status: baseline
 applies_to:
   - vsphere-esxi
@@ -47,6 +47,7 @@ Do not mutate objects until that authority, environment, stable object scope, an
 - [Package README](README.md)
 - [Package manifest](MANIFEST.md)
 - [Operations and automation standard](standards/OPERATIONS_AND_AUTOMATION_STANDARD.md)
+- [VCF PowerCLI automation standard](standards/POWERCLI_AUTOMATION_STANDARD.md) when PowerCLI is used
 - [Collection selection guide](../VIRTUALIZATION_SELECTION_GUIDE.md)
 - [Collection change lifecycle](../VIRTUALIZATION_CHANGE_LIFECYCLE.md)
 - [Collection migration matrix](../MIGRATION_DECISION_MATRIX.md)
@@ -54,7 +55,7 @@ Do not mutate objects until that authority, environment, stable object scope, an
 
 ## Supported interfaces
 
-Prefer VMware PowerCLI, supported vSphere APIs and SDKs, ESXCLI, and Lifecycle Manager.
+Prefer VCF PowerCLI (formerly distributed as VMware PowerCLI), supported vSphere APIs and SDKs, ESXCLI, and Lifecycle Manager.
 
 Pin or constrain automation dependencies when practical. Verify interface, server, and API compatibility against current official documentation. Do not use screen scraping, direct manager-database edits, undocumented endpoints, or manual edits to manager-owned state.
 
@@ -116,6 +117,24 @@ Record the exact versions and source-review date. Do not rely on remembered comp
 **Requirement:** Preserve vCenter task/event IDs and verify actual object state after PowerCLI or API completion.
 
 **Expected evidence:** Task records plus post-change inventory and workload verification.
+
+### VIRT-VSPH-PCLI-006
+
+**Requirement:** PowerCLI automation must bind operations to an explicitly validated connection, pass the intended server scope, and reject ambiguous ambient default connections.
+
+**Expected evidence:** Redacted endpoint and certificate validation, owned connection, explicit server propagation, and session cleanup.
+
+### VIRT-VSPH-PCLI-007
+
+**Requirement:** PowerCLI dependencies must come from an approved constrained source, and automation must not bypass certificate validation, silently install or update modules, or persistently weaken configuration.
+
+**Expected evidence:** Distribution, child-module and runtime versions, approved source, certificate result, configuration scope, and dependency change record.
+
+### VIRT-VSPH-PCLI-008
+
+**Requirement:** PowerCLI state changes must honor wrapper-level `ShouldProcess`, bound asynchronous tasks and retries, preserve task IDs, distinguish unknown outcomes, and verify actual state.
+
+**Expected evidence:** Preview tests, deadlines, per-object task outcomes, retry decisions, and post-state verification.
 
 ## Required working method
 

@@ -1,7 +1,7 @@
 ---
 id: VIRT-VSPH-ADOPT-001
 title: VMware vSphere and ESXi Adoption Checklist
-version: 0.1.0
+version: 0.2.0
 status: baseline
 ---
 
@@ -40,6 +40,20 @@ status: baseline
 - [ ] Credentials and sensitive inventory are redacted
 - [ ] Task and event identifiers are retained
 - [ ] Actual-state and workload verification are defined
+
+## PowerCLI automation when applicable
+
+- [ ] PowerShell runtime, PowerCLI distribution, imported child modules, approved source, and tested version constraints are recorded
+- [ ] Existing `VMware.PowerCLI` usage has a documented compatibility or migration decision; child `VMware.*` modules are not blindly renamed
+- [ ] Endpoint identity, product/build, and certificate trust are validated before credential use
+- [ ] Commands use an explicitly owned connection and pass the intended `-Server` or equivalent scope
+- [ ] Ambiguous ambient default connections cause a closed failure
+- [ ] Inventory is resolved by stable ID, expected parent scope, and endpoint, then rechecked before mutation
+- [ ] Operational execution does not install or update modules or persistently weaken PowerCLI configuration
+- [ ] State-changing wrappers implement `ShouldProcess` without assuming the underlying PowerCLI cmdlet honors `-WhatIf`
+- [ ] Asynchronous tasks, polling, retries, concurrency, cancellation claims, and unknown outcomes are bounded and handled
+- [ ] Pester tests isolate the PowerCLI boundary and cover preview, targeting, session ownership, task, partial-failure, cleanup, and redaction paths
+- [ ] Structured evidence records dependency, connection, task, per-object outcome, and actual-state verification details
 
 ## Operations
 

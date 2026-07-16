@@ -29,6 +29,9 @@ These sources inform the repository. The repository summarizes and operationaliz
 ## Virtualization
 
 - Broadcom VMware vSphere documentation: https://techdocs.broadcom.com/us/en/vmware-cis/vsphere.html
+- Broadcom VCF PowerCLI portal: https://developer.broadcom.com/powercli
+- Broadcom Connect-VIServer command reference: https://developer.broadcom.com/powercli/latest/vmware.vimautomation.core/commands/connect-viserver
+- Broadcom Set-PowerCLIConfiguration command reference: https://developer.broadcom.com/powercli/latest/vmware.vimautomation.core/commands/set-powercliconfiguration
 - XenServer product documentation: https://docs.xenserver.com/en-us/xenserver/8/
 - Proxmox VE administration guide: https://pve.proxmox.com/pve-docs/pve-admin-guide.html
 - XCP-ng documentation: https://docs.xcp-ng.org/

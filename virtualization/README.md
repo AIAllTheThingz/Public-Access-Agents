@@ -1,7 +1,7 @@
 ---
 id: VIRT-INDEX-001
 title: Virtualization Standards
-version: 0.1.0
+version: 0.2.0
 status: baseline
 ---
 
@@ -32,7 +32,7 @@ A package is an overlay. It supplements root governance, languages, disciplines,
 
 | Package | Primary boundary |
 |---|---|
-| [VMware vSphere and ESXi](vsphere-esxi/) | vCenter-managed or standalone ESXi inventory, clusters, hosts, VMs, vMotion, HA/DRS, networking, storage, Lifecycle Manager, PowerCLI, and APIs |
+| [VMware vSphere and ESXi](vsphere-esxi/) | vCenter-managed or standalone ESXi inventory, clusters, hosts, VMs, vMotion, HA/DRS, networking, storage, Lifecycle Manager, VCF PowerCLI, and APIs |
 | [XenServer and Citrix Hypervisor](xenserver-citrix-hypervisor/) | XenServer/Citrix Hypervisor hosts, pools, XenCenter, XAPI, `xe`, storage repositories, networks, HA, and lifecycle |
 | [Proxmox VE](proxmox-ve/) | Proxmox nodes and clusters, Corosync quorum, QEMU/LXC workloads, storage, Ceph, networking, firewall, backup, and API automation |
 | [XCP-ng](xcp-ng/) | XCP-ng hosts and pools, Xen Orchestra, XAPI, storage repositories, networks, backup, upgrades, and migration |
@@ -119,6 +119,8 @@ Custom scripts and orchestration should use safe phases:
 7. **Recovery:** provide rollback, restore, failback, or operator-intervention guidance.
 
 Apply the appropriate language package. Hyper-V and vSphere automation commonly use PowerShell; Linux-centered virtualization commonly uses Bash, Python, Ansible, Terraform/OpenTofu, or supported APIs. The product and repository determine the actual toolchain.
+
+For vSphere PowerCLI work, apply the vSphere package's [VCF PowerCLI automation standard](vsphere-esxi/standards/POWERCLI_AUTOMATION_STANDARD.md) together with the [PowerShell package](../languages/powershell/).
 
 ## High-risk operations
 
