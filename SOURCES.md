@@ -26,6 +26,16 @@ These sources inform the repository. The repository summarizes and operationaliz
 - Kubernetes Security Checklist: https://kubernetes.io/docs/concepts/security/security-checklist/
 - Kubernetes Pod Security Standards: https://kubernetes.io/docs/concepts/security/pod-security-standards/
 
+## Languages and runtimes
+
+- Microsoft C# documentation: https://learn.microsoft.com/en-us/dotnet/csharp/
+- Microsoft C# language-version history: https://learn.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-version-history
+- Microsoft C# language-version configuration: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/configure-language-version
+- Microsoft nullable reference types: https://learn.microsoft.com/en-us/dotnet/csharp/nullable-references
+- Microsoft asynchronous programming with C#: https://learn.microsoft.com/en-us/dotnet/csharp/asynchronous-programming/
+- Microsoft .NET code analysis: https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/overview
+- Microsoft .NET releases and support: https://learn.microsoft.com/en-us/dotnet/core/releases-and-support
+
 ## Virtualization
 
 - Broadcom VMware vSphere documentation: https://techdocs.broadcom.com/us/en/vmware-cis/vsphere.html

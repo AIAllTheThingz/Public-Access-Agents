@@ -11,7 +11,8 @@ Each complete package defines how engineering work should be performed for a lan
 | Package | Primary scope | Maturity |
 |---|---|---|
 | [PowerShell 7.x](powershell/) | Administrative automation, modules, scripts, remoting, and operational tooling | Complete |
-| [.NET](dotnet/) | C# applications, ASP.NET Core, worker services, libraries, and data access | Complete |
+| [C#](csharp/) | C# language semantics, scripting, nullability, async/concurrency, API design, performance, interop, generators, and unsafe code | Baseline |
+| [.NET](dotnet/) | .NET SDK/runtime, target frameworks, MSBuild, NuGet, ASP.NET Core, worker services, libraries, and data access | Complete |
 | [JavaScript and TypeScript](javascript-typescript/) | Node.js, browser applications, libraries, tooling, and TypeScript | Complete |
 | [Python](python/) | Packages, services, CLI tools, automation, and data processing | Baseline |
 | [Java](java/) | JVM applications, services, libraries, build tooling, and deployment artifacts | Baseline |
@@ -26,6 +27,7 @@ Each complete package defines how engineering work should be performed for a lan
 A language package should contain:
 
 - an enforceable `AGENTS.md`
+- a registered `SKILL.md` when the package provides direct specialized invocation
 - a package `README.md`
 - supporting standards under `standards/`
 - reusable templates under `templates/`
@@ -35,6 +37,10 @@ A language package should contain:
 - validation commands or procedures
 
 A directory that only contains a title or roadmap marker must not be represented as complete.
+
+### C# and .NET composition
+
+Select `csharp` for C# source and compiler/language behavior. Select `dotnet` for the .NET SDK, target frameworks, CLR, MSBuild, NuGet, application models, hosting, publishing, or deployment. Most modern C# projects should compose both packages. Non-C# .NET projects select `dotnet` plus their actual language guidance.
 
 ## How packages are used
 

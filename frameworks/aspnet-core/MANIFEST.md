@@ -1,7 +1,7 @@
 ---
 id: ASPNET-MAN-001
 title: ASP.NET Core Framework Package Manifest
-version: 0.1.0
+version: 0.2.0
 status: baseline
 ---
 
@@ -28,6 +28,7 @@ status: baseline
 
 ## Acceptance checks
 
+- C# implementations compose both `languages/csharp` and `languages/dotnet`.
 - `AGENTS.md` preserves the framework's existing mandatory rule identifiers.
 - README explains scope, adoption, tailoring, security, lifecycle, testing, validation, evidence, failure modes, companions, and limitations.
 - Supporting standards cover the framework's material behavior.

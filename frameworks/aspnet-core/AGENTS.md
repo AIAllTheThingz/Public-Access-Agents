@@ -1,7 +1,7 @@
 ---
 id: FW-ASPNET
 title: ASP.NET Core Agent Standard
-version: 0.1.0
+version: 0.2.0
 status: baseline
 applies_to:
   - aspnet-core
@@ -17,7 +17,7 @@ depends_on:
 
 This file defines mandatory rules for agents creating, modifying, reviewing, testing, securing, or documenting ASP.NET Core work.
 
-The framework package supplements the [.NET language package](../../languages/dotnet/) and applicable governance, discipline, platform, virtualization, operating-system, networking, profile, and project-specific standards.
+The framework package supplements the [.NET package](../../languages/dotnet/), the [C# language package](../../languages/csharp/) when implemented in C#, and applicable governance, discipline, platform, virtualization, operating-system, networking, profile, and project-specific standards.
 
 > Make the smallest safe, maintainable, testable, observable, and well-documented framework change that satisfies the requirement.
 

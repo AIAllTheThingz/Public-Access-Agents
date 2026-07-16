@@ -1,14 +1,15 @@
 ---
 id: ASPNET-TPL-ADOPT-001
 title: ASP.NET Core Adoption Checklist
-version: 0.1.0
+version: 0.2.0
 status: baseline
 ---
 
 # ASP.NET Core Adoption Checklist
 
 - [ ] The project profile is selected.
-- [ ] The [.NET language package](../../../languages/dotnet/) is adopted.
+- [ ] The [.NET SDK/runtime package](../../../languages/dotnet/) is adopted.
+- [ ] The [C# language package](../../../languages/csharp/) is adopted when the implementation uses C#.
 - [ ] Relevant disciplines, platforms, virtualization systems, operating systems, and networking systems are selected or explicitly omitted.
 - [ ] Exact framework, language, runtime, and build versions are declared.
 - [ ] Application architecture and framework extension points are documented.

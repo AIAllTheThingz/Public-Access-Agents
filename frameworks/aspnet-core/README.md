@@ -1,7 +1,7 @@
 ---
 id: ASPNET-PKG-001
 title: ASP.NET Core Framework Package
-version: 0.1.0
+version: 0.2.0
 status: baseline
 ---
 
@@ -11,7 +11,7 @@ status: baseline
 
 Build secure, testable, observable ASP.NET Core web applications, APIs, background services, and middleware pipelines.
 
-This package is a project-agnostic framework overlay. It specializes the [.NET language package](../../languages/dotnet/) and relevant discipline standards for ASP.NET Core projects.
+This package is a project-agnostic framework overlay. It specializes the [.NET package](../../languages/dotnet/), the [C# language package](../../languages/csharp/) when the application is implemented in C#, and relevant discipline standards for ASP.NET Core projects.
 
 Status: **baseline**
 
@@ -32,7 +32,8 @@ Do not omit it merely because the framework appears familiar. Familiarity is not
 
 This package does not replace:
 
-- the .NET language package
+- the .NET SDK/runtime package
+- the C# language package for C# implementations
 - application security, API engineering, testing, observability, database, privacy, or SRE disciplines
 - deployment-platform guidance for containers, Kubernetes, or cloud services
 
@@ -78,16 +79,17 @@ Start with [`AGENTS.md`](AGENTS.md). It preserves the framework's mandatory rule
 
 1. Read the root governance standards.
 2. Select the project profile.
-3. Adopt the [.NET language package](../../languages/dotnet/).
-4. Confirm this framework package applies.
-5. Select relevant disciplines, platforms, virtualization systems, operating systems, and networking systems.
-6. Copy or compose the complete package.
-7. Preserve stable identifiers.
-8. Declare exact supported framework, language, runtime, build, and deployment constraints.
-9. Complete the adoption checklist.
-10. Define project-specific validation commands.
-11. Review compatibility and migration implications.
-12. Obtain accountable review.
+3. Adopt the [.NET package](../../languages/dotnet/).
+4. Adopt the [C# package](../../languages/csharp/) when the implementation uses C#.
+5. Confirm this framework package applies.
+6. Select relevant disciplines, platforms, virtualization systems, operating systems, and networking systems.
+7. Copy or compose the complete package.
+8. Preserve stable identifiers.
+9. Declare exact supported framework, language, runtime, build, and deployment constraints.
+10. Complete the adoption checklist.
+11. Define project-specific validation commands.
+12. Review compatibility and migration implications.
+13. Obtain accountable review.
 
 ## Project tailoring checklist
 

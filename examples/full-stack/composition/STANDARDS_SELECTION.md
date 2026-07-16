@@ -1,7 +1,7 @@
 ---
 id: EX-FULL-SELECT-001
 title: Full-Stack Web Application Composition Example Standards Selection
-version: 0.1.0
+version: 0.2.0
 status: baseline
 ---
 # Full-Stack Web Application Composition Example Standards Selection
@@ -24,7 +24,8 @@ This document explains why the example selects each standards package. It preven
 |---|---|
 | Governance | Organization-wide behavior, risk, evidence, exceptions, security, and review apply to every example. |
 | Profile: WEB_APPLICATION | Defines the project-type overlay and common operational concerns. |
-| Language: .NET | Defines implementation, dependency, testing, security, documentation, and completion expectations. |
+| Language: C# | Defines compiler/language, nullability, async, API, resource, security, interop, scripting, testing, and completion expectations. |
+| Runtime: .NET | Defines SDK, target-framework, runtime, dependency, application-model, build, and publishing expectations. |
 | Language: JavaScript and TypeScript | Defines implementation, dependency, testing, security, documentation, and completion expectations. |
 | Discipline: Application Security | Selected because the fictitious architecture and change surface require this concern. |
 | Discipline: Architecture and System Design | Selected because the fictitious architecture and change surface require this concern. |

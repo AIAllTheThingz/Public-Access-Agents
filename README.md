@@ -36,9 +36,10 @@ See:
 
 ## Agent skill entry points
 
-Use the collection-level skills when an agent must select and apply the repository's standards while performing engineering work:
+Use the collection-level skills and registered direct language skills when an agent must select and apply the repository's standards while performing engineering work:
 
 - [`languages/SKILL.md`](languages/SKILL.md) routes advanced coding and scripting work to the applicable language packages.
+- [`languages/csharp/SKILL.md`](languages/csharp/SKILL.md) directly applies advanced C# language, scripting, compiler, API, async, performance, interop, security, testing, and migration standards.
 - [`frameworks/SKILL.md`](frameworks/SKILL.md) composes framework and underlying language packages for application work.
 - [`platforms/SKILL.md`](platforms/SKILL.md) composes platform packages for infrastructure and deployment work while preserving authorization boundaries.
 - [`virtualization/SKILL.md`](virtualization/SKILL.md) composes hypervisor and virtualization-management packages for safe automation, operations, recovery, and migration work.
@@ -70,6 +71,7 @@ The skills are progressive-disclosure routers. They load only the packages relev
 ## Current language packages
 
 - PowerShell 7.x
+- C# 14 language engineering for the current .NET 10 boundary, with existing compiler boundaries preserved
 - .NET 10 LTS
 - JavaScript and TypeScript
 - Python

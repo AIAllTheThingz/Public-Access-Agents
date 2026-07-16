@@ -1,7 +1,7 @@
 ---
 id: EX-API-MAN-001
 title: Web API Composition Example Manifest
-version: 0.1.0
+version: 0.2.0
 status: baseline
 ---
 # Web API Composition Example Manifest
@@ -37,7 +37,7 @@ This manifest defines the complete file inventory and acceptance checks for the 
 ## Composition
 
 - Profile: `WEB_API`
-- Languages: `dotnet`
+- Languages: `csharp`, `dotnet`
 - Disciplines: `application-security`, `architecture`, `testing`, `api-engineering`, `privacy`, `observability`, `ci-cd`, `supply-chain`, `documentation`, `release-engineering`
 - Platforms: `containers`
 - Frameworks: `aspnet-core`

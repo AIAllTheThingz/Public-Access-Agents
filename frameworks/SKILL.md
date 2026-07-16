@@ -24,7 +24,7 @@ Select every framework materially involved in the requested behavior.
 | Framework evidence | Framework package | Required language package |
 |---|---|---|
 | Angular workspace, components, directives, services, signals, RxJS, routing, or forms | [`angular/`](angular/) | [`../languages/javascript-typescript/`](../languages/javascript-typescript/) |
-| ASP.NET Core hosts, middleware, endpoints, controllers, Razor, services, or background workers | [`aspnet-core/`](aspnet-core/) | [`../languages/dotnet/`](../languages/dotnet/) |
+| ASP.NET Core hosts, middleware, endpoints, controllers, Razor, services, or background workers | [`aspnet-core/`](aspnet-core/) | [`../languages/dotnet/`](../languages/dotnet/) and [`../languages/csharp/`](../languages/csharp/) when implemented in C# |
 | FastAPI applications, routers, dependencies, Pydantic models, lifespan, or ASGI behavior | [`fastapi/`](fastapi/) | [`../languages/python/`](../languages/python/) |
 | React components, hooks, rendering, state, routing, or data fetching | [`react/`](react/) | [`../languages/javascript-typescript/`](../languages/javascript-typescript/) |
 | Spring Boot configuration, beans, web, data, messaging, actuator, or lifecycle behavior | [`spring-boot/`](spring-boot/) | [`../languages/java/`](../languages/java/) |

@@ -1,7 +1,7 @@
 ---
 id: EX-FULL-README-001
 title: Full-Stack Web Application Composition Example
-version: 0.1.0
+version: 0.2.0
 status: baseline
 ---
 # Full-Stack Web Application Composition Example
@@ -64,6 +64,7 @@ full-stack/
 
 ## Selected languages
 
+- [C#](../../languages/csharp/)
 - [.NET](../../languages/dotnet/)
 - [JavaScript and TypeScript](../../languages/javascript-typescript/)
 

@@ -1,6 +1,6 @@
 ---
 name: languages
-description: Apply this repository's language-specific engineering standards to implementation, scripting, review, refactoring, debugging, testing, packaging, or migration work involving PowerShell 7.x, .NET or C#, JavaScript or TypeScript, Python, Java, Go, Rust, Bash, SQL, or Terraform and OpenTofu. Use when Codex must select and compose the correct language package, produce advanced production-quality code, or validate language-specific work.
+description: Apply this repository's language-specific engineering standards to implementation, scripting, review, refactoring, debugging, testing, packaging, or migration work involving PowerShell 7.x, C#, .NET, JavaScript or TypeScript, Python, Java, Go, Rust, Bash, SQL, or Terraform and OpenTofu. Use when Codex must select and compose the correct language package, produce advanced production-quality code, or validate language-specific work.
 ---
 
 # Advanced Language Engineering
@@ -24,7 +24,8 @@ Select every package materially affected by the work. Do not select a package me
 | Evidence in the repository or request | Package |
 |---|---|
 | `.ps1`, `.psm1`, `.psd1`, PowerShell modules, remoting, or administrative automation | [`powershell/`](powershell/) |
-| `.cs`, `.fs`, `.vb`, `.sln`, `.csproj`, MSBuild, or .NET runtime work | [`dotnet/`](dotnet/) |
+| `.cs`, `.csx`, Roslyn/compiler behavior, nullable reference types, C# async/concurrency, generics, records, pattern matching, interop, unsafe code, or C# language migration | [`csharp/`](csharp/) |
+| `.sln`, `.csproj`, `.fs`, `.vb`, .NET SDK/TFM/CLR, MSBuild, NuGet, ASP.NET Core, hosting, publishing, or .NET runtime work | [`dotnet/`](dotnet/) |
 | `.js`, `.jsx`, `.ts`, `.tsx`, `package.json`, Node.js, or browser code | [`javascript-typescript/`](javascript-typescript/) |
 | `.py`, `pyproject.toml`, Python packages, services, CLIs, or automation | [`python/`](python/) |
 | `.java`, Maven, Gradle, JVM applications, services, or libraries | [`java/`](java/) |

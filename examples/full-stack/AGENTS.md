@@ -1,7 +1,7 @@
 ---
 id: EX-FULL-AGENT-001
 title: Full-Stack Web Application Composition Example Root Agent Instructions
-version: 0.1.0
+version: 0.2.0
 status: baseline
 ---
 # Full-Stack Web Application Composition Example Root Agent Instructions
@@ -53,6 +53,7 @@ Report material conflicts instead of silently choosing the convenient interpreta
 
 ### Languages
 
+- [`csharp`](../../languages/csharp/)
 - [`dotnet`](../../languages/dotnet/)
 - [`javascript-typescript`](../../languages/javascript-typescript/)
 
