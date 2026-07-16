@@ -20,6 +20,7 @@ Release notes distinguish:
 
 ### Normative changes
 
+- Added a VCF PowerCLI automation standard under the VMware vSphere and ESXi package, composed it with the general PowerShell package, and added adoption, review, and completion-evidence requirements for dependency provenance, endpoint and certificate identity, explicit connections, stable inventory targeting, confirmation, asynchronous tasks, cleanup, structured results, and isolated testing.
 - Extended the project-manifest version 1 contract with version `1.1.0` and optional `virtualization`, `operatingSystems`, and `networking` package arrays while retaining validation of existing version `1.0.0` manifests.
 - Synchronized profile, language, discipline, framework, platform, governance, template, and example composition guidance so adopters must explicitly select or justify omission of virtualization, operating-system, and networking standards.
 - Added collection-level language, framework, and platform skills that route agent work to the applicable standards packages and require advanced, version-compatible implementation, layered validation, and explicit completion evidence.
@@ -45,6 +46,7 @@ Release notes distinguish:
 
 ### Security
 
+- Added PowerCLI safeguards against certificate-validation bypass, ambiguous ambient connections, persistent configuration weakening, automatic operational module changes, name-only targeting, leaked authenticated sessions, unbounded tasks, unsafe retries, unrelated session cleanup, and success claims without actual-state verification.
 - Made infrastructure-control boundaries explicit in manifests and generated composition indexes so material hypervisor, host operating-system, and network standards are less likely to be silently omitted from review.
 - Added virtualization safeguards for privileged control planes, ambiguous object selection, bulk or destructive actions, management-plane exposure, network and storage changes, snapshots and checkpoints, backup and restore, device passthrough, unsupported lifecycle states, and cross-platform migration.
 - Added OS safeguards for privileged fleet actions, ambiguous target selection, repository and package trust, security-control bypass, identity and remote-access loss, restart and partial-fleet failure, encryption and recovery material, destructive endpoint actions, unsupported lifecycle states, and user-data privacy.
@@ -56,11 +58,13 @@ Release notes distinguish:
 
 ### Migration notes
 
+- Existing `VMware.PowerCLI` adopters are not required to perform an immediate or blind rename. They should inventory the distribution and child modules, verify the current Broadcom-supported migration and compatibility path, test the selected `VCF.PowerCLI` constraint, and update dependency records separately from operational execution.
 - Existing project-manifest version `1.0.0` instances remain valid. Producers using the new package arrays must emit `schemaVersion: "1.1.0"`; consumers that depend on those arrays must use schema and composition tooling version `1.1.0` or later.
 - Existing adopters may continue using `AGENTS.md` and package entry points directly. Agents that support skills may additionally use `languages/SKILL.md`, `frameworks/SKILL.md`, `platforms/SKILL.md`, `virtualization/SKILL.md`, `operating-systems/SKILL.md`, and `networking/SKILL.md` without changing existing package paths.
 
 ### Known limitations
 
+- The PowerCLI standard was validated as repository content only. No live vCenter or ESXi connection, module installation, product compatibility certification, or integration test was performed.
 - Project-manifest package arrays record reviewed selection intent only. Schema validity and generated composition bundles do not prove that every applicable infrastructure boundary was identified, tailored, authorized, or operationally validated.
 
 ## [0.9.0] - 2026-07-13

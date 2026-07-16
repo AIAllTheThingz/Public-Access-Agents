@@ -43,6 +43,12 @@ Agents must read the applicable standards before implementation:
 
 Opening only `AGENTS.md` and ignoring its referenced standards is not compliant adoption.
 
+## Product modules and overlays
+
+Product-specific PowerShell modules require both this language package and the owning product package. For vSphere and ESXi automation, apply the [`virtualization/vsphere-esxi` package](../../virtualization/vsphere-esxi/) and its [VCF PowerCLI automation standard](../../virtualization/vsphere-esxi/standards/POWERCLI_AUTOMATION_STANDARD.md).
+
+For new dependency evaluations, `VCF.PowerCLI` is the current Broadcom distribution name. Existing `VMware.PowerCLI` references require a reviewed compatibility or migration decision; child modules may retain `VMware.*` names and must not be blindly renamed.
+
 ## Core safety expectations
 
 - Perform discovery and validation before mutation.

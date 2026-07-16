@@ -1,7 +1,7 @@
 ---
 id: VIRT-VSPH-REVIEW-001
 title: VMware vSphere and ESXi Review Checklist
-version: 0.1.0
+version: 0.2.0
 status: baseline
 ---
 
@@ -37,6 +37,19 @@ status: baseline
 - [ ] Structured redacted logs and reports
 - [ ] Task/job correlation
 - [ ] Tests cover denied and failure paths
+
+## PowerCLI review when applicable
+
+- [ ] Approved `VCF.PowerCLI` or reviewed legacy `VMware.PowerCLI` distribution and compatible child-module versions
+- [ ] No automatic module installation or upgrade during operational execution
+- [ ] Certificate trust and endpoint identity are validated without ignore or bypass behavior
+- [ ] Exact connection objects and explicit `-Server` or equivalent scope are used
+- [ ] Ambient default connections, unrelated sessions, and persistent configuration cannot redirect or weaken the run
+- [ ] Stable vSphere IDs, endpoint, parent scope, uniqueness, and immediate pre-change revalidation are enforced
+- [ ] Wrapper-level `ShouldProcess` prevents mutation in `-WhatIf` and refusal paths
+- [ ] Task IDs, deadlines, retry classification, partial or unknown outcomes, and post-state checks are retained
+- [ ] Cleanup affects only sessions and temporary settings owned by the current execution
+- [ ] Pester mocks isolate PowerCLI and tests cover wrong endpoint, invalid trust, ambiguity, timeout, partial failure, redaction, and state mismatch
 
 ## Completion
 
