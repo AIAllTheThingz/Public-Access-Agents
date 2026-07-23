@@ -1,7 +1,7 @@
 ---
 id: EX-API-README-001
 title: Web API Composition Example
-version: 0.1.0
+version: 0.2.0
 status: baseline
 ---
 # Web API Composition Example
@@ -64,6 +64,7 @@ web-api/
 
 ## Selected languages
 
+- [C#](../../languages/csharp/)
 - [.NET](../../languages/dotnet/)
 
 Language packages define runtime, coding, dependency, testing, security, documentation, and completion expectations for implementation work.

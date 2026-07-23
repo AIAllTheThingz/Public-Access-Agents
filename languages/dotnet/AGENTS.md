@@ -73,6 +73,12 @@ These files are mandatory extensions of this `AGENTS.md`.
 
 If a supporting standard conflicts with this file, this file takes precedence.
 
+### C# language composition
+
+When `.cs` or `.csx` source, C# compiler behavior, nullable annotations, C# async/concurrency, C# API design, source generation, native interop, unsafe code, or C# language migration is in scope, also apply the [`csharp` package](../csharp/) and its direct [`SKILL.md`](../csharp/SKILL.md).
+
+The C# package governs language semantics. This package remains authoritative for the .NET SDK, target frameworks, CLR, MSBuild, NuGet, application models, hosting, data access, publishing, and deployment. The more specific package may strengthen but not weaken either boundary.
+
 ## Non-Negotiable Rules
 
 ### Safe behavior

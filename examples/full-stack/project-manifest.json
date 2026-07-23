@@ -3,6 +3,7 @@
   "name": "example-full-stack",
   "profile": "WEB_APPLICATION",
   "languages": [
+    "csharp",
     "dotnet",
     "javascript-typescript"
   ],

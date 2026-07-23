@@ -1,7 +1,7 @@
 ---
 id: EX-FULL-MAN-001
 title: Full-Stack Web Application Composition Example Manifest
-version: 0.1.0
+version: 0.2.0
 status: baseline
 ---
 # Full-Stack Web Application Composition Example Manifest
@@ -39,7 +39,7 @@ This manifest defines the complete file inventory and acceptance checks for the 
 ## Composition
 
 - Profile: `WEB_APPLICATION`
-- Languages: `dotnet`, `javascript-typescript`
+- Languages: `csharp`, `dotnet`, `javascript-typescript`
 - Disciplines: `application-security`, `architecture`, `testing`, `api-engineering`, `database`, `accessibility`, `privacy`, `observability`, `sre`, `documentation`, `ci-cd`, `supply-chain`, `release-engineering`, `integration`
 - Platforms: `containers`, `kubernetes`
 - Frameworks: `aspnet-core`, `react`

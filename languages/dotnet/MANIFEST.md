@@ -26,3 +26,8 @@
 - `templates/SERVICE_TEMPLATE.cs`: 1,527 bytes
 - `templates/UNIT_TEST_TEMPLATE.cs`: 1,454 bytes
 - `templates/global.json`: 111 bytes
+
+## Composition
+
+- Apply `languages/csharp` when C# source or C# compiler/language behavior is in scope.
+- Retain this package for .NET SDK, target framework, CLR, MSBuild, NuGet, application-model, hosting, publishing, and deployment requirements.

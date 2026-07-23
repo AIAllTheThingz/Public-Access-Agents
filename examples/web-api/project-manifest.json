@@ -3,6 +3,7 @@
   "name": "example-web-api",
   "profile": "WEB_API",
   "languages": [
+    "csharp",
     "dotnet"
   ],
   "disciplines": [

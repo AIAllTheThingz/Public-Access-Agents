@@ -1,0 +1,4 @@
+interface:
+  display_name: C# Engineering
+  short_description: Advanced C# coding, review, testing, and migration
+  default_prompt: Use $csharp to implement and validate this C# task under the repository's declared compiler and runtime boundary.

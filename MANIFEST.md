@@ -22,13 +22,14 @@
 ## Agent skill entry points
 
 - `languages/SKILL.md`
+- `languages/csharp/SKILL.md`
 - `frameworks/SKILL.md`
 - `platforms/SKILL.md`
 - `virtualization/SKILL.md`
 - `operating-systems/SKILL.md`
 - `networking/SKILL.md`
 
-These progressive-disclosure routers select and compose existing standards packages. They do not replace root governance or scoped `AGENTS.md` instructions.
+These progressive-disclosure routers and direct language skills select and compose existing standards packages. They do not replace root governance or scoped `AGENTS.md` instructions.
 
 ## Repository licensing
 
@@ -88,6 +89,7 @@ Current repository version: `0.9.0`.
 ## Complete language packages
 
 - `languages/powershell`
+- `languages/csharp`
 - `languages/dotnet`
 - `languages/javascript-typescript`
 - `languages/python`

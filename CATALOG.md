@@ -5,13 +5,14 @@ This catalog lists the standards available for composition into a project.
 ## Agent skills
 
 - [Language engineering skill](languages/SKILL.md)
+- [C# engineering skill](languages/csharp/SKILL.md)
 - [Framework engineering skill](frameworks/SKILL.md)
 - [Platform engineering skill](platforms/SKILL.md)
 - [Virtualization engineering skill](virtualization/SKILL.md)
 - [Operating-system engineering skill](operating-systems/SKILL.md)
 - [Network engineering skill](networking/SKILL.md)
 
-These collection-level skills select and compose the detailed packages below. They supplement rather than replace repository governance and scoped `AGENTS.md` instructions.
+These collection-level and direct language skills select and compose the detailed packages below. They supplement rather than replace repository governance and scoped `AGENTS.md` instructions.
 
 ## Governance
 
@@ -55,6 +56,7 @@ See the [governance policy map](governance/POLICY_MAP.md), [adoption guide](gove
 ## Languages
 
 - [PowerShell 7.x](languages/powershell/)
+- [C#](languages/csharp/)
 - [.NET 10 LTS](languages/dotnet/)
 - [JavaScript and TypeScript](languages/javascript-typescript/)
 - [Python](languages/python/)

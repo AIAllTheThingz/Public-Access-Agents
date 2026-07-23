@@ -4,6 +4,8 @@ This package provides project-agnostic engineering standards for modern .NET app
 
 It defines how coding agents should inspect, design, implement, test, secure, document, and report .NET work. It does not define the adopting project's business requirements, production architecture, or organization-specific approval process.
 
+For C# source and compiler/language behavior, compose this package with the dedicated [`csharp` package](../csharp/) and its direct [`SKILL.md`](../csharp/SKILL.md). The C# package governs language semantics; this package governs the .NET SDK/runtime/application boundary. Existing adopters remain valid and can add the C# package without replacing this package.
+
 ## Intended scope
 
 - .NET solutions and C# projects

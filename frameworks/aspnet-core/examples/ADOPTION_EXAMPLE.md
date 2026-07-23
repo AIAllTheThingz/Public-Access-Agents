@@ -1,7 +1,7 @@
 ---
 id: ASPNET-EX-001
 title: ASP.NET Core Adoption Example
-version: 0.1.0
+version: 0.2.0
 status: baseline
 ---
 
@@ -9,13 +9,14 @@ status: baseline
 
 ## Fictitious project
 
-This example models a non-production project using ASP.NET Core with the [.NET language package](../../../languages/dotnet/).
+This example models a non-production C# project using ASP.NET Core with the [C# language package](../../../languages/csharp/) and [.NET package](../../../languages/dotnet/).
 
 No production endpoints, credentials, identities, data stores, or infrastructure values are included.
 
 ## Selected packages
 
 - Governance baseline
+- [C#](../../../languages/csharp/)
 - [.NET](../../../languages/dotnet/)
 - [ASP.NET Core](../README.md)
 - [Application Security](../../../disciplines/application-security/)
